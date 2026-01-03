@@ -4,3 +4,6 @@
 [submodule "third_party/sgp4"]
 	path = third_party/sgp4
 	url = https://github.com/dnwrnr/sgp4.git
+[submodule "third_party/cpp-httplib"]
+	path = third_party/cpp-httplib
+	url = https://github.com/yhirose/cpp-httplib.git

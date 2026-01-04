@@ -1,23 +1,16 @@
 add_executable(satpos
-    main.cpp
+    client.cpp
+)
+
+target_include_directories(satpos
+    PRIVATE
+        ${PROJECT_SOURCE_DIR}/include
 )
 
 target_link_libraries(satpos
     PRIVATE
     simdjson
-)
-
-target_link_libraries(satpos
-    PRIVATE
     sgp4
-)
-
-target_link_libraries(satpos
-    PRIVATE
-    cpp-httplib
-)
-
-target_link_libraries(satpos
-    PRIVATE
+    httplib
     benchmark
 )

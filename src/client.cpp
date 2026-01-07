@@ -20,7 +20,8 @@ int main() {
 	// HTTPS
 	httplib::Client cli("https://celestrak.org");
 
-	if (auto res = cli.Get("/NORAD/elements/gp.php?GROUP=geo&FORMAT=tle")) {
+	// if (auto res = cli.Get("/NORAD/elements/gp.php?GROUP=geo&FORMAT=tle")) {
+	if (auto res = cli.Get("/NORAD/elements/gp.php?CATNR=25544&FORMAT=TLE")) {
 		//std::cout << res->status << '\n';
 		//std::cout << res->body << '\n';
 		/*
@@ -35,8 +36,12 @@ int main() {
 			// std::cout << "len - " << "line_one" << tle.line1.size() << '\t' << "line_two" << tle.line2.size() << '\n';
 			// std::cout << tle.line1[tle.line1.size()-1] << '\n';
 			// std::cout << tle.line2[tle.line2.size()-1] << '\n';
+		
+			libsgp4::Tle TLE(tle.name, tle.line1, tle.line2);
+			std::cout << "Epoch = " << TLE.Epoch() << '\n';
+			std::cout << TLE.ToString() << '\n';
 			
-			libsgp4::SGP4 sat(libsgp4::Tle(tle.name, tle.line1, tle.line2));
+			libsgp4::SGP4 sat(TLE);
 			libsgp4::Eci eci = sat.FindPosition(now);
 
 			std::cout << eci.Velocity().ToString() << '\n';

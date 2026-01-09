@@ -15,6 +15,7 @@
 #include <iostream>
 #include <ostream>
 #include <iomanip>
+#include <parse_tle.h>
 
 int main() {
 	// HTTPS
@@ -31,17 +32,20 @@ int main() {
 		*/
 		// libsgp4::DateTime utc(2026, 1, 2, 0, 0, 0.0);
 		libsgp4::DateTime now = libsgp4::DateTime::Now();
-		for (const auto& tle : parse_3le_from_string(res->body)) {
+		for (const auto& tle : parse_3le_direct(res->body)) {
 			// std::cout << tle.name << '\n' << tle.line1 << '\n' << tle.line2 << '\n' << '\n';
 			// std::cout << "len - " << "line_one" << tle.line1.size() << '\t' << "line_two" << tle.line2.size() << '\n';
 			// std::cout << tle.line1[tle.line1.size()-1] << '\n';
 			// std::cout << tle.line2[tle.line2.size()-1] << '\n';
 		
-			libsgp4::Tle TLE(tle.name, tle.line1, tle.line2);
-			std::cout << "Epoch = " << TLE.Epoch() << '\n';
-			std::cout << TLE.ToString() << '\n';
+			libsgp4::Tle TLEE(
+				std::string{tle.name},
+				std::string{tle.line1},
+				std::string{tle.line2});
+			std::cout << "Epoch = " << TLEE.Epoch() << '\n';
+			std::cout << TLEE.ToString() << '\n';
 			
-			libsgp4::SGP4 sat(TLE);
+			libsgp4::SGP4 sat(TLEE);
 			libsgp4::Eci eci = sat.FindPosition(now);
 
 			std::cout << eci.Velocity().ToString() << '\n';

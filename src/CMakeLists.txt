@@ -2,6 +2,7 @@ add_executable(satpos
     client.cpp
     parse.cpp
     orbital_elements.cpp
+    parse_tle.cpp
 )
 
 target_include_directories(satpos

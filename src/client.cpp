@@ -1,8 +1,6 @@
-#define CPPHTTPLIB_OPENSSL_SUPPORT
 #define CPPHTTPLIB_CLIENT_READ_TIMEOUT_USECOND 30
 
 #include "httplib.h"
-#include "simdjson.h"
 #include "SGP4.h"
 #include "DateTime.h"
 #include "Vector.h"
@@ -10,12 +8,10 @@
 #include "Eci.h"
 #include "Tle.h"
 #include "parse.h"
-#include "orbital_elements.h"
+#include "parse_tle.h"
 
 #include <iostream>
 #include <ostream>
-#include <iomanip>
-#include <parse_tle.h>
 
 int main() {
 	// HTTPS

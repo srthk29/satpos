@@ -20,8 +20,6 @@ int main() {
 	// if (auto res = cli.Get("/NORAD/elements/gp.php?GROUP=geo&FORMAT=tle")) {
 	if (auto res = cli.Get("/NORAD/elements/gp.php?CATNR=25544&FORMAT=TLE")) {
 		// libsgp4::DateTime utc(2026, 1, 2, 0, 0, 0.0);
-		libsgp4::DateTime now = libsgp4::DateTime::Now();
-		std::cout << now.ToString() << '\n';
 		for (const auto& tlestruct : parse_3le_direct(res->body)) {
 			libsgp4::Tle tle(
 				std::string{tlestruct.name},
@@ -30,19 +28,28 @@ int main() {
 			);
 		
 			std::cout << "Epoch = " << tle.Epoch() << '\n';
+			std::cout << "Epoch Ticks = " << tle.Epoch().Ticks() << '\n';
 			std::cout << tle.ToString() << '\n';
 			
 			libsgp4::SGP4 sat(tle);
+		
+			libsgp4::DateTime now = libsgp4::DateTime::Now();
+			std::cout << "Now = " << now.ToString() << '\n';
+			std::cout << "Now Ticks = " << now.Ticks() << '\n';
 			
 			libsgp4::Eci eci = sat.FindPosition(now);
-			std::cout << eci.Velocity().ToString() << '\n';
-			
+			std::cout << "Velocity: " << eci.Velocity().ToString() << '\n';
+		
 			libsgp4::Vector pos = eci.Position();
-			std::cout << pos.Magnitude() << '\n';
-			std::cout << pos.ToString() << '\n';
+			std::cout << "Position Magnitude: " << pos.Magnitude() << '\n';
+			std::cout << "Position:" << pos.ToString() << '\n';
 
 			libsgp4::CoordGeodetic geo = eci.ToGeodetic();
 			std::cout << geo.ToString() << '\n';
+			
+			now = now.AddMinutes(10);
+			std::cout << "Now + 10mins = " << now.ToString() << '\n';
+			std::cout << "Now Ticks + 10mins = " << now.Ticks() << '\n';
 		}
 	} else {
 		if (!res) {

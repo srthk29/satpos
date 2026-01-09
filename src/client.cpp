@@ -23,54 +23,31 @@ int main() {
 
 	// if (auto res = cli.Get("/NORAD/elements/gp.php?GROUP=geo&FORMAT=tle")) {
 	if (auto res = cli.Get("/NORAD/elements/gp.php?CATNR=25544&FORMAT=TLE")) {
-		//std::cout << res->status << '\n';
-		//std::cout << res->body << '\n';
-		/*
-		for (const auto& oe : parseOrbitalElements(res->body)) {
-			std::cout << oe << '\n';
-		}
-		*/
 		// libsgp4::DateTime utc(2026, 1, 2, 0, 0, 0.0);
 		libsgp4::DateTime now = libsgp4::DateTime::Now();
-		for (const auto& tle : parse_3le_direct(res->body)) {
-			// std::cout << tle.name << '\n' << tle.line1 << '\n' << tle.line2 << '\n' << '\n';
-			// std::cout << "len - " << "line_one" << tle.line1.size() << '\t' << "line_two" << tle.line2.size() << '\n';
-			// std::cout << tle.line1[tle.line1.size()-1] << '\n';
-			// std::cout << tle.line2[tle.line2.size()-1] << '\n';
+		std::cout << now.ToString() << '\n';
+		for (const auto& tlestruct : parse_3le_direct(res->body)) {
+			libsgp4::Tle tle(
+				std::string{tlestruct.name},
+				std::string{tlestruct.line1},
+				std::string{tlestruct.line2}
+			);
 		
-			libsgp4::Tle TLEE(
-				std::string{tle.name},
-				std::string{tle.line1},
-				std::string{tle.line2});
-			std::cout << "Epoch = " << TLEE.Epoch() << '\n';
-			std::cout << TLEE.ToString() << '\n';
+			std::cout << "Epoch = " << tle.Epoch() << '\n';
+			std::cout << tle.ToString() << '\n';
 			
-			libsgp4::SGP4 sat(TLEE);
+			libsgp4::SGP4 sat(tle);
+			
 			libsgp4::Eci eci = sat.FindPosition(now);
-
 			std::cout << eci.Velocity().ToString() << '\n';
 			
 			libsgp4::Vector pos = eci.Position();
-			libsgp4::CoordGeodetic geo = eci.ToGeodetic();
-
 			std::cout << pos.Magnitude() << '\n';
 			std::cout << pos.ToString() << '\n';
-			/*
-			std::cout << "ECI (km): "
-				<< pos.x << " "
-				<< pos.y << " "
-				<< pos.z << "\n";
-			*/
 
+			libsgp4::CoordGeodetic geo = eci.ToGeodetic();
 			std::cout << geo.ToString() << '\n';
-			/*
-			std::cout << "Lat: " << geo.latitude * RAD2DEG
-				<< " Lon: " << geo.longitude * RAD2DEG
-				<< " Alt(km): " << geo.altitude << "\n";
-			*/
 		}
-
-		std::cout << now.ToString() << '\n'; 
 	} else {
 		if (!res) {
 			// Check the error type

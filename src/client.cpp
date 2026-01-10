@@ -7,6 +7,7 @@
 #include "CoordGeodetic.h"
 #include "Eci.h"
 #include "Tle.h"
+#include "Util.h"
 #include "parse.h"
 #include "parse_tle.h"
 
@@ -27,29 +28,38 @@ int main() {
 				std::string{tlestruct.line2}
 			);
 		
-			std::cout << "Epoch = " << tle.Epoch() << '\n';
-			std::cout << "Epoch Ticks = " << tle.Epoch().Ticks() << '\n';
+			// std::cout << "Epoch = " << tle.Epoch() << '\n';
+			// std::cout << "Epoch Ticks = " << tle.Epoch().Ticks() << '\n';
 			std::cout << tle.ToString() << '\n';
 			
 			libsgp4::SGP4 sat(tle);
 		
 			libsgp4::DateTime now = libsgp4::DateTime::Now();
-			std::cout << "Now = " << now.ToString() << '\n';
-			std::cout << "Now Ticks = " << now.Ticks() << '\n';
+			// std::cout << "Now = " << now.ToString() << '\n';
+			// std::cout << "Now Ticks = " << now.Ticks() << '\n';
 			
-			libsgp4::Eci eci = sat.FindPosition(now);
-			std::cout << "Velocity: " << eci.Velocity().ToString() << '\n';
+			for (int tick = 0; tick < 90; ++tick) {
+				// std::cout << "Now + 10mins = " << now.ToString() << '\n';
+				// std::cout << "Now Ticks + 10mins = " << now.Ticks() << '\n';
+				libsgp4::Eci eci = sat.FindPosition(now);
+				// std::cout << "Velocity: " << eci.Velocity().ToString() << '\n';
 		
-			libsgp4::Vector pos = eci.Position();
-			std::cout << "Position Magnitude: " << pos.Magnitude() << '\n';
-			std::cout << "Position:" << pos.ToString() << '\n';
+				/*
+				libsgp4::Vector pos = eci.Position();
+				std::cout << "Position Magnitude: " << pos.Magnitude() << '\n';
+				std::cout << "Position:" << pos.ToString() << '\n';
+				*/
 
-			libsgp4::CoordGeodetic geo = eci.ToGeodetic();
-			std::cout << geo.ToString() << '\n';
-			
-			now = now.AddMinutes(10);
-			std::cout << "Now + 10mins = " << now.ToString() << '\n';
-			std::cout << "Now Ticks + 10mins = " << now.Ticks() << '\n';
+				libsgp4::CoordGeodetic geo = eci.ToGeodetic();
+				std::cout << geo.ToString() << '\n';
+				/*
+				latitudes.push_back(libsgp4::Util::RadiansToDegrees(geo.latitude));
+				longtitude.push_back(libsgp4::Util::RadiansToDegrees(geo.longitude));
+				attitudes.push_back(geo.altitude);
+				*/
+
+				now = now.AddMinutes(1);
+			}
 		}
 	} else {
 		if (!res) {

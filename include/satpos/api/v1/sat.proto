@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package propogation_service;
+
+service PropogationService {
+  rpc GetPropogation (PropogationRequest) returns (PropogationReply);
+}
+
+message PropogationRequest {
+  int32 NoradCategory = 1;
+}
+
+message PropogationReply {
+  TLE tle = 1;
+  repeated Propogation propogations = 2;
+}
+
+message TLE {
+  string name = 1;
+  string line1 = 2;
+  string line2 = 3;
+}
+
+message Propogation {
+  Timestamp timestamp = 1;
+
+  // The latitude and longitude in degrees, using the WGS84 standard.
+  LatLng lat_lng = 2;
+
+  // Using a float type for precision.
+  float altitude_meters = 3;
+}
+
+// https://github.com/googleapis/googleapis/blob/master/google/type/latlng.proto
+// An object that represents a latitude/longitude pair. This is expressed as a
+// pair of doubles to represent degrees latitude and degrees longitude. Unless
+// specified otherwise, this must conform to the
+// <a href="http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf">WGS84
+// standard</a>. Values must be within normalized ranges.
+message LatLng {
+  // The latitude in degrees. It must be in the range [-90.0, +90.0].
+  double latitude = 1;
+
+  // The longitude in degrees. It must be in the range [-180.0, +180.0].
+  double longitude = 2;
+}
+
+// https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/timestamp.proto
+message Timestamp {
+  // Represents seconds of UTC time since Unix epoch 1970-01-01T00:00:00Z. Must
+  // be between -62135596800 and 253402300799 inclusive (which corresponds to
+  // 0001-01-01T00:00:00Z to 9999-12-31T23:59:59Z).
+  int64 seconds = 1;
+
+  // Non-negative fractions of a second at nanosecond resolution. This field is
+  // the nanosecond portion of the duration, not an alternative to seconds.
+  // Negative second values with fractions must still have non-negative nanos
+  // values that count forward in time. Must be between 0 and 999,999,999
+  // inclusive.
+  int32 nanos = 2;
+}

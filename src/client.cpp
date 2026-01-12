@@ -13,10 +13,33 @@
 
 #include <iostream>
 #include <ostream>
+#include "api/v1/sat.pb.h"
 
 int main() {
 	// HTTPS
 	httplib::Client cli("https://celestrak.org");
+
+
+	propogation_service::PropogationRequest req;
+	req.set_noradcategory(25544);
+
+	std::cout << req.DebugString() << '\n';
+
+
+	propogation_service::PropogationReply resp;
+	propogation_service::TLE* tle = resp.mutable_tle();
+	tle->set_name("ISS");
+	tle->set_line1("LINE1");
+	tle->set_line2("LINE2");
+	propogation_service::Propogation* prop = resp.add_propogations();
+	propogation_service::LatLng* latlng = prop->mutable_lat_lng();
+	latlng->set_latitude(-42.90);
+	latlng->set_longitude(150.90);
+	propogation_service::Timestamp* timestamp = prop->mutable_timestamp();
+	timestamp->set_seconds(177774374);
+	prop->set_altitude_meters(454000);
+	
+	std::cout << resp.DebugString() << '\n';
 
 	// if (auto res = cli.Get("/NORAD/elements/gp.php?GROUP=geo&FORMAT=tle")) {
 	if (auto res = cli.Get("/NORAD/elements/gp.php?CATNR=25544&FORMAT=TLE")) {

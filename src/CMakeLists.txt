@@ -1,3 +1,5 @@
+add_subdirectory(generated)
+
 add_executable(satpos
     client.cpp
     parse.cpp
@@ -16,4 +18,5 @@ target_link_libraries(satpos
     sgp4
     httplib
     benchmark
+    propsrv
 )

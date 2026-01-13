@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+option go_package="include/satpos/api/v1";
+
 package propogation_service;
 
 service PropogationService {

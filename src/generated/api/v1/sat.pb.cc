@@ -275,14 +275,14 @@ const char descriptor_table_protodef_sat_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIAB
     "p\022\017\n\007seconds\030\001 \001(\003\022\r\n\005nanos\030\002 \001(\0052v\n\022Pro"
     "pogationService\022`\n\016GetPropogation\022\'.prop"
     "ogation_service.PropogationRequest\032%.pro"
-    "pogation_service.PropogationReplyb\006proto"
-    "3"
+    "pogation_service.PropogationReplyB\027Z\025inc"
+    "lude/satpos/api/v1b\006proto3"
 };
 static ::absl::once_flag descriptor_table_sat_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_sat_2eproto = {
     false,
     false,
-    601,
+    626,
     descriptor_table_protodef_sat_2eproto,
     "sat.proto",
     &descriptor_table_sat_2eproto_once,

@@ -50,7 +50,11 @@ int main() {
 				std::string{tlestruct.line1},
 				std::string{tlestruct.line2}
 			);
-		
+	
+			std::cout << tlestruct.name << '\n';
+			std::cout << tlestruct.line1 << '\n';
+			std::cout << tlestruct.line2 << '\n';
+			
 			// std::cout << "Epoch = " << tle.Epoch() << '\n';
 			// std::cout << "Epoch Ticks = " << tle.Epoch().Ticks() << '\n';
 			std::cout << tle.ToString() << '\n';

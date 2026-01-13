@@ -1,6 +1,8 @@
 add_subdirectory(generated)
 
 add_executable(satpos
+    main.cpp
+    client.h
     client.cpp
     parse.cpp
     orbital_elements.cpp

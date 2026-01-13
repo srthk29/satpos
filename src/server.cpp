@@ -13,6 +13,7 @@
 #include "api/v1/sat.grpc.pb.h"
 #include "api/v1/sat.pb.h"
 #include "server.h"
+#include "client.h"
 
 // Each RPC becomes a virtual method you override
 class PropogationServiceImpl final: public propogation_service::PropogationService::Service {
@@ -21,7 +22,8 @@ class PropogationServiceImpl final: public propogation_service::PropogationServi
 		grpc::ServerContext* context,
 		const propogation_service::PropogationRequest* request,
 		propogation_service::PropogationReply* reply) override {
-		
+
+		/*
 		propogation_service::TLE* tle = reply->mutable_tle();
 		tle->set_name("ISS");
 		tle->set_line1("LINE1");
@@ -33,7 +35,22 @@ class PropogationServiceImpl final: public propogation_service::PropogationServi
 		propogation_service::Timestamp* timestamp = prop->mutable_timestamp();
 		timestamp->set_seconds(177774374);
 		prop->set_altitude_meters(454000);
-	
+		*/
+
+
+		std::cout << "REQUEST: " << request->noradcategory() << '\n';
+
+		std::string err{""};
+		std::string tles = get_tle(request->noradcategory(), err);
+		if (err != "") {
+			return grpc::Status(grpc::INTERNAL, err);
+		}
+
+		std::cout << "TLES: " << tles << '\n';
+
+		propogation_service::PropogationReply* rep = parse_tle(tles);
+		reply = rep;
+
 		return grpc::Status::OK;
 	}
 };

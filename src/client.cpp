@@ -15,7 +15,14 @@
 #include <ostream>
 #include "api/v1/sat.pb.h"
 
+#include "server.h"
+
 int main() {
+	run_server();
+	return 0;
+}
+
+int main2() {
 	// HTTPS
 	httplib::Client cli("https://celestrak.org");
 
@@ -130,5 +137,6 @@ int main() {
 	}
 	*/
 
+	return 0;
 }
 

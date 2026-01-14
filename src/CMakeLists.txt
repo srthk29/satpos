@@ -1,5 +1,7 @@
 add_subdirectory(generated)
 
+find_package(OpenSSL REQUIRED)
+
 add_executable(satpos
     main.cpp
     client.h
@@ -10,6 +12,8 @@ add_executable(satpos
     server.h
     server.cpp
 )
+
+target_compile_definitions(satpos PRIVATE CPPHTTPLIB_OPENSSL_SUPPORT)
 
 target_include_directories(satpos
     PRIVATE
@@ -23,4 +27,6 @@ target_link_libraries(satpos
     httplib
     benchmark
     propsrv
+    OpenSSL::SSL
+    OpenSSL::Crypto
 )

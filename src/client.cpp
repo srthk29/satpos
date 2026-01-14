@@ -1,8 +1,8 @@
-#define CPPHTTPLIB_CLIENT_READ_TIMEOUT_USECOND 10
-
-#include <iostream>
+#define CPPHTTPLIB_OPENSSL_SUPPORT
+#define CPPHTTPLIB_CLIENT_READ_TIMEOUT_USECOND 30
 
 #include "httplib.h"
+
 #include "SGP4.h"
 #include "DateTime.h"
 #include "Vector.h"
@@ -13,22 +13,33 @@
 #include "parse.h"
 #include "parse_tle.h"
 
+#include <iostream>
 #include "api/v1/sat.pb.h"
-#include "client.h"
 
 std::string get_tle(int catnr, std::string& err) {
+	std::cout << "In 'get_tle L:20' function\n";
 	err.clear();
 
-	static httplib::Client cli("https://celestrak.org");
-	// httplib::Client cli("https://celestrak.org");
-	cli.set_connection_timeout(5);
-	cli.set_read_timeout(5);
-	cli.set_keep_alive(true);
+	std::cout << "In 'get_tle L:23' function\n";
+	// static httplib::Client cli("https://celestrak.org");
+	httplib::SSLClient cli("ln5.sync.com", 443);
+	cli.set_follow_location(true);
+	// httplib::Client cli("127.0.0.1", 8080);
+	// static httplib::Client cli("https://jsonplaceholder.typicode.com/posts");
+	std::cout << "In 'get_tle L:26' function\n";
+	// cli.set_connection_timeout(5, 0);
+	// cli.set_read_timeout(5, 0);
+	// cli.set_keep_alive(true);
+	// cli.enable_server_hostname_verification(true);
+	// cli.enable_server_certificate_verification(true);
+	std::cout << cli.host() << '\n';
 
+	std::cout << "In 'get_tle L:31' function\n";
 	const std::string path = "/NORAD/elements/gp.php?CATNR="+std::to_string(catnr)+"&FORMAT=TLE";
 
 	std::cout << "PATH: " << path << '\n';
 
+	std::cout << "In 'get_tle L:36' function\n";
 	httplib::Result res = cli.Get(path);
 	if (!res) {
 		err = httplib::to_string(res.error());

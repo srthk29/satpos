@@ -36,7 +36,9 @@ class PropogationServiceImpl final: public propogation_service::PropogationServi
 		timestamp->set_seconds(177774374);
 		prop->set_altitude_meters(454000);
 		*/
-
+		int catnr = 25544;
+		const std::string path = "/NORAD/elements/gp.php?CATNR="+std::to_string(catnr)+"&FORMAT=TLE";
+		std::cout << "PATH: " << path << '\n';
 
 		std::cout << "REQUEST: " << request->noradcategory() << '\n';
 

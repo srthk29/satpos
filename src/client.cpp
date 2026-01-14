@@ -22,16 +22,16 @@ std::string get_tle(int catnr, std::string& err) {
 
 	std::cout << "In 'get_tle L:23' function\n";
 	// static httplib::Client cli("https://celestrak.org");
-	httplib::SSLClient cli("ln5.sync.com", 443);
+	httplib::SSLClient cli("celestrak.org");
 	cli.set_follow_location(true);
 	// httplib::Client cli("127.0.0.1", 8080);
 	// static httplib::Client cli("https://jsonplaceholder.typicode.com/posts");
 	std::cout << "In 'get_tle L:26' function\n";
-	// cli.set_connection_timeout(5, 0);
-	// cli.set_read_timeout(5, 0);
-	// cli.set_keep_alive(true);
-	// cli.enable_server_hostname_verification(true);
-	// cli.enable_server_certificate_verification(true);
+	cli.set_connection_timeout(5, 0);
+	cli.set_read_timeout(5, 0);
+	cli.set_keep_alive(true);
+	cli.enable_server_hostname_verification(true);
+	cli.enable_server_certificate_verification(true);
 	std::cout << cli.host() << '\n';
 
 	std::cout << "In 'get_tle L:31' function\n";
@@ -51,12 +51,15 @@ std::string get_tle(int catnr, std::string& err) {
 		return {};
 	}
 
+	std::cout << res->body << '\n';
+
 	return res->body;
 }
 
 propogation_service::PropogationReply* parse_tle(const std::string& body) {
-	propogation_service::PropogationReply* reply;
+	// propogation_service::PropogationReply* reply;
 
+	std::cout << "F: parse_tle:L:63\n";
 	// libsgp4::DateTime utc(2026, 1, 2, 0, 0, 0.0);
 	for (const auto& tlestruct : parse_3le_direct(body)) {
 		libsgp4::Tle tle(
@@ -64,11 +67,14 @@ propogation_service::PropogationReply* parse_tle(const std::string& body) {
 			std::string{tlestruct.line1},
 			std::string{tlestruct.line2}
 		);
+		std::cout << "F: parse_tle:L:71\n";
 
+		/*
 		propogation_service::TLE* ps_tle = reply->mutable_tle();
 		ps_tle->set_name(tle.Name());
 		ps_tle->set_line1(tle.Line1());
 		ps_tle->set_line2(tle.Line2());
+		*/
 
 		std::cout << tlestruct.name << '\n';
 		std::cout << tlestruct.line1 << '\n';
@@ -83,6 +89,7 @@ propogation_service::PropogationReply* parse_tle(const std::string& body) {
 		libsgp4::DateTime now = libsgp4::DateTime::Now();
 		// std::cout << "Now = " << now.ToString() << '\n';
 		// std::cout << "Now Ticks = " << now.Ticks() << '\n';
+		std::cout << "F: parse_tle:L:91\n";
 
 		for (int tick = 0; tick < 90; ++tick) {
 			// std::cout << "Now + 10mins = " << now.ToString() << '\n';
@@ -103,6 +110,7 @@ propogation_service::PropogationReply* parse_tle(const std::string& body) {
 				longtitude.push_back(libsgp4::Util::RadiansToDegrees(geo.longitude));
 				attitudes.push_back(geo.altitude);
 				*/
+			/*
 			propogation_service::Propogation* prop = reply->add_propogations();
 			propogation_service::LatLng* latlng = prop->mutable_lat_lng();
 			latlng->set_latitude(libsgp4::Util::RadiansToDegrees(geo.latitude));
@@ -110,10 +118,29 @@ propogation_service::PropogationReply* parse_tle(const std::string& body) {
 			propogation_service::Timestamp* timestamp = prop->mutable_timestamp();
 			timestamp->set_seconds(now.Ticks());
 			prop->set_altitude_meters(geo.altitude);
+			*/
 
 			now = now.AddMinutes(1);
 		}
 	}
+	std::cout << "F: parse_tle:L:123\n";
 
-	return reply;
+	// return reply;
+	return nullptr;
+}
+
+int main() {
+	std::string err{""};
+	std::string tles = get_tle(25544, err);
+
+	if (err != "") {
+		std::cout << err << '\n';
+		return 1;
+	}
+
+	auto reply = parse_tle(tles);
+	
+	// std::cout << reply->DebugString() << '\n';
+
+	return 0;
 }

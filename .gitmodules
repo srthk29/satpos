@@ -10,3 +10,6 @@
 [submodule "third_party/simdjson"]
 	path = third_party/simdjson
 	url = https://github.com/simdjson/simdjson.git
+[submodule "third_party/curlpp"]
+	path = third_party/curlpp
+	url = https://github.com/jpbarrette/curlpp.git

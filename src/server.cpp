@@ -50,8 +50,7 @@ class PropogationServiceImpl final: public propogation_service::PropogationServi
 
 		std::cout << "TLES: " << tles << '\n';
 
-		propogation_service::PropogationReply* rep = parse_tle(tles);
-		reply = rep;
+		parse_tle(tles, reply);
 
 		return grpc::Status::OK;
 	}

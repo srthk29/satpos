@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option go_package="include/satpos/api/v1";
+
+// namespace
+package satproto;
+
+service PropogationService {
+  rpc GetPropogation (PropogationRequest) returns (PropogationReply);
+}
+
+message PropogationRequest {
+  int32 norad_category = 1;
+}
+
+message PropogationReply {
+  Tle tle = 1;
+  repeated Propogation propogations = 2;
+}
+
+message Tle {
+  string name = 1;
+  string line1 = 2;
+  string line2 = 3;
+
+  float age = 4;
+  Propogation propogation = 5;
+}
+
+message Propogation {
+  int64 timestamp = 1;
+
+  // The latitude and longitude in degrees, using the WGS84 standard.
+  // The latitude in degrees. It must be in the range [-90.0, +90.0].
+  double latitude = 2;
+
+  // The longitude in degrees. It must be in the range [-180.0, +180.0].
+  double longitude = 3;
+
+  // Using a float type for precision.
+  // in meters
+  float altitude = 4;
+}

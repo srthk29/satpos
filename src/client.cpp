@@ -60,7 +60,6 @@ std::string get_tle(int catnr, std::string& err) {
 }
 
 void parse_tle(const std::string& body, propogation_service::PropogationReply* reply) {
-	std::cout << "F: parse_tle:L:63\n";
 	// libsgp4::DateTime utc(2026, 1, 2, 0, 0, 0.0);
 	for (const auto& tlestruct : parse_3le_direct(body)) {
 		libsgp4::Tle tle(
@@ -68,29 +67,23 @@ void parse_tle(const std::string& body, propogation_service::PropogationReply* r
 			std::string{tlestruct.line1},
 			std::string{tlestruct.line2}
 		);
-		std::cout << "F: parse_tle:L:71\n";
 
 		propogation_service::TLE* ps_tle = reply->mutable_tle();
 		ps_tle->set_name(tle.Name());
 		ps_tle->set_line1(tle.Line1());
 		ps_tle->set_line2(tle.Line2());
 
-		std::cout << tlestruct.name << '\n';
-		std::cout << tlestruct.line1 << '\n';
-		std::cout << tlestruct.line2 << '\n';
-
 		// std::cout << "Epoch = " << tle.Epoch() << '\n';
 		// std::cout << "Epoch Ticks = " << tle.Epoch().Ticks() << '\n';
-		std::cout << tle.ToString() << '\n';
+		// std::cout << tle.ToString() << '\n';
 
 		libsgp4::SGP4 sat(tle);
 
 		libsgp4::DateTime now = libsgp4::DateTime::Now();
 		// std::cout << "Now = " << now.ToString() << '\n';
 		// std::cout << "Now Ticks = " << now.Ticks() << '\n';
-		std::cout << "F: parse_tle:L:91\n";
 
-		for (int tick = 0; tick < 90; ++tick) {
+		for (int tick = -20; tick < 90; ++tick) {
 			// std::cout << "Now + 10mins = " << now.ToString() << '\n';
 			// std::cout << "Now Ticks + 10mins = " << now.Ticks() << '\n';
 			libsgp4::Eci eci = sat.FindPosition(now);
@@ -120,6 +113,5 @@ void parse_tle(const std::string& body, propogation_service::PropogationReply* r
 			now = now.AddMinutes(1);
 		}
 	}
-	std::cout << "F: parse_tle:L:123\n";
 }
 

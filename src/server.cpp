@@ -23,25 +23,6 @@ class PropogationServiceImpl final: public propogation_service::PropogationServi
 		const propogation_service::PropogationRequest* request,
 		propogation_service::PropogationReply* reply) override {
 
-		/*
-		propogation_service::TLE* tle = reply->mutable_tle();
-		tle->set_name("ISS");
-		tle->set_line1("LINE1");
-		tle->set_line2("LINE2");
-		propogation_service::Propogation* prop = reply->add_propogations();
-		propogation_service::LatLng* latlng = prop->mutable_lat_lng();
-		latlng->set_latitude(-42.90);
-		latlng->set_longitude(150.90);
-		propogation_service::Timestamp* timestamp = prop->mutable_timestamp();
-		timestamp->set_seconds(177774374);
-		prop->set_altitude_meters(454000);
-		*/
-		int catnr = 25544;
-		const std::string path = "/NORAD/elements/gp.php?CATNR="+std::to_string(catnr)+"&FORMAT=TLE";
-		std::cout << "PATH: " << path << '\n';
-
-		std::cout << "REQUEST: " << request->noradcategory() << '\n';
-
 		std::string err{""};
 		std::string tles = get_tle(request->noradcategory(), err);
 		if (err != "") {

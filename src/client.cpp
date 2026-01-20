@@ -1,3 +1,9 @@
+#include <string>
+#include <sstream>
+#include <iostream>
+#include <ctime>
+
+#include "Globals.h"
 #include "SGP4.h"
 #include "DateTime.h"
 #include "CoordGeodetic.h"
@@ -6,17 +12,24 @@
 #include "Util.h"
 
 #include "parse_tle.h"
-
-#include <iostream>
-#include "api/v1/sat.pb.h"
+#include "api/v2/sat.pb.h"
 
 #include <curlpp/cURLpp.hpp>
 #include <curlpp/Easy.hpp>
 #include <curlpp/Options.hpp>
 
-#include <string>
-#include <sstream>
-#include <iostream>
+time_t ToUnixTimestamp(const libsgp4::DateTime& dt) {
+    std::tm tm{};
+    tm.tm_year = dt.Year() - 1900;  // years since 1900
+    tm.tm_mon  = dt.Month() - 1;    // months since January [0,11]
+    tm.tm_mday = dt.Day();
+    tm.tm_hour = dt.Hour();
+    tm.tm_min  = dt.Minute();
+    tm.tm_sec  = static_cast<int>(dt.Second());
+    tm.tm_isdst = 0;                // UTC
+
+    return timegm(&tm);              // converts UTC → Unix epoch
+}
 
 std::string get_tle(int catnr, std::string& err) {
 	try {
@@ -59,7 +72,7 @@ std::string get_tle(int catnr, std::string& err) {
 	return err;
 }
 
-void parse_tle(const std::string& body, propogation_service::PropogationReply* reply) {
+void parse_tle(const std::string& body, satproto::PropogationReply* reply) {
 	// libsgp4::DateTime utc(2026, 1, 2, 0, 0, 0.0);
 	for (const auto& tlestruct : parse_3le_direct(body)) {
 		libsgp4::Tle tle(
@@ -68,25 +81,44 @@ void parse_tle(const std::string& body, propogation_service::PropogationReply* r
 			std::string{tlestruct.line2}
 		);
 
-		propogation_service::TLE* ps_tle = reply->mutable_tle();
+		satproto::Tle* ps_tle = reply->mutable_tle();
 		ps_tle->set_name(tle.Name());
 		ps_tle->set_line1(tle.Line1());
 		ps_tle->set_line2(tle.Line2());
-
+	
 		// std::cout << "Epoch = " << tle.Epoch() << '\n';
 		// std::cout << "Epoch Ticks = " << tle.Epoch().Ticks() << '\n';
-		// std::cout << tle.ToString() << '\n';
+		std::cout << tle.ToString() << '\n';
+
+		// radians per minutes
+		// the mean motion (revolutions per day)
+		std::cout << "Mean Motion: " << tle.MeanMotion() << '\n';
+		std::cout << "Orbital Period(in minutes): " << 1440/tle.MeanMotion() << '\n';
 
 		libsgp4::SGP4 sat(tle);
+	
+		libsgp4::DateTime epoch = tle.Epoch();
+		time_t epoch_unix = ToUnixTimestamp(epoch);
 
-		libsgp4::DateTime now = libsgp4::DateTime::Now();
+		libsgp4::CoordGeodetic geo = sat.FindPosition(epoch).ToGeodetic();
+		satproto::Propogation* prop = ps_tle->mutable_propogation();
+		prop->set_latitude(libsgp4::Util::RadiansToDegrees(geo.latitude));
+		prop->set_longitude(libsgp4::Util::RadiansToDegrees(geo.longitude));
+		prop->set_timestamp(epoch_unix);
+		prop->set_altitude(geo.altitude);
+		
+		libsgp4::DateTime now = libsgp4::DateTime::Now(true);
+		time_t now_unix = ToUnixTimestamp(now);
 		// std::cout << "Now = " << now.ToString() << '\n';
 		// std::cout << "Now Ticks = " << now.Ticks() << '\n';
+		ps_tle->set_age(now_unix-epoch_unix);
 
 		for (int tick = -20; tick < 90; ++tick) {
+			libsgp4::DateTime nowtick = now.AddMinutes(tick);
+			std::cout << nowtick.ToString() << '\n';
 			// std::cout << "Now + 10mins = " << now.ToString() << '\n';
 			// std::cout << "Now Ticks + 10mins = " << now.Ticks() << '\n';
-			libsgp4::Eci eci = sat.FindPosition(now);
+			libsgp4::Eci eci = sat.FindPosition(nowtick);
 			// std::cout << "Velocity: " << eci.Velocity().ToString() << '\n';
 
 			/*
@@ -102,15 +134,12 @@ void parse_tle(const std::string& body, propogation_service::PropogationReply* r
 				longtitude.push_back(libsgp4::Util::RadiansToDegrees(geo.longitude));
 				attitudes.push_back(geo.altitude);
 				*/
-			propogation_service::Propogation* prop = reply->add_propogations();
-			propogation_service::LatLng* latlng = prop->mutable_lat_lng();
-			latlng->set_latitude(libsgp4::Util::RadiansToDegrees(geo.latitude));
-			latlng->set_longitude(libsgp4::Util::RadiansToDegrees(geo.longitude));
-			propogation_service::Timestamp* timestamp = prop->mutable_timestamp();
-			timestamp->set_seconds(now.Ticks());
-			prop->set_altitude_meters(geo.altitude);
 
-			now = now.AddMinutes(1);
+			satproto::Propogation* prop = reply->add_propogations();
+			prop->set_latitude(libsgp4::Util::RadiansToDegrees(geo.latitude));
+			prop->set_longitude(libsgp4::Util::RadiansToDegrees(geo.longitude));
+			prop->set_timestamp(now_unix+tick*60);
+			prop->set_altitude(geo.altitude);
 		}
 	}
 }

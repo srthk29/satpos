@@ -38,6 +38,6 @@ message Propogation {
   double longitude = 3;
 
   // Using a float type for precision.
-  // in meters
+  // in kilometers
   float altitude = 4;
 }

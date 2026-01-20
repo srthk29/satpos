@@ -10,21 +10,21 @@
 #include <grpcpp/server_context.h>
 #include <grpcpp/support/status.h>
 
-#include "api/v1/sat.grpc.pb.h"
-#include "api/v1/sat.pb.h"
+#include "api/v2/sat.grpc.pb.h"
+#include "api/v2/sat.pb.h"
 #include "server.h"
 #include "client.h"
 
 // Each RPC becomes a virtual method you override
-class PropogationServiceImpl final: public propogation_service::PropogationService::Service {
+class PropogationServiceImpl final: public satproto::PropogationService::Service {
 	public:
 	grpc::Status GetPropogation(
 		grpc::ServerContext* context,
-		const propogation_service::PropogationRequest* request,
-		propogation_service::PropogationReply* reply) override {
+		const satproto::PropogationRequest* request,
+		satproto::PropogationReply* reply) override {
 
 		std::string err{""};
-		std::string tles = get_tle(request->noradcategory(), err);
+		std::string tles = get_tle(request->norad_category(), err);
 		if (err != "") {
 			return grpc::Status(grpc::INTERNAL, err);
 		}

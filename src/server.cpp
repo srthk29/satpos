@@ -23,17 +23,15 @@ class PropogationServiceImpl final: public satproto::PropogationService::Service
 		const satproto::PropogationRequest* request,
 		satproto::PropogationReply* reply) override {
 
-		std::string err{""};
-		std::string tles = get_tle(request->norad_category(), err);
-		if (err != "") {
-			return grpc::Status(grpc::INTERNAL, err);
+		try {
+			std::string tles = get_tle(request->norad_category());
+			parse_tle(tles, reply);
+
+			return grpc::Status::OK;
 		}
-
-		std::cout << "TLES: " << tles << '\n';
-
-		parse_tle(tles, reply);
-
-		return grpc::Status::OK;
+		catch (const std::exception& e) {
+			return grpc::Status(grpc::INTERNAL, e.what());
+		}
 	}
 };
 
@@ -47,11 +45,11 @@ Shutdown():
 */
 // https://grpc.github.io/grpc/cpp/classgrpc_1_1_server_interface.html#a6a1d337270116c95f387e0abf01f6c6c
 void signal_handler(int signum) {
-    std::cout << "Interrupt signal (" << signum << ") received. Shutting down server..." << std::endl;
-    if (server) {
-        std::thread shutdown_thread([]{ server->Shutdown(); });
-        shutdown_thread.join();
-    }
+	std::cout << "Interrupt signal (" << signum << ") received. Shutting down server..." << std::endl;
+	if (server) {
+		std::thread shutdown_thread([]{ server->Shutdown(); });
+		shutdown_thread.join();
+	}
 }
 
 void run_server() {

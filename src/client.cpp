@@ -1,9 +1,12 @@
+#include <stdexcept>
 #include <string>
 #include <sstream>
 #include <iostream>
-#include <ctime>
 
-#include "Globals.h"
+#include <curlpp/cURLpp.hpp>
+#include <curlpp/Easy.hpp>
+#include <curlpp/Options.hpp>
+
 #include "SGP4.h"
 #include "DateTime.h"
 #include "CoordGeodetic.h"
@@ -13,25 +16,9 @@
 
 #include "parse_tle.h"
 #include "api/v2/sat.pb.h"
+#include "utils.h"
 
-#include <curlpp/cURLpp.hpp>
-#include <curlpp/Easy.hpp>
-#include <curlpp/Options.hpp>
-
-time_t ToUnixTimestamp(const libsgp4::DateTime& dt) {
-    std::tm tm{};
-    tm.tm_year = dt.Year() - 1900;  // years since 1900
-    tm.tm_mon  = dt.Month() - 1;    // months since January [0,11]
-    tm.tm_mday = dt.Day();
-    tm.tm_hour = dt.Hour();
-    tm.tm_min  = dt.Minute();
-    tm.tm_sec  = static_cast<int>(dt.Second());
-    tm.tm_isdst = 0;                // UTC
-
-    return timegm(&tm);              // converts UTC → Unix epoch
-}
-
-std::string get_tle(int catnr, std::string& err) {
+std::string get_tle(int catnr) {
 	try {
 		// What the previous example done there was simply 
 		// to create a curlpp::Easy class, which is the basic
@@ -40,7 +27,9 @@ std::string get_tle(int catnr, std::string& err) {
 		// values to the requests. 
 		curlpp::Easy myRequest;
 
-		curlpp::options::Url myUrl(std::string("https://celestrak.org/NORAD/elements/gp.php?CATNR="+std::to_string(catnr)+"&FORMAT=TLE"));
+		const std::string url = "https://celestrak.org/NORAD/elements/gp.php?CATNR="+std::to_string(catnr)+"&FORMAT=TLE";
+
+		curlpp::options::Url myUrl(url);
 		myRequest.setOpt(myUrl);
 
 		// If we wanted to put the content of the URL within a string stream
@@ -60,16 +49,14 @@ std::string get_tle(int catnr, std::string& err) {
 		
 		return os.str();
 	}
-	catch(curlpp::RuntimeError & e) {
-		std::cout << e.what() << std::endl;
-		err = e.what();
+	catch(const curlpp::RuntimeError& e) {
+		throw std::runtime_error(
+			std::string("curlpp runtime error: ") + e.what());
 	}
-	catch(curlpp::LogicError & e) {
-		std::cout << e.what() << std::endl;
-		err = e.what();
+	catch(const curlpp::LogicError& e) {
+		throw std::runtime_error(
+			std::string("curlpp logic error: ") + e.what());
 	}
-
-	return err;
 }
 
 void parse_tle(const std::string& body, satproto::PropogationReply* reply) {

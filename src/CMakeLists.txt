@@ -12,6 +12,8 @@ add_executable(satpos
     parse_tle.cpp
     server.h
     server.cpp
+    utils.h
+    utils.cpp
 )
 
 target_compile_definitions(satpos PRIVATE CPPHTTPLIB_OPENSSL_SUPPORT)

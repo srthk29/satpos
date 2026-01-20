@@ -3,6 +3,6 @@
 #include <string>
 #include "api/v2/sat.pb.h"
 
-std::string get_tle(int catnr, std::string& err);
+std::string get_tle(int catnr);
 void parse_tle(const std::string& body, satproto::PropogationReply* reply);
 #endif

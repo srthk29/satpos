@@ -61,7 +61,7 @@ std::string get_tle(int catnr) {
 
 void parse_tle(const std::string& body, satproto::PropogationReply* reply) {
 	// libsgp4::DateTime utc(2026, 1, 2, 0, 0, 0.0);
-	for (const auto& tlestruct : parse_3le_direct(body)) {
+	for (const auto& tlestruct : parser::parse_3le_direct(body)) {
 		libsgp4::Tle tle(
 			std::string{tlestruct.name},
 			std::string{tlestruct.line1},
@@ -85,7 +85,7 @@ void parse_tle(const std::string& body, satproto::PropogationReply* reply) {
 		libsgp4::SGP4 sat(tle);
 	
 		libsgp4::DateTime epoch = tle.Epoch();
-		time_t epoch_unix = ToUnixTimestamp(epoch);
+		time_t epoch_unix = utils::to_unix_timestamp(epoch);
 
 		libsgp4::CoordGeodetic geo = sat.FindPosition(epoch).ToGeodetic();
 		satproto::Propogation* prop = ps_tle->mutable_propogation();
@@ -95,7 +95,7 @@ void parse_tle(const std::string& body, satproto::PropogationReply* reply) {
 		prop->set_altitude(geo.altitude);
 		
 		libsgp4::DateTime now = libsgp4::DateTime::Now(true);
-		time_t now_unix = ToUnixTimestamp(now);
+		time_t now_unix = utils::to_unix_timestamp(now);
 		// std::cout << "Now = " << now.ToString() << '\n';
 		// std::cout << "Now Ticks = " << now.Ticks() << '\n';
 		ps_tle->set_age(now_unix-epoch_unix);

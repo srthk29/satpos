@@ -3,7 +3,7 @@
 
 #include <DateTime.h>
 #include <ctime>
-
-time_t ToUnixTimestamp(const libsgp4::DateTime& dt);
-
+namespace utils {
+time_t to_unix_timestamp(const libsgp4::DateTime& dt);
+}
 #endif

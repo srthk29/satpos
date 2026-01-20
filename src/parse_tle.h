@@ -2,7 +2,7 @@
 #define SATPOS_PARSE_TLE_H
 #include <string_view>
 #include <vector>
-
+namespace parser{
 struct TLE {
 	std::string_view name;
 	std::string_view line1;
@@ -10,4 +10,5 @@ struct TLE {
 };
 
 std::vector<TLE> parse_3le_direct(std::string_view str);
+}
 #endif

@@ -1,7 +1,9 @@
-#include <DateTime.h>
 #include <ctime>
 
-time_t ToUnixTimestamp(const libsgp4::DateTime& dt) {
+#include <DateTime.h>
+#include "utils.h"
+
+time_t utils::to_unix_timestamp(const libsgp4::DateTime& dt) {
     std::tm tm{};
     tm.tm_year = dt.Year() - 1900;  // years since 1900
     tm.tm_mon  = dt.Month() - 1;    // months since January [0,11]

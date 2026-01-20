@@ -53,9 +53,9 @@ std::vector<std::string_view> split_lines_optimized(std::string_view str) {
     return lines;
 }
 
-std::vector<TLE> parse_3tle(std::string_view str) {
+std::vector<parser::TLE> parse_3tle(std::string_view str) {
 	std::vector<std::string_view> lines = split_lines_memchr(str);
-	std::vector<TLE> tles; tles.reserve(lines.size()/3);
+	std::vector<parser::TLE> tles; tles.reserve(lines.size()/3);
 
 	for (size_t i = 0; i < lines.size(); i += 3) {
 		tles.push_back({lines[i], lines[i+1], lines[i+2]});
@@ -65,8 +65,8 @@ std::vector<TLE> parse_3tle(std::string_view str) {
 	return tles;
 }
 
-std::vector<TLE> parse_3le_direct(std::string_view str) {
-    std::vector<TLE> result;
+std::vector<parser::TLE> parser::parse_3le_direct(std::string_view str) {
+    std::vector<parser::TLE> result;
     // result.reserve(str.size() / 210); // Heuristic: ~210 chars per TLE
 
     const char* curr = str.data();

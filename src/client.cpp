@@ -31,7 +31,9 @@ std::string get_tle(int catnr) {
 
 		curlpp::options::Url myUrl(url);
 		myRequest.setOpt(myUrl);
-
+		myRequest.setOpt(curlpp::options::ConnectTimeout(5));
+		myRequest.setOpt(curlpp::options::Timeout(5));
+		
 		// If we wanted to put the content of the URL within a string stream
 		// (or any type of std::ostream, for that matter), like the first example, 
 		// we would use the WriteStream option like this:

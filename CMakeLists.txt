@@ -4,6 +4,7 @@ project(satpos LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_PREFIX_PATH $ENV{CXX_INSTALL_DIR})
 
 include(cmake/Protobuf.cmake)
 include(cmake/GRPC.cmake)

@@ -1,5 +1,5 @@
-#include <iostream>
 #include <csignal>
+#include <iostream>
 #include <string>
 #include <thread>
 
@@ -10,29 +10,29 @@
 #include <grpcpp/server_context.h>
 #include <grpcpp/support/status.h>
 
-#include "api/v2/sat.grpc.pb.h"
-#include "api/v2/sat.pb.h"
-#include "server.h"
+#include "api/v3/sat.grpc.pb.h"
+#include "api/v3/sat.pb.h"
 #include "client.h"
+#include "server.h"
 
 // Each RPC becomes a virtual method you override
-class PropogationServiceImpl final: public satproto::PropogationService::Service {
-	public:
-	grpc::Status GetPropogation(
-		grpc::ServerContext* context,
-		const satproto::PropogationRequest* request,
-		satproto::PropogationReply* reply) override {
+class PropogationServiceImpl final
+    : public api::v3::PropagationService::Service {
+  public:
+    grpc::Status
+    GetPropagation(grpc::ServerContext *context,
+                   const api::v3::GetPropagationRequest *request,
+                   api::v3::GetPropagationResponse *reply) override {
 
-		try {
-			std::string tles = get_tle(request->norad_category());
-			parse_tle(tles, reply);
+        try {
+            std::string tles = get_tle(request->satellite_number());
+            parse_tle(tles, reply);
 
-			return grpc::Status::OK;
-		}
-		catch (const std::exception& e) {
-			return grpc::Status(grpc::INTERNAL, e.what());
-		}
-	}
+            return grpc::Status::OK;
+        } catch (const std::exception &e) {
+            return grpc::Status(grpc::INTERNAL, e.what());
+        }
+    }
 };
 
 std::unique_ptr<grpc::Server> server;
@@ -45,33 +45,32 @@ Shutdown():
 */
 // https://grpc.github.io/grpc/cpp/classgrpc_1_1_server_interface.html#a6a1d337270116c95f387e0abf01f6c6c
 void signal_handler(int signum) {
-	std::cout << "Interrupt signal (" << signum << ") received. Shutting down server..." << std::endl;
-	if (server) {
-		std::thread shutdown_thread([]{ server->Shutdown(); });
-		shutdown_thread.join();
-	}
+    std::cout << "Interrupt signal (" << signum
+              << ") received. Shutting down server..." << std::endl;
+    if (server) {
+        std::thread shutdown_thread([] { server->Shutdown(); });
+        shutdown_thread.join();
+    }
 }
 
 void run_server() {
-	std::string server_address("127.0.0.1:50051");
-	PropogationServiceImpl service;
+    std::string server_address("127.0.0.1:50051");
+    PropogationServiceImpl service;
 
-	grpc::ServerBuilder builder;
-	builder.AddListeningPort(
-		server_address,
-		grpc::InsecureServerCredentials());
+    grpc::ServerBuilder builder;
+    builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
 
-	builder.RegisterService(&service);
+    builder.RegisterService(&service);
 
-	server = builder.BuildAndStart();
+    server = builder.BuildAndStart();
 
-	std::cout << "Server listening on " << server_address << '\n';
+    std::cout << "Server listening on " << server_address << '\n';
 
-	// void(*signal(int, void (*)(int)))(int);
-	std::signal(SIGINT, signal_handler);
-	std::signal(SIGTERM, signal_handler);
+    // void(*signal(int, void (*)(int)))(int);
+    std::signal(SIGINT, signal_handler);
+    std::signal(SIGTERM, signal_handler);
 
-	server->Wait();
+    server->Wait();
 
-	std::cout << "Server shutdown gracefully\n";
+    std::cout << "Server shutdown gracefully\n";
 }

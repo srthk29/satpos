@@ -1,8 +1,8 @@
 #ifndef CLIENT_SRC_H
 #define CLIENT_SRC_H
+#include "api/v3/sat.pb.h"
 #include <string>
-#include "api/v2/sat.pb.h"
 
 std::string get_tle(int catnr);
-void parse_tle(const std::string& body, satproto::PropogationReply* reply);
+void parse_tle(const std::string &body, api::v3::GetPropagationResponse *reply);
 #endif

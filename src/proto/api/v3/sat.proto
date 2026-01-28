@@ -1,0 +1,100 @@
+syntax = "proto3";
+
+package api.v3;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "proto/v3";
+
+service PropagationService {
+    rpc GetPropagation(GetPropagationRequest) returns (GetPropagationResponse);
+}
+
+enum ReferenceFrame {
+    REFERENCE_FRAME_UNSPECIFIED = 0;
+    REFERENCE_FRAME_TEME = 1; // SGP4 native
+    REFERENCE_FRAME_ECI = 2;
+    REFERENCE_FRAME_ECEF = 3;
+}
+
+enum PropagatorType {
+    PROPAGATOR_TYPE_UNSPECIFIED = 0;
+    PROPAGATOR_TYPE_SGP4 = 1;
+    PROPAGATOR_TYPE_SDP4 = 2;
+    PROPAGATOR_TYPE_NUMERICAL = 3;
+}
+
+message Tle {
+    string line1 = 1;
+    string line2 = 2;
+
+    string satellite_name = 3;
+
+    // NORAD catalog number
+    uint32 satellite_number = 4;
+
+    // Epoch extracted from TLE
+    google.protobuf.Timestamp epoch = 5;
+
+    OrbitElements orbit_elements = 6;
+}
+
+message Vector3 {
+    double x = 1; // km
+    double y = 2; // km
+    double z = 3; // km
+}
+
+message StateVector {
+    Vector3 position = 1; // km
+    Vector3 velocity = 2; // km/s
+
+    ReferenceFrame frame = 3;
+}
+
+message GeodeticPosition {
+    double latitude_deg = 1;
+    double longitude_deg = 2;
+    double altitude_km = 3;
+}
+
+message OrbitElements {
+    double semi_major_axis_km = 1;
+    double eccentricity = 2;
+    double inclination_deg = 3;
+    double raan_deg = 4;
+    double argument_of_perigee_deg = 5;
+    double true_anomaly_deg = 6;
+}
+
+message Propagation {
+    google.protobuf.Timestamp epoch = 1;
+
+    StateVector state = 2;
+    GeodeticPosition geodetic = 3;
+
+    PropagatorType propagator = 4;
+}
+
+message GetPropagationRequest {
+    // NORAD catalog number
+    uint32 satellite_number = 1;
+}
+
+message GetPropagationResponse {
+    // Original TLE
+    Tle tle = 1;
+
+    // Age of TLE relative to "now"
+    google.protobuf.Duration tle_age = 2;
+
+    // Propagation exactly at TLE epoch
+    Propagation at_tle_epoch = 3;
+
+    // Propagation at request time (UTC now)
+    Propagation at_now_utc = 4;
+
+    // Arbitrary N propagations
+    repeated Propagation propagations = 5;
+}

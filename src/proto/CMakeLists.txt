@@ -8,9 +8,9 @@
 
 # add_library(proto-objects OBJECT "${CMAKE_CURRENT_LIST_DIR}/api/v1/sat.proto")
 # add_library(proto-objects STATIC)
-add_library(proto-objects STATIC "${CMAKE_CURRENT_LIST_DIR}/api/v2/sat.proto")
+add_library(proto-objects STATIC "${CMAKE_CURRENT_LIST_DIR}/api/v3/sat.proto")
 
-target_link_libraries(proto-objects PUBLIC protobuf::libprotobuf gRPC::grpc++)
+target_link_libraries(proto-objects PUBLIC protobuf::libprotobuf protobuf::libprotoc gRPC::grpc++)
 
 set(PROTO_BINARY_DIR "${CMAKE_CURRENT_LIST_DIR}")
 set(PROTO_IMPORT_DIRS "${CMAKE_CURRENT_LIST_DIR}")

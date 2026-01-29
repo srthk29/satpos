@@ -61,8 +61,8 @@ std::string get_tle(int catnr) {
     }
 }
 
-inline void FillEciStateVector(const libsgp4::Eci &eci,
-                               api::v3::StateVector *out) {
+inline void fill_StateVector(const libsgp4::Eci &eci,
+                             api::v3::StateVector *out) {
     const libsgp4::Vector pos = eci.Position();
     const libsgp4::Vector vel = eci.Velocity();
 
@@ -79,8 +79,8 @@ inline void FillEciStateVector(const libsgp4::Eci &eci,
     out->set_frame(api::v3::REFERENCE_FRAME_ECI);
 }
 
-inline void FillGeodeticPosition(const libsgp4::Eci &eci,
-                                 api::v3::GeodeticPosition *out) {
+inline void fill_GeodeticPosition(const libsgp4::Eci &eci,
+                                  api::v3::GeodeticPosition *out) {
     const libsgp4::CoordGeodetic geo = eci.ToGeodetic();
 
     out->set_latitude_deg(libsgp4::Util::RadiansToDegrees(geo.latitude));
@@ -133,11 +133,11 @@ void parse_tle(const std::string &body,
                 reply->mutable_at_tle_epoch();
 
             // --- ECI state vector ---
-            FillEciStateVector(eci_epoch, at_tle_epoch_prop->mutable_state());
+            fill_StateVector(eci_epoch, at_tle_epoch_prop->mutable_state());
 
             // --- Geodetic position ---
-            FillGeodeticPosition(eci_epoch,
-                                 at_tle_epoch_prop->mutable_geodetic());
+            fill_GeodeticPosition(eci_epoch,
+                                  at_tle_epoch_prop->mutable_geodetic());
 
             // --- Metadata ---
             at_tle_epoch_prop->mutable_epoch()->set_seconds(
@@ -153,11 +153,11 @@ void parse_tle(const std::string &body,
             api::v3::Propagation *at_now_utc_prop = reply->mutable_at_now_utc();
 
             // --- ECI state vector ---
-            FillEciStateVector(now_epoch, at_now_utc_prop->mutable_state());
+            fill_StateVector(now_epoch, at_now_utc_prop->mutable_state());
 
             // --- Geodetic position ---
-            FillGeodeticPosition(now_epoch,
-                                 at_now_utc_prop->mutable_geodetic());
+            fill_GeodeticPosition(now_epoch,
+                                  at_now_utc_prop->mutable_geodetic());
 
             // --- Metadata ---
             at_now_utc_prop->mutable_epoch()->set_seconds(
@@ -182,12 +182,12 @@ void parse_tle(const std::string &body,
                     reply->add_propagations();
 
                 // --- ECI state vector ---
-                FillEciStateVector(nowtick_epoch,
-                                   at_nowtick_utc_prop->mutable_state());
+                fill_StateVector(nowtick_epoch,
+                                 at_nowtick_utc_prop->mutable_state());
 
                 // --- Geodetic position ---
-                FillGeodeticPosition(nowtick_epoch,
-                                     at_nowtick_utc_prop->mutable_geodetic());
+                fill_GeodeticPosition(nowtick_epoch,
+                                      at_nowtick_utc_prop->mutable_geodetic());
 
                 // --- Metadata ---
                 // now_unix + tick * 60

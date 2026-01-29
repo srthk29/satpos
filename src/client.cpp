@@ -61,6 +61,33 @@ std::string get_tle(int catnr) {
     }
 }
 
+inline void FillEciStateVector(const libsgp4::Eci &eci,
+                               api::v3::StateVector *out) {
+    const libsgp4::Vector pos = eci.Position();
+    const libsgp4::Vector vel = eci.Velocity();
+
+    api::v3::Vector3 *position = out->mutable_position();
+    position->set_x(pos.x);
+    position->set_y(pos.y);
+    position->set_z(pos.z);
+
+    api::v3::Vector3 *velocity = out->mutable_velocity();
+    velocity->set_x(vel.x);
+    velocity->set_y(vel.y);
+    velocity->set_z(vel.z);
+
+    out->set_frame(api::v3::REFERENCE_FRAME_ECI);
+}
+
+inline void FillGeodeticPosition(const libsgp4::Eci &eci,
+                                 api::v3::GeodeticPosition *out) {
+    const libsgp4::CoordGeodetic geo = eci.ToGeodetic();
+
+    out->set_latitude_deg(libsgp4::Util::RadiansToDegrees(geo.latitude));
+    out->set_longitude_deg(libsgp4::Util::RadiansToDegrees(geo.longitude));
+    out->set_altitude_km(geo.altitude);
+}
+
 void parse_tle(const std::string &body,
                api::v3::GetPropagationResponse *reply) {
     // libsgp4::DateTime utc(2026, 1, 2, 0, 0, 0.0);
@@ -104,37 +131,13 @@ void parse_tle(const std::string &body,
 
             api::v3::Propagation *at_tle_epoch_prop =
                 reply->mutable_at_tle_epoch();
+
             // --- ECI state vector ---
-            {
-                api::v3::StateVector *state =
-                    at_tle_epoch_prop->mutable_state();
+            FillEciStateVector(eci_epoch, at_tle_epoch_prop->mutable_state());
 
-                const libsgp4::Vector pos = eci_epoch.Position();
-                api::v3::Vector3 *position = state->mutable_position();
-                position->set_x(pos.x);
-                position->set_y(pos.y);
-                position->set_z(pos.z);
-
-                const libsgp4::Vector vel = eci_epoch.Velocity();
-                api::v3::Vector3 *velocity = state->mutable_velocity();
-                velocity->set_x(vel.x);
-                velocity->set_y(vel.y);
-                velocity->set_z(vel.z);
-
-                state->set_frame(api::v3::REFERENCE_FRAME_ECI);
-            }
             // --- Geodetic position ---
-            {
-                const libsgp4::CoordGeodetic geo = eci_epoch.ToGeodetic();
-
-                api::v3::GeodeticPosition *geopos =
-                    at_tle_epoch_prop->mutable_geodetic();
-                geopos->set_latitude_deg(
-                    libsgp4::Util::RadiansToDegrees(geo.latitude));
-                geopos->set_longitude_deg(
-                    libsgp4::Util::RadiansToDegrees(geo.longitude));
-                geopos->set_altitude_km(geo.altitude);
-            }
+            FillGeodeticPosition(eci_epoch,
+                                 at_tle_epoch_prop->mutable_geodetic());
 
             // --- Metadata ---
             at_tle_epoch_prop->mutable_epoch()->set_seconds(
@@ -143,42 +146,18 @@ void parse_tle(const std::string &body,
         }
 
         libsgp4::DateTime now = libsgp4::DateTime::Now(true);
-
         {
             // At Now
             const libsgp4::Eci now_epoch = sat.FindPosition(now);
 
             api::v3::Propagation *at_now_utc_prop = reply->mutable_at_now_utc();
+
             // --- ECI state vector ---
-            {
-                api::v3::StateVector *state = at_now_utc_prop->mutable_state();
+            FillEciStateVector(now_epoch, at_now_utc_prop->mutable_state());
 
-                const libsgp4::Vector pos = now_epoch.Position();
-                api::v3::Vector3 *position = state->mutable_position();
-                position->set_x(pos.x);
-                position->set_y(pos.y);
-                position->set_z(pos.z);
-
-                const libsgp4::Vector vel = now_epoch.Velocity();
-                api::v3::Vector3 *velocity = state->mutable_velocity();
-                velocity->set_x(vel.x);
-                velocity->set_y(vel.y);
-                velocity->set_z(vel.z);
-
-                state->set_frame(api::v3::REFERENCE_FRAME_ECI);
-            }
             // --- Geodetic position ---
-            {
-                const libsgp4::CoordGeodetic geo = now_epoch.ToGeodetic();
-
-                api::v3::GeodeticPosition *geopos =
-                    at_now_utc_prop->mutable_geodetic();
-                geopos->set_latitude_deg(
-                    libsgp4::Util::RadiansToDegrees(geo.latitude));
-                geopos->set_longitude_deg(
-                    libsgp4::Util::RadiansToDegrees(geo.longitude));
-                geopos->set_altitude_km(geo.altitude);
-            }
+            FillGeodeticPosition(now_epoch,
+                                 at_now_utc_prop->mutable_geodetic());
 
             // --- Metadata ---
             at_now_utc_prop->mutable_epoch()->set_seconds(
@@ -201,38 +180,14 @@ void parse_tle(const std::string &body,
 
                 api::v3::Propagation *at_nowtick_utc_prop =
                     reply->add_propagations();
+
                 // --- ECI state vector ---
-                {
-                    api::v3::StateVector *state =
-                        at_nowtick_utc_prop->mutable_state();
+                FillEciStateVector(nowtick_epoch,
+                                   at_nowtick_utc_prop->mutable_state());
 
-                    const libsgp4::Vector pos = nowtick_epoch.Position();
-                    api::v3::Vector3 *position = state->mutable_position();
-                    position->set_x(pos.x);
-                    position->set_y(pos.y);
-                    position->set_z(pos.z);
-
-                    const libsgp4::Vector vel = nowtick_epoch.Velocity();
-                    api::v3::Vector3 *velocity = state->mutable_velocity();
-                    velocity->set_x(vel.x);
-                    velocity->set_y(vel.y);
-                    velocity->set_z(vel.z);
-
-                    state->set_frame(api::v3::REFERENCE_FRAME_ECI);
-                }
                 // --- Geodetic position ---
-                {
-                    const libsgp4::CoordGeodetic geo =
-                        nowtick_epoch.ToGeodetic();
-
-                    api::v3::GeodeticPosition *geopos =
-                        at_nowtick_utc_prop->mutable_geodetic();
-                    geopos->set_latitude_deg(
-                        libsgp4::Util::RadiansToDegrees(geo.latitude));
-                    geopos->set_longitude_deg(
-                        libsgp4::Util::RadiansToDegrees(geo.longitude));
-                    geopos->set_altitude_km(geo.altitude);
-                }
+                FillGeodeticPosition(nowtick_epoch,
+                                     at_nowtick_utc_prop->mutable_geodetic());
 
                 // --- Metadata ---
                 // now_unix + tick * 60

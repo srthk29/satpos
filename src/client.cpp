@@ -1,3 +1,4 @@
+#include <cmath>
 #include <iostream>
 #include <sstream>
 #include <stdexcept>
@@ -64,12 +65,13 @@ std::string get_tle(int catnr) {
 inline void fill_StateVector(const libsgp4::Eci &eci,
                              api::v3::StateVector *out) {
     const libsgp4::Vector pos = eci.Position();
-    const libsgp4::Vector vel = eci.Velocity();
 
     api::v3::Vector3 *position = out->mutable_position();
     position->set_x(pos.x);
     position->set_y(pos.y);
     position->set_z(pos.z);
+
+    const libsgp4::Vector vel = eci.Velocity();
 
     api::v3::Vector3 *velocity = out->mutable_velocity();
     velocity->set_x(vel.x);
@@ -168,8 +170,12 @@ void parse_tle(const std::string &body,
         // std::cout << "Now Ticks = " << now.Ticks() << '\n';
         reply->mutable_tle_age()->set_seconds(utils::to_unix_timestamp(now) -
                                               utils::to_unix_timestamp(epoch));
+        // 24*60
+        int orbital_period = 1440 / tle.MeanMotion();
 
-        for (int tick = -20; tick < 90; ++tick) {
+        for (int tick = std::floor(-0.2 * orbital_period);
+             tick <= std::ceil(0.8 * orbital_period); ++tick) {
+
             libsgp4::DateTime nowtick = now.AddMinutes(tick);
             std::cout << nowtick.ToString() << '\n';
             // std::cout << "Now + 10mins = " << now.ToString() << '\n';

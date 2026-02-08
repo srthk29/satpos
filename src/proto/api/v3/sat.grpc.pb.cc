@@ -20,11 +20,10 @@
 #include <grpcpp/impl/service_type.h>
 #include <grpcpp/support/sync_stream.h>
 #include <grpcpp/ports_def.inc>
-namespace api {
-namespace v3 {
+namespace orbit {
 
 static const char* PropagationService_method_names[] = {
-  "/api.v3.PropagationService/GetPropagation",
+  "/orbit.PropagationService/GetPropagation",
 };
 
 std::unique_ptr< PropagationService::Stub> PropagationService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -37,23 +36,23 @@ PropagationService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>&
   : channel_(channel), rpcmethod_GetPropagation_(PropagationService_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status PropagationService::Stub::GetPropagation(::grpc::ClientContext* context, const ::api::v3::GetPropagationRequest& request, ::api::v3::GetPropagationResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::api::v3::GetPropagationRequest, ::api::v3::GetPropagationResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetPropagation_, context, request, response);
+::grpc::Status PropagationService::Stub::GetPropagation(::grpc::ClientContext* context, const ::orbit::GetPropagationRequest& request, ::orbit::GetPropagationResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::orbit::GetPropagationRequest, ::orbit::GetPropagationResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetPropagation_, context, request, response);
 }
 
-void PropagationService::Stub::async::GetPropagation(::grpc::ClientContext* context, const ::api::v3::GetPropagationRequest* request, ::api::v3::GetPropagationResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::api::v3::GetPropagationRequest, ::api::v3::GetPropagationResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetPropagation_, context, request, response, std::move(f));
+void PropagationService::Stub::async::GetPropagation(::grpc::ClientContext* context, const ::orbit::GetPropagationRequest* request, ::orbit::GetPropagationResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::orbit::GetPropagationRequest, ::orbit::GetPropagationResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetPropagation_, context, request, response, std::move(f));
 }
 
-void PropagationService::Stub::async::GetPropagation(::grpc::ClientContext* context, const ::api::v3::GetPropagationRequest* request, ::api::v3::GetPropagationResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+void PropagationService::Stub::async::GetPropagation(::grpc::ClientContext* context, const ::orbit::GetPropagationRequest* request, ::orbit::GetPropagationResponse* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetPropagation_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::api::v3::GetPropagationResponse>* PropagationService::Stub::PrepareAsyncGetPropagationRaw(::grpc::ClientContext* context, const ::api::v3::GetPropagationRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::api::v3::GetPropagationResponse, ::api::v3::GetPropagationRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetPropagation_, context, request);
+::grpc::ClientAsyncResponseReader< ::orbit::GetPropagationResponse>* PropagationService::Stub::PrepareAsyncGetPropagationRaw(::grpc::ClientContext* context, const ::orbit::GetPropagationRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::orbit::GetPropagationResponse, ::orbit::GetPropagationRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetPropagation_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::api::v3::GetPropagationResponse>* PropagationService::Stub::AsyncGetPropagationRaw(::grpc::ClientContext* context, const ::api::v3::GetPropagationRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::orbit::GetPropagationResponse>* PropagationService::Stub::AsyncGetPropagationRaw(::grpc::ClientContext* context, const ::orbit::GetPropagationRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncGetPropagationRaw(context, request, cq);
   result->StartCall();
@@ -64,11 +63,11 @@ PropagationService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       PropagationService_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< PropagationService::Service, ::api::v3::GetPropagationRequest, ::api::v3::GetPropagationResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< PropagationService::Service, ::orbit::GetPropagationRequest, ::orbit::GetPropagationResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](PropagationService::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::api::v3::GetPropagationRequest* req,
-             ::api::v3::GetPropagationResponse* resp) {
+             const ::orbit::GetPropagationRequest* req,
+             ::orbit::GetPropagationResponse* resp) {
                return service->GetPropagation(ctx, req, resp);
              }, this)));
 }
@@ -76,7 +75,7 @@ PropagationService::Service::Service() {
 PropagationService::Service::~Service() {
 }
 
-::grpc::Status PropagationService::Service::GetPropagation(::grpc::ServerContext* context, const ::api::v3::GetPropagationRequest* request, ::api::v3::GetPropagationResponse* response) {
+::grpc::Status PropagationService::Service::GetPropagation(::grpc::ServerContext* context, const ::orbit::GetPropagationRequest* request, ::orbit::GetPropagationResponse* response) {
   (void) context;
   (void) request;
   (void) response;
@@ -84,7 +83,6 @@ PropagationService::Service::~Service() {
 }
 
 
-}  // namespace api
-}  // namespace v3
+}  // namespace orbit
 #include <grpcpp/ports_undef.inc>
 

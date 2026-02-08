@@ -24,8 +24,7 @@ PROTOBUF_PRAGMA_INIT_SEG
 namespace _pb = ::google::protobuf;
 namespace _pbi = ::google::protobuf::internal;
 namespace _fl = ::google::protobuf::internal::field_layout;
-namespace api {
-namespace v3 {
+namespace orbit {
 
 inline constexpr Vector3::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -177,7 +176,7 @@ inline constexpr StateVector::Impl_::Impl_(
       : _cached_size_{0},
         position_{nullptr},
         velocity_{nullptr},
-        frame_{static_cast< ::api::v3::ReferenceFrame >(0)} {}
+        frame_{static_cast< ::orbit::ReferenceFrame >(0)} {}
 
 template <typename>
 PROTOBUF_CONSTEXPR StateVector::StateVector(::_pbi::ConstantInitialized)
@@ -205,7 +204,7 @@ inline constexpr Propagation::Impl_::Impl_(
         epoch_{nullptr},
         state_{nullptr},
         geodetic_{nullptr},
-        propagator_{static_cast< ::api::v3::PropagatorType >(0)} {}
+        propagator_{static_cast< ::orbit::PropagatorType >(0)} {}
 
 template <typename>
 PROTOBUF_CONSTEXPR Propagation::Propagation(::_pbi::ConstantInitialized)
@@ -255,8 +254,7 @@ struct GetPropagationResponseDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GetPropagationResponseDefaultTypeInternal _GetPropagationResponse_default_instance_;
-}  // namespace v3
-}  // namespace api
+}  // namespace orbit
 static const ::_pb::EnumDescriptor* PROTOBUF_NONNULL
     file_level_enum_descriptors_api_2fv3_2fsat_2eproto[2];
 static constexpr const ::_pb::ServiceDescriptor *PROTOBUF_NONNULL *PROTOBUF_NULLABLE
@@ -265,14 +263,14 @@ const ::uint32_t
     TableStruct_api_2fv3_2fsat_2eproto::offsets[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
         protodesc_cold) = {
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::api::v3::Tle, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::orbit::Tle, _impl_._has_bits_),
         9, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::api::v3::Tle, _impl_.line1_),
-        PROTOBUF_FIELD_OFFSET(::api::v3::Tle, _impl_.line2_),
-        PROTOBUF_FIELD_OFFSET(::api::v3::Tle, _impl_.satellite_name_),
-        PROTOBUF_FIELD_OFFSET(::api::v3::Tle, _impl_.satellite_number_),
-        PROTOBUF_FIELD_OFFSET(::api::v3::Tle, _impl_.epoch_),
-        PROTOBUF_FIELD_OFFSET(::api::v3::Tle, _impl_.orbit_elements_),
+        PROTOBUF_FIELD_OFFSET(::orbit::Tle, _impl_.line1_),
+        PROTOBUF_FIELD_OFFSET(::orbit::Tle, _impl_.line2_),
+        PROTOBUF_FIELD_OFFSET(::orbit::Tle, _impl_.satellite_name_),
+        PROTOBUF_FIELD_OFFSET(::orbit::Tle, _impl_.satellite_number_),
+        PROTOBUF_FIELD_OFFSET(::orbit::Tle, _impl_.epoch_),
+        PROTOBUF_FIELD_OFFSET(::orbit::Tle, _impl_.orbit_elements_),
         0,
         1,
         2,
@@ -280,41 +278,41 @@ const ::uint32_t
         3,
         4,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::api::v3::Vector3, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::orbit::Vector3, _impl_._has_bits_),
         6, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::api::v3::Vector3, _impl_.x_),
-        PROTOBUF_FIELD_OFFSET(::api::v3::Vector3, _impl_.y_),
-        PROTOBUF_FIELD_OFFSET(::api::v3::Vector3, _impl_.z_),
+        PROTOBUF_FIELD_OFFSET(::orbit::Vector3, _impl_.x_),
+        PROTOBUF_FIELD_OFFSET(::orbit::Vector3, _impl_.y_),
+        PROTOBUF_FIELD_OFFSET(::orbit::Vector3, _impl_.z_),
         0,
         1,
         2,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::api::v3::StateVector, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::orbit::StateVector, _impl_._has_bits_),
         6, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::api::v3::StateVector, _impl_.position_),
-        PROTOBUF_FIELD_OFFSET(::api::v3::StateVector, _impl_.velocity_),
-        PROTOBUF_FIELD_OFFSET(::api::v3::StateVector, _impl_.frame_),
+        PROTOBUF_FIELD_OFFSET(::orbit::StateVector, _impl_.position_),
+        PROTOBUF_FIELD_OFFSET(::orbit::StateVector, _impl_.velocity_),
+        PROTOBUF_FIELD_OFFSET(::orbit::StateVector, _impl_.frame_),
         0,
         1,
         2,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::api::v3::GeodeticPosition, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::orbit::GeodeticPosition, _impl_._has_bits_),
         6, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::api::v3::GeodeticPosition, _impl_.latitude_deg_),
-        PROTOBUF_FIELD_OFFSET(::api::v3::GeodeticPosition, _impl_.longitude_deg_),
-        PROTOBUF_FIELD_OFFSET(::api::v3::GeodeticPosition, _impl_.altitude_km_),
+        PROTOBUF_FIELD_OFFSET(::orbit::GeodeticPosition, _impl_.latitude_deg_),
+        PROTOBUF_FIELD_OFFSET(::orbit::GeodeticPosition, _impl_.longitude_deg_),
+        PROTOBUF_FIELD_OFFSET(::orbit::GeodeticPosition, _impl_.altitude_km_),
         0,
         1,
         2,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::api::v3::OrbitElements, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::orbit::OrbitElements, _impl_._has_bits_),
         9, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::api::v3::OrbitElements, _impl_.semi_major_axis_km_),
-        PROTOBUF_FIELD_OFFSET(::api::v3::OrbitElements, _impl_.eccentricity_),
-        PROTOBUF_FIELD_OFFSET(::api::v3::OrbitElements, _impl_.inclination_deg_),
-        PROTOBUF_FIELD_OFFSET(::api::v3::OrbitElements, _impl_.raan_deg_),
-        PROTOBUF_FIELD_OFFSET(::api::v3::OrbitElements, _impl_.argument_of_perigee_deg_),
-        PROTOBUF_FIELD_OFFSET(::api::v3::OrbitElements, _impl_.true_anomaly_deg_),
+        PROTOBUF_FIELD_OFFSET(::orbit::OrbitElements, _impl_.semi_major_axis_km_),
+        PROTOBUF_FIELD_OFFSET(::orbit::OrbitElements, _impl_.eccentricity_),
+        PROTOBUF_FIELD_OFFSET(::orbit::OrbitElements, _impl_.inclination_deg_),
+        PROTOBUF_FIELD_OFFSET(::orbit::OrbitElements, _impl_.raan_deg_),
+        PROTOBUF_FIELD_OFFSET(::orbit::OrbitElements, _impl_.argument_of_perigee_deg_),
+        PROTOBUF_FIELD_OFFSET(::orbit::OrbitElements, _impl_.true_anomaly_deg_),
         0,
         1,
         2,
@@ -322,29 +320,29 @@ const ::uint32_t
         4,
         5,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::api::v3::Propagation, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::orbit::Propagation, _impl_._has_bits_),
         7, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::api::v3::Propagation, _impl_.epoch_),
-        PROTOBUF_FIELD_OFFSET(::api::v3::Propagation, _impl_.state_),
-        PROTOBUF_FIELD_OFFSET(::api::v3::Propagation, _impl_.geodetic_),
-        PROTOBUF_FIELD_OFFSET(::api::v3::Propagation, _impl_.propagator_),
+        PROTOBUF_FIELD_OFFSET(::orbit::Propagation, _impl_.epoch_),
+        PROTOBUF_FIELD_OFFSET(::orbit::Propagation, _impl_.state_),
+        PROTOBUF_FIELD_OFFSET(::orbit::Propagation, _impl_.geodetic_),
+        PROTOBUF_FIELD_OFFSET(::orbit::Propagation, _impl_.propagator_),
         0,
         1,
         2,
         3,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::api::v3::GetPropagationRequest, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::orbit::GetPropagationRequest, _impl_._has_bits_),
         4, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::api::v3::GetPropagationRequest, _impl_.satellite_number_),
+        PROTOBUF_FIELD_OFFSET(::orbit::GetPropagationRequest, _impl_.satellite_number_),
         0,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::api::v3::GetPropagationResponse, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::orbit::GetPropagationResponse, _impl_._has_bits_),
         8, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::api::v3::GetPropagationResponse, _impl_.tle_),
-        PROTOBUF_FIELD_OFFSET(::api::v3::GetPropagationResponse, _impl_.tle_age_),
-        PROTOBUF_FIELD_OFFSET(::api::v3::GetPropagationResponse, _impl_.at_tle_epoch_),
-        PROTOBUF_FIELD_OFFSET(::api::v3::GetPropagationResponse, _impl_.at_now_utc_),
-        PROTOBUF_FIELD_OFFSET(::api::v3::GetPropagationResponse, _impl_.propagations_),
+        PROTOBUF_FIELD_OFFSET(::orbit::GetPropagationResponse, _impl_.tle_),
+        PROTOBUF_FIELD_OFFSET(::orbit::GetPropagationResponse, _impl_.tle_age_),
+        PROTOBUF_FIELD_OFFSET(::orbit::GetPropagationResponse, _impl_.at_tle_epoch_),
+        PROTOBUF_FIELD_OFFSET(::orbit::GetPropagationResponse, _impl_.at_now_utc_),
+        PROTOBUF_FIELD_OFFSET(::orbit::GetPropagationResponse, _impl_.propagations_),
         0,
         1,
         2,
@@ -354,66 +352,66 @@ const ::uint32_t
 
 static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-        {0, sizeof(::api::v3::Tle)},
-        {15, sizeof(::api::v3::Vector3)},
-        {24, sizeof(::api::v3::StateVector)},
-        {33, sizeof(::api::v3::GeodeticPosition)},
-        {42, sizeof(::api::v3::OrbitElements)},
-        {57, sizeof(::api::v3::Propagation)},
-        {68, sizeof(::api::v3::GetPropagationRequest)},
-        {73, sizeof(::api::v3::GetPropagationResponse)},
+        {0, sizeof(::orbit::Tle)},
+        {15, sizeof(::orbit::Vector3)},
+        {24, sizeof(::orbit::StateVector)},
+        {33, sizeof(::orbit::GeodeticPosition)},
+        {42, sizeof(::orbit::OrbitElements)},
+        {57, sizeof(::orbit::Propagation)},
+        {68, sizeof(::orbit::GetPropagationRequest)},
+        {73, sizeof(::orbit::GetPropagationResponse)},
 };
 static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
-    &::api::v3::_Tle_default_instance_._instance,
-    &::api::v3::_Vector3_default_instance_._instance,
-    &::api::v3::_StateVector_default_instance_._instance,
-    &::api::v3::_GeodeticPosition_default_instance_._instance,
-    &::api::v3::_OrbitElements_default_instance_._instance,
-    &::api::v3::_Propagation_default_instance_._instance,
-    &::api::v3::_GetPropagationRequest_default_instance_._instance,
-    &::api::v3::_GetPropagationResponse_default_instance_._instance,
+    &::orbit::_Tle_default_instance_._instance,
+    &::orbit::_Vector3_default_instance_._instance,
+    &::orbit::_StateVector_default_instance_._instance,
+    &::orbit::_GeodeticPosition_default_instance_._instance,
+    &::orbit::_OrbitElements_default_instance_._instance,
+    &::orbit::_Propagation_default_instance_._instance,
+    &::orbit::_GetPropagationRequest_default_instance_._instance,
+    &::orbit::_GetPropagationResponse_default_instance_._instance,
 };
 const char descriptor_table_protodef_api_2fv3_2fsat_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
-    "\n\020api/v3/sat.proto\022\006api.v3\032\036google/proto"
-    "buf/duration.proto\032\037google/protobuf/time"
-    "stamp.proto\"\257\001\n\003Tle\022\r\n\005line1\030\001 \001(\t\022\r\n\005li"
-    "ne2\030\002 \001(\t\022\026\n\016satellite_name\030\003 \001(\t\022\030\n\020sat"
-    "ellite_number\030\004 \001(\r\022)\n\005epoch\030\005 \001(\0132\032.goo"
-    "gle.protobuf.Timestamp\022-\n\016orbit_elements"
-    "\030\006 \001(\0132\025.api.v3.OrbitElements\"*\n\007Vector3"
-    "\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001\"z\n\013Sta"
-    "teVector\022!\n\010position\030\001 \001(\0132\017.api.v3.Vect"
-    "or3\022!\n\010velocity\030\002 \001(\0132\017.api.v3.Vector3\022%"
-    "\n\005frame\030\003 \001(\0162\026.api.v3.ReferenceFrame\"T\n"
-    "\020GeodeticPosition\022\024\n\014latitude_deg\030\001 \001(\001\022"
-    "\025\n\rlongitude_deg\030\002 \001(\001\022\023\n\013altitude_km\030\003 "
-    "\001(\001\"\247\001\n\rOrbitElements\022\032\n\022semi_major_axis"
-    "_km\030\001 \001(\001\022\024\n\014eccentricity\030\002 \001(\001\022\027\n\017incli"
-    "nation_deg\030\003 \001(\001\022\020\n\010raan_deg\030\004 \001(\001\022\037\n\027ar"
-    "gument_of_perigee_deg\030\005 \001(\001\022\030\n\020true_anom"
-    "aly_deg\030\006 \001(\001\"\264\001\n\013Propagation\022)\n\005epoch\030\001"
-    " \001(\0132\032.google.protobuf.Timestamp\022\"\n\005stat"
-    "e\030\002 \001(\0132\023.api.v3.StateVector\022*\n\010geodetic"
-    "\030\003 \001(\0132\030.api.v3.GeodeticPosition\022*\n\nprop"
-    "agator\030\004 \001(\0162\026.api.v3.PropagatorType\"1\n\025"
-    "GetPropagationRequest\022\030\n\020satellite_numbe"
-    "r\030\001 \001(\r\"\335\001\n\026GetPropagationResponse\022\030\n\003tl"
-    "e\030\001 \001(\0132\013.api.v3.Tle\022*\n\007tle_age\030\002 \001(\0132\031."
-    "google.protobuf.Duration\022)\n\014at_tle_epoch"
-    "\030\003 \001(\0132\023.api.v3.Propagation\022\'\n\nat_now_ut"
-    "c\030\004 \001(\0132\023.api.v3.Propagation\022)\n\014propagat"
-    "ions\030\005 \003(\0132\023.api.v3.Propagation*~\n\016Refer"
-    "enceFrame\022\037\n\033REFERENCE_FRAME_UNSPECIFIED"
-    "\020\000\022\030\n\024REFERENCE_FRAME_TEME\020\001\022\027\n\023REFERENC"
-    "E_FRAME_ECI\020\002\022\030\n\024REFERENCE_FRAME_ECEF\020\003*"
-    "\204\001\n\016PropagatorType\022\037\n\033PROPAGATOR_TYPE_UN"
-    "SPECIFIED\020\000\022\030\n\024PROPAGATOR_TYPE_SGP4\020\001\022\030\n"
-    "\024PROPAGATOR_TYPE_SDP4\020\002\022\035\n\031PROPAGATOR_TY"
-    "PE_NUMERICAL\020\0032e\n\022PropagationService\022O\n\016"
-    "GetPropagation\022\035.api.v3.GetPropagationRe"
-    "quest\032\036.api.v3.GetPropagationResponseB\nZ"
-    "\010proto/v3b\006proto3"
+    "\n\020api/v3/sat.proto\022\005orbit\032\036google/protob"
+    "uf/duration.proto\032\037google/protobuf/times"
+    "tamp.proto\"\256\001\n\003Tle\022\r\n\005line1\030\001 \001(\t\022\r\n\005lin"
+    "e2\030\002 \001(\t\022\026\n\016satellite_name\030\003 \001(\t\022\030\n\020sate"
+    "llite_number\030\004 \001(\r\022)\n\005epoch\030\005 \001(\0132\032.goog"
+    "le.protobuf.Timestamp\022,\n\016orbit_elements\030"
+    "\006 \001(\0132\024.orbit.OrbitElements\"*\n\007Vector3\022\t"
+    "\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001\"w\n\013State"
+    "Vector\022 \n\010position\030\001 \001(\0132\016.orbit.Vector3"
+    "\022 \n\010velocity\030\002 \001(\0132\016.orbit.Vector3\022$\n\005fr"
+    "ame\030\003 \001(\0162\025.orbit.ReferenceFrame\"T\n\020Geod"
+    "eticPosition\022\024\n\014latitude_deg\030\001 \001(\001\022\025\n\rlo"
+    "ngitude_deg\030\002 \001(\001\022\023\n\013altitude_km\030\003 \001(\001\"\247"
+    "\001\n\rOrbitElements\022\032\n\022semi_major_axis_km\030\001"
+    " \001(\001\022\024\n\014eccentricity\030\002 \001(\001\022\027\n\017inclinatio"
+    "n_deg\030\003 \001(\001\022\020\n\010raan_deg\030\004 \001(\001\022\037\n\027argumen"
+    "t_of_perigee_deg\030\005 \001(\001\022\030\n\020true_anomaly_d"
+    "eg\030\006 \001(\001\"\261\001\n\013Propagation\022)\n\005epoch\030\001 \001(\0132"
+    "\032.google.protobuf.Timestamp\022!\n\005state\030\002 \001"
+    "(\0132\022.orbit.StateVector\022)\n\010geodetic\030\003 \001(\013"
+    "2\027.orbit.GeodeticPosition\022)\n\npropagator\030"
+    "\004 \001(\0162\025.orbit.PropagatorType\"1\n\025GetPropa"
+    "gationRequest\022\030\n\020satellite_number\030\001 \001(\r\""
+    "\331\001\n\026GetPropagationResponse\022\027\n\003tle\030\001 \001(\0132"
+    "\n.orbit.Tle\022*\n\007tle_age\030\002 \001(\0132\031.google.pr"
+    "otobuf.Duration\022(\n\014at_tle_epoch\030\003 \001(\0132\022."
+    "orbit.Propagation\022&\n\nat_now_utc\030\004 \001(\0132\022."
+    "orbit.Propagation\022(\n\014propagations\030\005 \003(\0132"
+    "\022.orbit.Propagation*~\n\016ReferenceFrame\022\037\n"
+    "\033REFERENCE_FRAME_UNSPECIFIED\020\000\022\030\n\024REFERE"
+    "NCE_FRAME_TEME\020\001\022\027\n\023REFERENCE_FRAME_ECI\020"
+    "\002\022\030\n\024REFERENCE_FRAME_ECEF\020\003*\204\001\n\016Propagat"
+    "orType\022\037\n\033PROPAGATOR_TYPE_UNSPECIFIED\020\000\022"
+    "\030\n\024PROPAGATOR_TYPE_SGP4\020\001\022\030\n\024PROPAGATOR_"
+    "TYPE_SDP4\020\002\022\035\n\031PROPAGATOR_TYPE_NUMERICAL"
+    "\020\0032c\n\022PropagationService\022M\n\016GetPropagati"
+    "on\022\034.orbit.GetPropagationRequest\032\035.orbit"
+    ".GetPropagationResponseB\nZ\010proto/v3b\006pro"
+    "to3"
 };
 static const ::_pbi::DescriptorTable* PROTOBUF_NONNULL const
     descriptor_table_api_2fv3_2fsat_2eproto_deps[2] = {
@@ -424,7 +422,7 @@ static ::absl::once_flag descriptor_table_api_2fv3_2fsat_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_api_2fv3_2fsat_2eproto = {
     false,
     false,
-    1537,
+    1523,
     descriptor_table_protodef_api_2fv3_2fsat_2eproto,
     "api/v3/sat.proto",
     &descriptor_table_api_2fv3_2fsat_2eproto_once,
@@ -437,8 +435,7 @@ PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_api_2fv3_2fsat
     file_level_enum_descriptors_api_2fv3_2fsat_2eproto,
     file_level_service_descriptors_api_2fv3_2fsat_2eproto,
 };
-namespace api {
-namespace v3 {
+namespace orbit {
 const ::google::protobuf::EnumDescriptor* PROTOBUF_NONNULL ReferenceFrame_descriptor() {
   ::google::protobuf::internal::AssignDescriptors(&descriptor_table_api_2fv3_2fsat_2eproto);
   return file_level_enum_descriptors_api_2fv3_2fsat_2eproto[0];
@@ -473,12 +470,12 @@ Tle::Tle(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:api.v3.Tle)
+  // @@protoc_insertion_point(arena_constructor:orbit.Tle)
 }
 PROTOBUF_NDEBUG_INLINE Tle::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
-    const ::api::v3::Tle& from_msg)
+    const ::orbit::Tle& from_msg)
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
         line1_(arena, from.line1_),
@@ -507,7 +504,7 @@ Tle::Tle(
                 : nullptr;
   _impl_.satellite_number_ = from._impl_.satellite_number_;
 
-  // @@protoc_insertion_point(copy_constructor:api.v3.Tle)
+  // @@protoc_insertion_point(copy_constructor:orbit.Tle)
 }
 PROTOBUF_NDEBUG_INLINE Tle::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
@@ -527,7 +524,7 @@ inline void Tle::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
                sizeof(Impl_::satellite_number_));
 }
 Tle::~Tle() {
-  // @@protoc_insertion_point(destructor:api.v3.Tle)
+  // @@protoc_insertion_point(destructor:orbit.Tle)
   SharedDtor(*this);
 }
 inline void Tle::SharedDtor(MessageLite& self) {
@@ -585,7 +582,7 @@ Tle::GetClassData() const {
   return Tle_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<3, 6, 2, 43, 2>
+const ::_pbi::TcParseTable<3, 6, 2, 42, 2>
 Tle::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(Tle, _impl_._has_bits_),
@@ -601,7 +598,7 @@ Tle::_table_ = {
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::api::v3::Tle>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::orbit::Tle>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     {::_pbi::TcParser::MiniParse, {}},
@@ -620,7 +617,7 @@ Tle::_table_ = {
     // .google.protobuf.Timestamp epoch = 5;
     {::_pbi::TcParser::FastMtS1,
      {42, 3, 0, PROTOBUF_FIELD_OFFSET(Tle, _impl_.epoch_)}},
-    // .api.v3.OrbitElements orbit_elements = 6;
+    // .orbit.OrbitElements orbit_elements = 6;
     {::_pbi::TcParser::FastMtS1,
      {50, 4, 1, PROTOBUF_FIELD_OFFSET(Tle, _impl_.orbit_elements_)}},
     {::_pbi::TcParser::MiniParse, {}},
@@ -642,24 +639,24 @@ Tle::_table_ = {
     // .google.protobuf.Timestamp epoch = 5;
     {PROTOBUF_FIELD_OFFSET(Tle, _impl_.epoch_), _Internal::kHasBitsOffset + 3, 0,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .api.v3.OrbitElements orbit_elements = 6;
+    // .orbit.OrbitElements orbit_elements = 6;
     {PROTOBUF_FIELD_OFFSET(Tle, _impl_.orbit_elements_), _Internal::kHasBitsOffset + 4, 1,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
   }},
   {{
       {::_pbi::TcParser::GetTable<::google::protobuf::Timestamp>()},
-      {::_pbi::TcParser::GetTable<::api::v3::OrbitElements>()},
+      {::_pbi::TcParser::GetTable<::orbit::OrbitElements>()},
   }},
   {{
-    "\12\5\5\16\0\0\0\0"
-    "api.v3.Tle"
+    "\11\5\5\16\0\0\0\0"
+    "orbit.Tle"
     "line1"
     "line2"
     "satellite_name"
   }},
 };
 PROTOBUF_NOINLINE void Tle::Clear() {
-// @@protoc_insertion_point(message_clear_start:api.v3.Tle)
+// @@protoc_insertion_point(message_clear_start:orbit.Tle)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -701,7 +698,7 @@ PROTOBUF_NOINLINE void Tle::Clear() {
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
   const Tle& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(serialize_to_array_start:api.v3.Tle)
+  // @@protoc_insertion_point(serialize_to_array_start:orbit.Tle)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
@@ -710,7 +707,7 @@ PROTOBUF_NOINLINE void Tle::Clear() {
     if (!this_._internal_line1().empty()) {
       const ::std::string& _s = this_._internal_line1();
       ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "api.v3.Tle.line1");
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "orbit.Tle.line1");
       target = stream->WriteStringMaybeAliased(1, _s, target);
     }
   }
@@ -720,7 +717,7 @@ PROTOBUF_NOINLINE void Tle::Clear() {
     if (!this_._internal_line2().empty()) {
       const ::std::string& _s = this_._internal_line2();
       ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "api.v3.Tle.line2");
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "orbit.Tle.line2");
       target = stream->WriteStringMaybeAliased(2, _s, target);
     }
   }
@@ -730,7 +727,7 @@ PROTOBUF_NOINLINE void Tle::Clear() {
     if (!this_._internal_satellite_name().empty()) {
       const ::std::string& _s = this_._internal_satellite_name();
       ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "api.v3.Tle.satellite_name");
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "orbit.Tle.satellite_name");
       target = stream->WriteStringMaybeAliased(3, _s, target);
     }
   }
@@ -752,7 +749,7 @@ PROTOBUF_NOINLINE void Tle::Clear() {
         stream);
   }
 
-  // .api.v3.OrbitElements orbit_elements = 6;
+  // .orbit.OrbitElements orbit_elements = 6;
   if ((cached_has_bits & 0x00000010u) != 0) {
     target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         6, *this_._impl_.orbit_elements_, this_._impl_.orbit_elements_->GetCachedSize(), target,
@@ -764,7 +761,7 @@ PROTOBUF_NOINLINE void Tle::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:api.v3.Tle)
+  // @@protoc_insertion_point(serialize_to_array_end:orbit.Tle)
   return target;
 }
 
@@ -775,7 +772,7 @@ PROTOBUF_NOINLINE void Tle::Clear() {
 ::size_t Tle::ByteSizeLong() const {
   const Tle& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(message_byte_size_start:api.v3.Tle)
+  // @@protoc_insertion_point(message_byte_size_start:orbit.Tle)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -811,7 +808,7 @@ PROTOBUF_NOINLINE void Tle::Clear() {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.epoch_);
     }
-    // .api.v3.OrbitElements orbit_elements = 6;
+    // .orbit.OrbitElements orbit_elements = 6;
     if ((cached_has_bits & 0x00000010u) != 0) {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.orbit_elements_);
@@ -832,7 +829,7 @@ void Tle::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::pro
   auto* const _this = static_cast<Tle*>(&to_msg);
   auto& from = static_cast<const Tle&>(from_msg);
   ::google::protobuf::Arena* arena = _this->GetArena();
-  // @@protoc_insertion_point(class_specific_merge_from_start:api.v3.Tle)
+  // @@protoc_insertion_point(class_specific_merge_from_start:orbit.Tle)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -893,7 +890,7 @@ void Tle::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::pro
 }
 
 void Tle::CopyFrom(const Tle& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:api.v3.Tle)
+// @@protoc_insertion_point(class_specific_copy_from_start:orbit.Tle)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -937,7 +934,7 @@ Vector3::Vector3(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:api.v3.Vector3)
+  // @@protoc_insertion_point(arena_constructor:orbit.Vector3)
 }
 Vector3::Vector3(
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Vector3& from)
@@ -965,7 +962,7 @@ inline void Vector3::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
                sizeof(Impl_::z_));
 }
 Vector3::~Vector3() {
-  // @@protoc_insertion_point(destructor:api.v3.Vector3)
+  // @@protoc_insertion_point(destructor:orbit.Vector3)
   SharedDtor(*this);
 }
 inline void Vector3::SharedDtor(MessageLite& self) {
@@ -1034,7 +1031,7 @@ Vector3::_table_ = {
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::api::v3::Vector3>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::orbit::Vector3>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     {::_pbi::TcParser::MiniParse, {}},
@@ -1065,7 +1062,7 @@ Vector3::_table_ = {
   }},
 };
 PROTOBUF_NOINLINE void Vector3::Clear() {
-// @@protoc_insertion_point(message_clear_start:api.v3.Vector3)
+// @@protoc_insertion_point(message_clear_start:orbit.Vector3)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -1092,7 +1089,7 @@ PROTOBUF_NOINLINE void Vector3::Clear() {
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
   const Vector3& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(serialize_to_array_start:api.v3.Vector3)
+  // @@protoc_insertion_point(serialize_to_array_start:orbit.Vector3)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
@@ -1128,7 +1125,7 @@ PROTOBUF_NOINLINE void Vector3::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:api.v3.Vector3)
+  // @@protoc_insertion_point(serialize_to_array_end:orbit.Vector3)
   return target;
 }
 
@@ -1139,7 +1136,7 @@ PROTOBUF_NOINLINE void Vector3::Clear() {
 ::size_t Vector3::ByteSizeLong() const {
   const Vector3& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(message_byte_size_start:api.v3.Vector3)
+  // @@protoc_insertion_point(message_byte_size_start:orbit.Vector3)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -1175,7 +1172,7 @@ PROTOBUF_NOINLINE void Vector3::Clear() {
 void Vector3::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
   auto* const _this = static_cast<Vector3*>(&to_msg);
   auto& from = static_cast<const Vector3&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:api.v3.Vector3)
+  // @@protoc_insertion_point(class_specific_merge_from_start:orbit.Vector3)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -1203,7 +1200,7 @@ void Vector3::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google:
 }
 
 void Vector3::CopyFrom(const Vector3& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:api.v3.Vector3)
+// @@protoc_insertion_point(class_specific_copy_from_start:orbit.Vector3)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -1242,12 +1239,12 @@ StateVector::StateVector(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:api.v3.StateVector)
+  // @@protoc_insertion_point(arena_constructor:orbit.StateVector)
 }
 PROTOBUF_NDEBUG_INLINE StateVector::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
-    const ::api::v3::StateVector& from_msg)
+    const ::orbit::StateVector& from_msg)
       : _has_bits_{from._has_bits_},
         _cached_size_{0} {}
 
@@ -1273,7 +1270,7 @@ StateVector::StateVector(
                 : nullptr;
   _impl_.frame_ = from._impl_.frame_;
 
-  // @@protoc_insertion_point(copy_constructor:api.v3.StateVector)
+  // @@protoc_insertion_point(copy_constructor:orbit.StateVector)
 }
 PROTOBUF_NDEBUG_INLINE StateVector::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
@@ -1290,7 +1287,7 @@ inline void StateVector::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
                sizeof(Impl_::frame_));
 }
 StateVector::~StateVector() {
-  // @@protoc_insertion_point(destructor:api.v3.StateVector)
+  // @@protoc_insertion_point(destructor:orbit.StateVector)
   SharedDtor(*this);
 }
 inline void StateVector::SharedDtor(MessageLite& self) {
@@ -1361,41 +1358,41 @@ StateVector::_table_ = {
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::api::v3::StateVector>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::orbit::StateVector>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     {::_pbi::TcParser::MiniParse, {}},
-    // .api.v3.Vector3 position = 1;
+    // .orbit.Vector3 position = 1;
     {::_pbi::TcParser::FastMtS1,
      {10, 0, 0, PROTOBUF_FIELD_OFFSET(StateVector, _impl_.position_)}},
-    // .api.v3.Vector3 velocity = 2;
+    // .orbit.Vector3 velocity = 2;
     {::_pbi::TcParser::FastMtS1,
      {18, 1, 1, PROTOBUF_FIELD_OFFSET(StateVector, _impl_.velocity_)}},
-    // .api.v3.ReferenceFrame frame = 3;
+    // .orbit.ReferenceFrame frame = 3;
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StateVector, _impl_.frame_), 2>(),
      {24, 2, 0, PROTOBUF_FIELD_OFFSET(StateVector, _impl_.frame_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // .api.v3.Vector3 position = 1;
+    // .orbit.Vector3 position = 1;
     {PROTOBUF_FIELD_OFFSET(StateVector, _impl_.position_), _Internal::kHasBitsOffset + 0, 0,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .api.v3.Vector3 velocity = 2;
+    // .orbit.Vector3 velocity = 2;
     {PROTOBUF_FIELD_OFFSET(StateVector, _impl_.velocity_), _Internal::kHasBitsOffset + 1, 1,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .api.v3.ReferenceFrame frame = 3;
+    // .orbit.ReferenceFrame frame = 3;
     {PROTOBUF_FIELD_OFFSET(StateVector, _impl_.frame_), _Internal::kHasBitsOffset + 2, 0,
     (0 | ::_fl::kFcOptional | ::_fl::kOpenEnum)},
   }},
   {{
-      {::_pbi::TcParser::GetTable<::api::v3::Vector3>()},
-      {::_pbi::TcParser::GetTable<::api::v3::Vector3>()},
+      {::_pbi::TcParser::GetTable<::orbit::Vector3>()},
+      {::_pbi::TcParser::GetTable<::orbit::Vector3>()},
   }},
   {{
   }},
 };
 PROTOBUF_NOINLINE void StateVector::Clear() {
-// @@protoc_insertion_point(message_clear_start:api.v3.StateVector)
+// @@protoc_insertion_point(message_clear_start:orbit.StateVector)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -1428,26 +1425,26 @@ PROTOBUF_NOINLINE void StateVector::Clear() {
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
   const StateVector& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(serialize_to_array_start:api.v3.StateVector)
+  // @@protoc_insertion_point(serialize_to_array_start:orbit.StateVector)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
   cached_has_bits = this_._impl_._has_bits_[0];
-  // .api.v3.Vector3 position = 1;
+  // .orbit.Vector3 position = 1;
   if ((cached_has_bits & 0x00000001u) != 0) {
     target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         1, *this_._impl_.position_, this_._impl_.position_->GetCachedSize(), target,
         stream);
   }
 
-  // .api.v3.Vector3 velocity = 2;
+  // .orbit.Vector3 velocity = 2;
   if ((cached_has_bits & 0x00000002u) != 0) {
     target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         2, *this_._impl_.velocity_, this_._impl_.velocity_->GetCachedSize(), target,
         stream);
   }
 
-  // .api.v3.ReferenceFrame frame = 3;
+  // .orbit.ReferenceFrame frame = 3;
   if ((cached_has_bits & 0x00000004u) != 0) {
     if (this_._internal_frame() != 0) {
       target = stream->EnsureSpace(target);
@@ -1461,7 +1458,7 @@ PROTOBUF_NOINLINE void StateVector::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:api.v3.StateVector)
+  // @@protoc_insertion_point(serialize_to_array_end:orbit.StateVector)
   return target;
 }
 
@@ -1472,7 +1469,7 @@ PROTOBUF_NOINLINE void StateVector::Clear() {
 ::size_t StateVector::ByteSizeLong() const {
   const StateVector& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(message_byte_size_start:api.v3.StateVector)
+  // @@protoc_insertion_point(message_byte_size_start:orbit.StateVector)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -1482,17 +1479,17 @@ PROTOBUF_NOINLINE void StateVector::Clear() {
   ::_pbi::Prefetch5LinesFrom7Lines(&this_);
   cached_has_bits = this_._impl_._has_bits_[0];
   if ((cached_has_bits & 0x00000007u) != 0) {
-    // .api.v3.Vector3 position = 1;
+    // .orbit.Vector3 position = 1;
     if ((cached_has_bits & 0x00000001u) != 0) {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.position_);
     }
-    // .api.v3.Vector3 velocity = 2;
+    // .orbit.Vector3 velocity = 2;
     if ((cached_has_bits & 0x00000002u) != 0) {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.velocity_);
     }
-    // .api.v3.ReferenceFrame frame = 3;
+    // .orbit.ReferenceFrame frame = 3;
     if ((cached_has_bits & 0x00000004u) != 0) {
       if (this_._internal_frame() != 0) {
         total_size += 1 +
@@ -1508,7 +1505,7 @@ void StateVector::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::goo
   auto* const _this = static_cast<StateVector*>(&to_msg);
   auto& from = static_cast<const StateVector&>(from_msg);
   ::google::protobuf::Arena* arena = _this->GetArena();
-  // @@protoc_insertion_point(class_specific_merge_from_start:api.v3.StateVector)
+  // @@protoc_insertion_point(class_specific_merge_from_start:orbit.StateVector)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -1542,7 +1539,7 @@ void StateVector::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::goo
 }
 
 void StateVector::CopyFrom(const StateVector& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:api.v3.StateVector)
+// @@protoc_insertion_point(class_specific_copy_from_start:orbit.StateVector)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -1581,7 +1578,7 @@ GeodeticPosition::GeodeticPosition(::google::protobuf::Arena* PROTOBUF_NULLABLE 
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:api.v3.GeodeticPosition)
+  // @@protoc_insertion_point(arena_constructor:orbit.GeodeticPosition)
 }
 GeodeticPosition::GeodeticPosition(
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const GeodeticPosition& from)
@@ -1609,7 +1606,7 @@ inline void GeodeticPosition::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) 
                sizeof(Impl_::altitude_km_));
 }
 GeodeticPosition::~GeodeticPosition() {
-  // @@protoc_insertion_point(destructor:api.v3.GeodeticPosition)
+  // @@protoc_insertion_point(destructor:orbit.GeodeticPosition)
   SharedDtor(*this);
 }
 inline void GeodeticPosition::SharedDtor(MessageLite& self) {
@@ -1678,7 +1675,7 @@ GeodeticPosition::_table_ = {
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::api::v3::GeodeticPosition>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::orbit::GeodeticPosition>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     {::_pbi::TcParser::MiniParse, {}},
@@ -1709,7 +1706,7 @@ GeodeticPosition::_table_ = {
   }},
 };
 PROTOBUF_NOINLINE void GeodeticPosition::Clear() {
-// @@protoc_insertion_point(message_clear_start:api.v3.GeodeticPosition)
+// @@protoc_insertion_point(message_clear_start:orbit.GeodeticPosition)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -1736,7 +1733,7 @@ PROTOBUF_NOINLINE void GeodeticPosition::Clear() {
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
   const GeodeticPosition& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(serialize_to_array_start:api.v3.GeodeticPosition)
+  // @@protoc_insertion_point(serialize_to_array_start:orbit.GeodeticPosition)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
@@ -1772,7 +1769,7 @@ PROTOBUF_NOINLINE void GeodeticPosition::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:api.v3.GeodeticPosition)
+  // @@protoc_insertion_point(serialize_to_array_end:orbit.GeodeticPosition)
   return target;
 }
 
@@ -1783,7 +1780,7 @@ PROTOBUF_NOINLINE void GeodeticPosition::Clear() {
 ::size_t GeodeticPosition::ByteSizeLong() const {
   const GeodeticPosition& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(message_byte_size_start:api.v3.GeodeticPosition)
+  // @@protoc_insertion_point(message_byte_size_start:orbit.GeodeticPosition)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -1819,7 +1816,7 @@ PROTOBUF_NOINLINE void GeodeticPosition::Clear() {
 void GeodeticPosition::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
   auto* const _this = static_cast<GeodeticPosition*>(&to_msg);
   auto& from = static_cast<const GeodeticPosition&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:api.v3.GeodeticPosition)
+  // @@protoc_insertion_point(class_specific_merge_from_start:orbit.GeodeticPosition)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -1847,7 +1844,7 @@ void GeodeticPosition::MergeImpl(::google::protobuf::MessageLite& to_msg, const 
 }
 
 void GeodeticPosition::CopyFrom(const GeodeticPosition& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:api.v3.GeodeticPosition)
+// @@protoc_insertion_point(class_specific_copy_from_start:orbit.GeodeticPosition)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -1886,7 +1883,7 @@ OrbitElements::OrbitElements(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:api.v3.OrbitElements)
+  // @@protoc_insertion_point(arena_constructor:orbit.OrbitElements)
 }
 OrbitElements::OrbitElements(
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const OrbitElements& from)
@@ -1914,7 +1911,7 @@ inline void OrbitElements::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
                sizeof(Impl_::true_anomaly_deg_));
 }
 OrbitElements::~OrbitElements() {
-  // @@protoc_insertion_point(destructor:api.v3.OrbitElements)
+  // @@protoc_insertion_point(destructor:orbit.OrbitElements)
   SharedDtor(*this);
 }
 inline void OrbitElements::SharedDtor(MessageLite& self) {
@@ -1983,7 +1980,7 @@ OrbitElements::_table_ = {
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::api::v3::OrbitElements>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::orbit::OrbitElements>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     {::_pbi::TcParser::MiniParse, {}},
@@ -2033,7 +2030,7 @@ OrbitElements::_table_ = {
   }},
 };
 PROTOBUF_NOINLINE void OrbitElements::Clear() {
-// @@protoc_insertion_point(message_clear_start:api.v3.OrbitElements)
+// @@protoc_insertion_point(message_clear_start:orbit.OrbitElements)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -2060,7 +2057,7 @@ PROTOBUF_NOINLINE void OrbitElements::Clear() {
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
   const OrbitElements& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(serialize_to_array_start:api.v3.OrbitElements)
+  // @@protoc_insertion_point(serialize_to_array_start:orbit.OrbitElements)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
@@ -2123,7 +2120,7 @@ PROTOBUF_NOINLINE void OrbitElements::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:api.v3.OrbitElements)
+  // @@protoc_insertion_point(serialize_to_array_end:orbit.OrbitElements)
   return target;
 }
 
@@ -2134,7 +2131,7 @@ PROTOBUF_NOINLINE void OrbitElements::Clear() {
 ::size_t OrbitElements::ByteSizeLong() const {
   const OrbitElements& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(message_byte_size_start:api.v3.OrbitElements)
+  // @@protoc_insertion_point(message_byte_size_start:orbit.OrbitElements)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -2188,7 +2185,7 @@ PROTOBUF_NOINLINE void OrbitElements::Clear() {
 void OrbitElements::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
   auto* const _this = static_cast<OrbitElements*>(&to_msg);
   auto& from = static_cast<const OrbitElements&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:api.v3.OrbitElements)
+  // @@protoc_insertion_point(class_specific_merge_from_start:orbit.OrbitElements)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -2231,7 +2228,7 @@ void OrbitElements::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::g
 }
 
 void OrbitElements::CopyFrom(const OrbitElements& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:api.v3.OrbitElements)
+// @@protoc_insertion_point(class_specific_copy_from_start:orbit.OrbitElements)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -2275,12 +2272,12 @@ Propagation::Propagation(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:api.v3.Propagation)
+  // @@protoc_insertion_point(arena_constructor:orbit.Propagation)
 }
 PROTOBUF_NDEBUG_INLINE Propagation::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
-    const ::api::v3::Propagation& from_msg)
+    const ::orbit::Propagation& from_msg)
       : _has_bits_{from._has_bits_},
         _cached_size_{0} {}
 
@@ -2309,7 +2306,7 @@ Propagation::Propagation(
                 : nullptr;
   _impl_.propagator_ = from._impl_.propagator_;
 
-  // @@protoc_insertion_point(copy_constructor:api.v3.Propagation)
+  // @@protoc_insertion_point(copy_constructor:orbit.Propagation)
 }
 PROTOBUF_NDEBUG_INLINE Propagation::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
@@ -2326,7 +2323,7 @@ inline void Propagation::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
                sizeof(Impl_::propagator_));
 }
 Propagation::~Propagation() {
-  // @@protoc_insertion_point(destructor:api.v3.Propagation)
+  // @@protoc_insertion_point(destructor:orbit.Propagation)
   SharedDtor(*this);
 }
 inline void Propagation::SharedDtor(MessageLite& self) {
@@ -2398,19 +2395,19 @@ Propagation::_table_ = {
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::api::v3::Propagation>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::orbit::Propagation>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // .api.v3.PropagatorType propagator = 4;
+    // .orbit.PropagatorType propagator = 4;
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(Propagation, _impl_.propagator_), 3>(),
      {32, 3, 0, PROTOBUF_FIELD_OFFSET(Propagation, _impl_.propagator_)}},
     // .google.protobuf.Timestamp epoch = 1;
     {::_pbi::TcParser::FastMtS1,
      {10, 0, 0, PROTOBUF_FIELD_OFFSET(Propagation, _impl_.epoch_)}},
-    // .api.v3.StateVector state = 2;
+    // .orbit.StateVector state = 2;
     {::_pbi::TcParser::FastMtS1,
      {18, 1, 1, PROTOBUF_FIELD_OFFSET(Propagation, _impl_.state_)}},
-    // .api.v3.GeodeticPosition geodetic = 3;
+    // .orbit.GeodeticPosition geodetic = 3;
     {::_pbi::TcParser::FastMtS1,
      {26, 2, 2, PROTOBUF_FIELD_OFFSET(Propagation, _impl_.geodetic_)}},
   }}, {{
@@ -2419,26 +2416,26 @@ Propagation::_table_ = {
     // .google.protobuf.Timestamp epoch = 1;
     {PROTOBUF_FIELD_OFFSET(Propagation, _impl_.epoch_), _Internal::kHasBitsOffset + 0, 0,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .api.v3.StateVector state = 2;
+    // .orbit.StateVector state = 2;
     {PROTOBUF_FIELD_OFFSET(Propagation, _impl_.state_), _Internal::kHasBitsOffset + 1, 1,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .api.v3.GeodeticPosition geodetic = 3;
+    // .orbit.GeodeticPosition geodetic = 3;
     {PROTOBUF_FIELD_OFFSET(Propagation, _impl_.geodetic_), _Internal::kHasBitsOffset + 2, 2,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .api.v3.PropagatorType propagator = 4;
+    // .orbit.PropagatorType propagator = 4;
     {PROTOBUF_FIELD_OFFSET(Propagation, _impl_.propagator_), _Internal::kHasBitsOffset + 3, 0,
     (0 | ::_fl::kFcOptional | ::_fl::kOpenEnum)},
   }},
   {{
       {::_pbi::TcParser::GetTable<::google::protobuf::Timestamp>()},
-      {::_pbi::TcParser::GetTable<::api::v3::StateVector>()},
-      {::_pbi::TcParser::GetTable<::api::v3::GeodeticPosition>()},
+      {::_pbi::TcParser::GetTable<::orbit::StateVector>()},
+      {::_pbi::TcParser::GetTable<::orbit::GeodeticPosition>()},
   }},
   {{
   }},
 };
 PROTOBUF_NOINLINE void Propagation::Clear() {
-// @@protoc_insertion_point(message_clear_start:api.v3.Propagation)
+// @@protoc_insertion_point(message_clear_start:orbit.Propagation)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -2475,7 +2472,7 @@ PROTOBUF_NOINLINE void Propagation::Clear() {
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
   const Propagation& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(serialize_to_array_start:api.v3.Propagation)
+  // @@protoc_insertion_point(serialize_to_array_start:orbit.Propagation)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
@@ -2487,21 +2484,21 @@ PROTOBUF_NOINLINE void Propagation::Clear() {
         stream);
   }
 
-  // .api.v3.StateVector state = 2;
+  // .orbit.StateVector state = 2;
   if ((cached_has_bits & 0x00000002u) != 0) {
     target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         2, *this_._impl_.state_, this_._impl_.state_->GetCachedSize(), target,
         stream);
   }
 
-  // .api.v3.GeodeticPosition geodetic = 3;
+  // .orbit.GeodeticPosition geodetic = 3;
   if ((cached_has_bits & 0x00000004u) != 0) {
     target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         3, *this_._impl_.geodetic_, this_._impl_.geodetic_->GetCachedSize(), target,
         stream);
   }
 
-  // .api.v3.PropagatorType propagator = 4;
+  // .orbit.PropagatorType propagator = 4;
   if ((cached_has_bits & 0x00000008u) != 0) {
     if (this_._internal_propagator() != 0) {
       target = stream->EnsureSpace(target);
@@ -2515,7 +2512,7 @@ PROTOBUF_NOINLINE void Propagation::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:api.v3.Propagation)
+  // @@protoc_insertion_point(serialize_to_array_end:orbit.Propagation)
   return target;
 }
 
@@ -2526,7 +2523,7 @@ PROTOBUF_NOINLINE void Propagation::Clear() {
 ::size_t Propagation::ByteSizeLong() const {
   const Propagation& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(message_byte_size_start:api.v3.Propagation)
+  // @@protoc_insertion_point(message_byte_size_start:orbit.Propagation)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -2541,17 +2538,17 @@ PROTOBUF_NOINLINE void Propagation::Clear() {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.epoch_);
     }
-    // .api.v3.StateVector state = 2;
+    // .orbit.StateVector state = 2;
     if ((cached_has_bits & 0x00000002u) != 0) {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.state_);
     }
-    // .api.v3.GeodeticPosition geodetic = 3;
+    // .orbit.GeodeticPosition geodetic = 3;
     if ((cached_has_bits & 0x00000004u) != 0) {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.geodetic_);
     }
-    // .api.v3.PropagatorType propagator = 4;
+    // .orbit.PropagatorType propagator = 4;
     if ((cached_has_bits & 0x00000008u) != 0) {
       if (this_._internal_propagator() != 0) {
         total_size += 1 +
@@ -2567,7 +2564,7 @@ void Propagation::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::goo
   auto* const _this = static_cast<Propagation*>(&to_msg);
   auto& from = static_cast<const Propagation&>(from_msg);
   ::google::protobuf::Arena* arena = _this->GetArena();
-  // @@protoc_insertion_point(class_specific_merge_from_start:api.v3.Propagation)
+  // @@protoc_insertion_point(class_specific_merge_from_start:orbit.Propagation)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -2609,7 +2606,7 @@ void Propagation::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::goo
 }
 
 void Propagation::CopyFrom(const Propagation& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:api.v3.Propagation)
+// @@protoc_insertion_point(class_specific_copy_from_start:orbit.Propagation)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -2648,7 +2645,7 @@ GetPropagationRequest::GetPropagationRequest(::google::protobuf::Arena* PROTOBUF
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:api.v3.GetPropagationRequest)
+  // @@protoc_insertion_point(arena_constructor:orbit.GetPropagationRequest)
 }
 GetPropagationRequest::GetPropagationRequest(
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const GetPropagationRequest& from)
@@ -2671,7 +2668,7 @@ inline void GetPropagationRequest::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE ar
   _impl_.satellite_number_ = {};
 }
 GetPropagationRequest::~GetPropagationRequest() {
-  // @@protoc_insertion_point(destructor:api.v3.GetPropagationRequest)
+  // @@protoc_insertion_point(destructor:orbit.GetPropagationRequest)
   SharedDtor(*this);
 }
 inline void GetPropagationRequest::SharedDtor(MessageLite& self) {
@@ -2740,7 +2737,7 @@ GetPropagationRequest::_table_ = {
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::api::v3::GetPropagationRequest>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::orbit::GetPropagationRequest>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     // uint32 satellite_number = 1;
@@ -2758,7 +2755,7 @@ GetPropagationRequest::_table_ = {
   }},
 };
 PROTOBUF_NOINLINE void GetPropagationRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:api.v3.GetPropagationRequest)
+// @@protoc_insertion_point(message_clear_start:orbit.GetPropagationRequest)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -2780,7 +2777,7 @@ PROTOBUF_NOINLINE void GetPropagationRequest::Clear() {
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
   const GetPropagationRequest& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(serialize_to_array_start:api.v3.GetPropagationRequest)
+  // @@protoc_insertion_point(serialize_to_array_start:orbit.GetPropagationRequest)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
@@ -2798,7 +2795,7 @@ PROTOBUF_NOINLINE void GetPropagationRequest::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:api.v3.GetPropagationRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:orbit.GetPropagationRequest)
   return target;
 }
 
@@ -2809,7 +2806,7 @@ PROTOBUF_NOINLINE void GetPropagationRequest::Clear() {
 ::size_t GetPropagationRequest::ByteSizeLong() const {
   const GetPropagationRequest& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(message_byte_size_start:api.v3.GetPropagationRequest)
+  // @@protoc_insertion_point(message_byte_size_start:orbit.GetPropagationRequest)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -2833,7 +2830,7 @@ PROTOBUF_NOINLINE void GetPropagationRequest::Clear() {
 void GetPropagationRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
   auto* const _this = static_cast<GetPropagationRequest*>(&to_msg);
   auto& from = static_cast<const GetPropagationRequest&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:api.v3.GetPropagationRequest)
+  // @@protoc_insertion_point(class_specific_merge_from_start:orbit.GetPropagationRequest)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -2849,7 +2846,7 @@ void GetPropagationRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, c
 }
 
 void GetPropagationRequest::CopyFrom(const GetPropagationRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:api.v3.GetPropagationRequest)
+// @@protoc_insertion_point(class_specific_copy_from_start:orbit.GetPropagationRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -2888,12 +2885,12 @@ GetPropagationResponse::GetPropagationResponse(::google::protobuf::Arena* PROTOB
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:api.v3.GetPropagationResponse)
+  // @@protoc_insertion_point(arena_constructor:orbit.GetPropagationResponse)
 }
 PROTOBUF_NDEBUG_INLINE GetPropagationResponse::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
-    const ::api::v3::GetPropagationResponse& from_msg)
+    const ::orbit::GetPropagationResponse& from_msg)
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
         propagations_{visibility, arena, from.propagations_} {}
@@ -2925,7 +2922,7 @@ GetPropagationResponse::GetPropagationResponse(
                 ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.at_now_utc_)
                 : nullptr;
 
-  // @@protoc_insertion_point(copy_constructor:api.v3.GetPropagationResponse)
+  // @@protoc_insertion_point(copy_constructor:orbit.GetPropagationResponse)
 }
 PROTOBUF_NDEBUG_INLINE GetPropagationResponse::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
@@ -2943,7 +2940,7 @@ inline void GetPropagationResponse::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE a
                sizeof(Impl_::at_now_utc_));
 }
 GetPropagationResponse::~GetPropagationResponse() {
-  // @@protoc_insertion_point(destructor:api.v3.GetPropagationResponse)
+  // @@protoc_insertion_point(destructor:orbit.GetPropagationResponse)
   SharedDtor(*this);
 }
 inline void GetPropagationResponse::SharedDtor(MessageLite& self) {
@@ -3028,23 +3025,23 @@ GetPropagationResponse::_table_ = {
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::api::v3::GetPropagationResponse>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::orbit::GetPropagationResponse>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     {::_pbi::TcParser::MiniParse, {}},
-    // .api.v3.Tle tle = 1;
+    // .orbit.Tle tle = 1;
     {::_pbi::TcParser::FastMtS1,
      {10, 0, 0, PROTOBUF_FIELD_OFFSET(GetPropagationResponse, _impl_.tle_)}},
     // .google.protobuf.Duration tle_age = 2;
     {::_pbi::TcParser::FastMtS1,
      {18, 1, 1, PROTOBUF_FIELD_OFFSET(GetPropagationResponse, _impl_.tle_age_)}},
-    // .api.v3.Propagation at_tle_epoch = 3;
+    // .orbit.Propagation at_tle_epoch = 3;
     {::_pbi::TcParser::FastMtS1,
      {26, 2, 2, PROTOBUF_FIELD_OFFSET(GetPropagationResponse, _impl_.at_tle_epoch_)}},
-    // .api.v3.Propagation at_now_utc = 4;
+    // .orbit.Propagation at_now_utc = 4;
     {::_pbi::TcParser::FastMtS1,
      {34, 3, 3, PROTOBUF_FIELD_OFFSET(GetPropagationResponse, _impl_.at_now_utc_)}},
-    // repeated .api.v3.Propagation propagations = 5;
+    // repeated .orbit.Propagation propagations = 5;
     {::_pbi::TcParser::FastMtR1,
      {42, 63, 4, PROTOBUF_FIELD_OFFSET(GetPropagationResponse, _impl_.propagations_)}},
     {::_pbi::TcParser::MiniParse, {}},
@@ -3052,34 +3049,34 @@ GetPropagationResponse::_table_ = {
   }}, {{
     65535, 65535
   }}, {{
-    // .api.v3.Tle tle = 1;
+    // .orbit.Tle tle = 1;
     {PROTOBUF_FIELD_OFFSET(GetPropagationResponse, _impl_.tle_), _Internal::kHasBitsOffset + 0, 0,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .google.protobuf.Duration tle_age = 2;
     {PROTOBUF_FIELD_OFFSET(GetPropagationResponse, _impl_.tle_age_), _Internal::kHasBitsOffset + 1, 1,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .api.v3.Propagation at_tle_epoch = 3;
+    // .orbit.Propagation at_tle_epoch = 3;
     {PROTOBUF_FIELD_OFFSET(GetPropagationResponse, _impl_.at_tle_epoch_), _Internal::kHasBitsOffset + 2, 2,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .api.v3.Propagation at_now_utc = 4;
+    // .orbit.Propagation at_now_utc = 4;
     {PROTOBUF_FIELD_OFFSET(GetPropagationResponse, _impl_.at_now_utc_), _Internal::kHasBitsOffset + 3, 3,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // repeated .api.v3.Propagation propagations = 5;
+    // repeated .orbit.Propagation propagations = 5;
     {PROTOBUF_FIELD_OFFSET(GetPropagationResponse, _impl_.propagations_), -1, 4,
     (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
   }},
   {{
-      {::_pbi::TcParser::GetTable<::api::v3::Tle>()},
+      {::_pbi::TcParser::GetTable<::orbit::Tle>()},
       {::_pbi::TcParser::GetTable<::google::protobuf::Duration>()},
-      {::_pbi::TcParser::GetTable<::api::v3::Propagation>()},
-      {::_pbi::TcParser::GetTable<::api::v3::Propagation>()},
-      {::_pbi::TcParser::GetTable<::api::v3::Propagation>()},
+      {::_pbi::TcParser::GetTable<::orbit::Propagation>()},
+      {::_pbi::TcParser::GetTable<::orbit::Propagation>()},
+      {::_pbi::TcParser::GetTable<::orbit::Propagation>()},
   }},
   {{
   }},
 };
 PROTOBUF_NOINLINE void GetPropagationResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:api.v3.GetPropagationResponse)
+// @@protoc_insertion_point(message_clear_start:orbit.GetPropagationResponse)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -3120,12 +3117,12 @@ PROTOBUF_NOINLINE void GetPropagationResponse::Clear() {
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
   const GetPropagationResponse& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(serialize_to_array_start:api.v3.GetPropagationResponse)
+  // @@protoc_insertion_point(serialize_to_array_start:orbit.GetPropagationResponse)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
   cached_has_bits = this_._impl_._has_bits_[0];
-  // .api.v3.Tle tle = 1;
+  // .orbit.Tle tle = 1;
   if ((cached_has_bits & 0x00000001u) != 0) {
     target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         1, *this_._impl_.tle_, this_._impl_.tle_->GetCachedSize(), target,
@@ -3139,21 +3136,21 @@ PROTOBUF_NOINLINE void GetPropagationResponse::Clear() {
         stream);
   }
 
-  // .api.v3.Propagation at_tle_epoch = 3;
+  // .orbit.Propagation at_tle_epoch = 3;
   if ((cached_has_bits & 0x00000004u) != 0) {
     target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         3, *this_._impl_.at_tle_epoch_, this_._impl_.at_tle_epoch_->GetCachedSize(), target,
         stream);
   }
 
-  // .api.v3.Propagation at_now_utc = 4;
+  // .orbit.Propagation at_now_utc = 4;
   if ((cached_has_bits & 0x00000008u) != 0) {
     target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         4, *this_._impl_.at_now_utc_, this_._impl_.at_now_utc_->GetCachedSize(), target,
         stream);
   }
 
-  // repeated .api.v3.Propagation propagations = 5;
+  // repeated .orbit.Propagation propagations = 5;
   for (unsigned i = 0, n = static_cast<unsigned>(
                            this_._internal_propagations_size());
        i < n; i++) {
@@ -3169,7 +3166,7 @@ PROTOBUF_NOINLINE void GetPropagationResponse::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:api.v3.GetPropagationResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:orbit.GetPropagationResponse)
   return target;
 }
 
@@ -3180,7 +3177,7 @@ PROTOBUF_NOINLINE void GetPropagationResponse::Clear() {
 ::size_t GetPropagationResponse::ByteSizeLong() const {
   const GetPropagationResponse& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(message_byte_size_start:api.v3.GetPropagationResponse)
+  // @@protoc_insertion_point(message_byte_size_start:orbit.GetPropagationResponse)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -3189,7 +3186,7 @@ PROTOBUF_NOINLINE void GetPropagationResponse::Clear() {
 
   ::_pbi::Prefetch5LinesFrom7Lines(&this_);
    {
-    // repeated .api.v3.Propagation propagations = 5;
+    // repeated .orbit.Propagation propagations = 5;
     {
       total_size += 1UL * this_._internal_propagations_size();
       for (const auto& msg : this_._internal_propagations()) {
@@ -3199,7 +3196,7 @@ PROTOBUF_NOINLINE void GetPropagationResponse::Clear() {
   }
   cached_has_bits = this_._impl_._has_bits_[0];
   if ((cached_has_bits & 0x0000000fu) != 0) {
-    // .api.v3.Tle tle = 1;
+    // .orbit.Tle tle = 1;
     if ((cached_has_bits & 0x00000001u) != 0) {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.tle_);
@@ -3209,12 +3206,12 @@ PROTOBUF_NOINLINE void GetPropagationResponse::Clear() {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.tle_age_);
     }
-    // .api.v3.Propagation at_tle_epoch = 3;
+    // .orbit.Propagation at_tle_epoch = 3;
     if ((cached_has_bits & 0x00000004u) != 0) {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.at_tle_epoch_);
     }
-    // .api.v3.Propagation at_now_utc = 4;
+    // .orbit.Propagation at_now_utc = 4;
     if ((cached_has_bits & 0x00000008u) != 0) {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.at_now_utc_);
@@ -3228,7 +3225,7 @@ void GetPropagationResponse::MergeImpl(::google::protobuf::MessageLite& to_msg, 
   auto* const _this = static_cast<GetPropagationResponse*>(&to_msg);
   auto& from = static_cast<const GetPropagationResponse&>(from_msg);
   ::google::protobuf::Arena* arena = _this->GetArena();
-  // @@protoc_insertion_point(class_specific_merge_from_start:api.v3.GetPropagationResponse)
+  // @@protoc_insertion_point(class_specific_merge_from_start:orbit.GetPropagationResponse)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -3275,7 +3272,7 @@ void GetPropagationResponse::MergeImpl(::google::protobuf::MessageLite& to_msg, 
 }
 
 void GetPropagationResponse::CopyFrom(const GetPropagationResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:api.v3.GetPropagationResponse)
+// @@protoc_insertion_point(class_specific_copy_from_start:orbit.GetPropagationResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -3299,8 +3296,7 @@ void GetPropagationResponse::InternalSwap(GetPropagationResponse* PROTOBUF_RESTR
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // @@protoc_insertion_point(namespace_scope)
-}  // namespace v3
-}  // namespace api
+}  // namespace orbit
 namespace google {
 namespace protobuf {
 }  // namespace protobuf

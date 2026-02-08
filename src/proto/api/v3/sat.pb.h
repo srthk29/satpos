@@ -55,8 +55,7 @@ struct TableStruct_api_2fv3_2fsat_2eproto {
 extern "C" {
 extern const ::google::protobuf::internal::DescriptorTable descriptor_table_api_2fv3_2fsat_2eproto;
 }  // extern "C"
-namespace api {
-namespace v3 {
+namespace orbit {
 enum PropagatorType : int;
 extern const uint32_t PropagatorType_internal_data_[];
 enum ReferenceFrame : int;
@@ -93,21 +92,19 @@ class Vector3;
 struct Vector3DefaultTypeInternal;
 extern Vector3DefaultTypeInternal _Vector3_default_instance_;
 extern const ::google::protobuf::internal::ClassDataFull Vector3_class_data_;
-}  // namespace v3
-}  // namespace api
+}  // namespace orbit
 namespace google {
 namespace protobuf {
 template <>
-internal::EnumTraitsT<::api::v3::PropagatorType_internal_data_>
-    internal::EnumTraitsImpl::value<::api::v3::PropagatorType>;
+internal::EnumTraitsT<::orbit::PropagatorType_internal_data_>
+    internal::EnumTraitsImpl::value<::orbit::PropagatorType>;
 template <>
-internal::EnumTraitsT<::api::v3::ReferenceFrame_internal_data_>
-    internal::EnumTraitsImpl::value<::api::v3::ReferenceFrame>;
+internal::EnumTraitsT<::orbit::ReferenceFrame_internal_data_>
+    internal::EnumTraitsImpl::value<::orbit::ReferenceFrame>;
 }  // namespace protobuf
 }  // namespace google
 
-namespace api {
-namespace v3 {
+namespace orbit {
 enum ReferenceFrame : int {
   REFERENCE_FRAME_UNSPECIFIED = 0,
   REFERENCE_FRAME_TEME = 1,
@@ -191,7 +188,7 @@ inline bool PropagatorType_Parse(
 // -------------------------------------------------------------------
 
 class Vector3 final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:api.v3.Vector3) */ {
+/* @@protoc_insertion_point(class_definition:orbit.Vector3) */ {
  public:
   inline Vector3() : Vector3(nullptr) {}
   ~Vector3() PROTOBUF_FINAL;
@@ -309,7 +306,7 @@ class Vector3 final : public ::google::protobuf::Message
  private:
   template <typename T>
   friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
-  static ::absl::string_view FullMessageName() { return "api.v3.Vector3"; }
+  static ::absl::string_view FullMessageName() { return "orbit.Vector3"; }
 
  protected:
   explicit Vector3(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
@@ -367,7 +364,7 @@ class Vector3 final : public ::google::protobuf::Message
   void _internal_set_z(double value);
 
   public:
-  // @@protoc_insertion_point(class_scope:api.v3.Vector3)
+  // @@protoc_insertion_point(class_scope:orbit.Vector3)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
@@ -406,7 +403,7 @@ extern const ::google::protobuf::internal::ClassDataFull Vector3_class_data_;
 // -------------------------------------------------------------------
 
 class OrbitElements final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:api.v3.OrbitElements) */ {
+/* @@protoc_insertion_point(class_definition:orbit.OrbitElements) */ {
  public:
   inline OrbitElements() : OrbitElements(nullptr) {}
   ~OrbitElements() PROTOBUF_FINAL;
@@ -524,7 +521,7 @@ class OrbitElements final : public ::google::protobuf::Message
  private:
   template <typename T>
   friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
-  static ::absl::string_view FullMessageName() { return "api.v3.OrbitElements"; }
+  static ::absl::string_view FullMessageName() { return "orbit.OrbitElements"; }
 
  protected:
   explicit OrbitElements(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
@@ -615,7 +612,7 @@ class OrbitElements final : public ::google::protobuf::Message
   void _internal_set_true_anomaly_deg(double value);
 
   public:
-  // @@protoc_insertion_point(class_scope:api.v3.OrbitElements)
+  // @@protoc_insertion_point(class_scope:orbit.OrbitElements)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
@@ -657,7 +654,7 @@ extern const ::google::protobuf::internal::ClassDataFull OrbitElements_class_dat
 // -------------------------------------------------------------------
 
 class GetPropagationRequest final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:api.v3.GetPropagationRequest) */ {
+/* @@protoc_insertion_point(class_definition:orbit.GetPropagationRequest) */ {
  public:
   inline GetPropagationRequest() : GetPropagationRequest(nullptr) {}
   ~GetPropagationRequest() PROTOBUF_FINAL;
@@ -775,7 +772,7 @@ class GetPropagationRequest final : public ::google::protobuf::Message
  private:
   template <typename T>
   friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
-  static ::absl::string_view FullMessageName() { return "api.v3.GetPropagationRequest"; }
+  static ::absl::string_view FullMessageName() { return "orbit.GetPropagationRequest"; }
 
  protected:
   explicit GetPropagationRequest(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
@@ -811,7 +808,7 @@ class GetPropagationRequest final : public ::google::protobuf::Message
   void _internal_set_satellite_number(::uint32_t value);
 
   public:
-  // @@protoc_insertion_point(class_scope:api.v3.GetPropagationRequest)
+  // @@protoc_insertion_point(class_scope:orbit.GetPropagationRequest)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
@@ -848,7 +845,7 @@ extern const ::google::protobuf::internal::ClassDataFull GetPropagationRequest_c
 // -------------------------------------------------------------------
 
 class GeodeticPosition final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:api.v3.GeodeticPosition) */ {
+/* @@protoc_insertion_point(class_definition:orbit.GeodeticPosition) */ {
  public:
   inline GeodeticPosition() : GeodeticPosition(nullptr) {}
   ~GeodeticPosition() PROTOBUF_FINAL;
@@ -966,7 +963,7 @@ class GeodeticPosition final : public ::google::protobuf::Message
  private:
   template <typename T>
   friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
-  static ::absl::string_view FullMessageName() { return "api.v3.GeodeticPosition"; }
+  static ::absl::string_view FullMessageName() { return "orbit.GeodeticPosition"; }
 
  protected:
   explicit GeodeticPosition(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
@@ -1024,7 +1021,7 @@ class GeodeticPosition final : public ::google::protobuf::Message
   void _internal_set_altitude_km(double value);
 
   public:
-  // @@protoc_insertion_point(class_scope:api.v3.GeodeticPosition)
+  // @@protoc_insertion_point(class_scope:orbit.GeodeticPosition)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
@@ -1063,7 +1060,7 @@ extern const ::google::protobuf::internal::ClassDataFull GeodeticPosition_class_
 // -------------------------------------------------------------------
 
 class Tle final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:api.v3.Tle) */ {
+/* @@protoc_insertion_point(class_definition:orbit.Tle) */ {
  public:
   inline Tle() : Tle(nullptr) {}
   ~Tle() PROTOBUF_FINAL;
@@ -1181,7 +1178,7 @@ class Tle final : public ::google::protobuf::Message
  private:
   template <typename T>
   friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
-  static ::absl::string_view FullMessageName() { return "api.v3.Tle"; }
+  static ::absl::string_view FullMessageName() { return "orbit.Tle"; }
 
  protected:
   explicit Tle(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
@@ -1272,19 +1269,19 @@ class Tle final : public ::google::protobuf::Message
   ::google::protobuf::Timestamp* PROTOBUF_NONNULL _internal_mutable_epoch();
 
   public:
-  // .api.v3.OrbitElements orbit_elements = 6;
+  // .orbit.OrbitElements orbit_elements = 6;
   bool has_orbit_elements() const;
   void clear_orbit_elements() ;
-  const ::api::v3::OrbitElements& orbit_elements() const;
-  [[nodiscard]] ::api::v3::OrbitElements* PROTOBUF_NULLABLE release_orbit_elements();
-  ::api::v3::OrbitElements* PROTOBUF_NONNULL mutable_orbit_elements();
-  void set_allocated_orbit_elements(::api::v3::OrbitElements* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_orbit_elements(::api::v3::OrbitElements* PROTOBUF_NULLABLE value);
-  ::api::v3::OrbitElements* PROTOBUF_NULLABLE unsafe_arena_release_orbit_elements();
+  const ::orbit::OrbitElements& orbit_elements() const;
+  [[nodiscard]] ::orbit::OrbitElements* PROTOBUF_NULLABLE release_orbit_elements();
+  ::orbit::OrbitElements* PROTOBUF_NONNULL mutable_orbit_elements();
+  void set_allocated_orbit_elements(::orbit::OrbitElements* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_orbit_elements(::orbit::OrbitElements* PROTOBUF_NULLABLE value);
+  ::orbit::OrbitElements* PROTOBUF_NULLABLE unsafe_arena_release_orbit_elements();
 
   private:
-  const ::api::v3::OrbitElements& _internal_orbit_elements() const;
-  ::api::v3::OrbitElements* PROTOBUF_NONNULL _internal_mutable_orbit_elements();
+  const ::orbit::OrbitElements& _internal_orbit_elements() const;
+  ::orbit::OrbitElements* PROTOBUF_NONNULL _internal_mutable_orbit_elements();
 
   public:
   // uint32 satellite_number = 4;
@@ -1297,12 +1294,12 @@ class Tle final : public ::google::protobuf::Message
   void _internal_set_satellite_number(::uint32_t value);
 
   public:
-  // @@protoc_insertion_point(class_scope:api.v3.Tle)
+  // @@protoc_insertion_point(class_scope:orbit.Tle)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<3, 6,
-                                   2, 43,
+                                   2, 42,
                                    2>
       _table_;
 
@@ -1327,7 +1324,7 @@ class Tle final : public ::google::protobuf::Message
     ::google::protobuf::internal::ArenaStringPtr line2_;
     ::google::protobuf::internal::ArenaStringPtr satellite_name_;
     ::google::protobuf::Timestamp* PROTOBUF_NULLABLE epoch_;
-    ::api::v3::OrbitElements* PROTOBUF_NULLABLE orbit_elements_;
+    ::orbit::OrbitElements* PROTOBUF_NULLABLE orbit_elements_;
     ::uint32_t satellite_number_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -1339,7 +1336,7 @@ extern const ::google::protobuf::internal::ClassDataFull Tle_class_data_;
 // -------------------------------------------------------------------
 
 class StateVector final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:api.v3.StateVector) */ {
+/* @@protoc_insertion_point(class_definition:orbit.StateVector) */ {
  public:
   inline StateVector() : StateVector(nullptr) {}
   ~StateVector() PROTOBUF_FINAL;
@@ -1457,7 +1454,7 @@ class StateVector final : public ::google::protobuf::Message
  private:
   template <typename T>
   friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
-  static ::absl::string_view FullMessageName() { return "api.v3.StateVector"; }
+  static ::absl::string_view FullMessageName() { return "orbit.StateVector"; }
 
  protected:
   explicit StateVector(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
@@ -1485,47 +1482,47 @@ class StateVector final : public ::google::protobuf::Message
     kVelocityFieldNumber = 2,
     kFrameFieldNumber = 3,
   };
-  // .api.v3.Vector3 position = 1;
+  // .orbit.Vector3 position = 1;
   bool has_position() const;
   void clear_position() ;
-  const ::api::v3::Vector3& position() const;
-  [[nodiscard]] ::api::v3::Vector3* PROTOBUF_NULLABLE release_position();
-  ::api::v3::Vector3* PROTOBUF_NONNULL mutable_position();
-  void set_allocated_position(::api::v3::Vector3* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_position(::api::v3::Vector3* PROTOBUF_NULLABLE value);
-  ::api::v3::Vector3* PROTOBUF_NULLABLE unsafe_arena_release_position();
+  const ::orbit::Vector3& position() const;
+  [[nodiscard]] ::orbit::Vector3* PROTOBUF_NULLABLE release_position();
+  ::orbit::Vector3* PROTOBUF_NONNULL mutable_position();
+  void set_allocated_position(::orbit::Vector3* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_position(::orbit::Vector3* PROTOBUF_NULLABLE value);
+  ::orbit::Vector3* PROTOBUF_NULLABLE unsafe_arena_release_position();
 
   private:
-  const ::api::v3::Vector3& _internal_position() const;
-  ::api::v3::Vector3* PROTOBUF_NONNULL _internal_mutable_position();
+  const ::orbit::Vector3& _internal_position() const;
+  ::orbit::Vector3* PROTOBUF_NONNULL _internal_mutable_position();
 
   public:
-  // .api.v3.Vector3 velocity = 2;
+  // .orbit.Vector3 velocity = 2;
   bool has_velocity() const;
   void clear_velocity() ;
-  const ::api::v3::Vector3& velocity() const;
-  [[nodiscard]] ::api::v3::Vector3* PROTOBUF_NULLABLE release_velocity();
-  ::api::v3::Vector3* PROTOBUF_NONNULL mutable_velocity();
-  void set_allocated_velocity(::api::v3::Vector3* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_velocity(::api::v3::Vector3* PROTOBUF_NULLABLE value);
-  ::api::v3::Vector3* PROTOBUF_NULLABLE unsafe_arena_release_velocity();
+  const ::orbit::Vector3& velocity() const;
+  [[nodiscard]] ::orbit::Vector3* PROTOBUF_NULLABLE release_velocity();
+  ::orbit::Vector3* PROTOBUF_NONNULL mutable_velocity();
+  void set_allocated_velocity(::orbit::Vector3* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_velocity(::orbit::Vector3* PROTOBUF_NULLABLE value);
+  ::orbit::Vector3* PROTOBUF_NULLABLE unsafe_arena_release_velocity();
 
   private:
-  const ::api::v3::Vector3& _internal_velocity() const;
-  ::api::v3::Vector3* PROTOBUF_NONNULL _internal_mutable_velocity();
+  const ::orbit::Vector3& _internal_velocity() const;
+  ::orbit::Vector3* PROTOBUF_NONNULL _internal_mutable_velocity();
 
   public:
-  // .api.v3.ReferenceFrame frame = 3;
+  // .orbit.ReferenceFrame frame = 3;
   void clear_frame() ;
-  ::api::v3::ReferenceFrame frame() const;
-  void set_frame(::api::v3::ReferenceFrame value);
+  ::orbit::ReferenceFrame frame() const;
+  void set_frame(::orbit::ReferenceFrame value);
 
   private:
-  ::api::v3::ReferenceFrame _internal_frame() const;
-  void _internal_set_frame(::api::v3::ReferenceFrame value);
+  ::orbit::ReferenceFrame _internal_frame() const;
+  void _internal_set_frame(::orbit::ReferenceFrame value);
 
   public:
-  // @@protoc_insertion_point(class_scope:api.v3.StateVector)
+  // @@protoc_insertion_point(class_scope:orbit.StateVector)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
@@ -1551,8 +1548,8 @@ class StateVector final : public ::google::protobuf::Message
         const StateVector& from_msg);
     ::google::protobuf::internal::HasBits<1> _has_bits_;
     ::google::protobuf::internal::CachedSize _cached_size_;
-    ::api::v3::Vector3* PROTOBUF_NULLABLE position_;
-    ::api::v3::Vector3* PROTOBUF_NULLABLE velocity_;
+    ::orbit::Vector3* PROTOBUF_NULLABLE position_;
+    ::orbit::Vector3* PROTOBUF_NULLABLE velocity_;
     int frame_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -1564,7 +1561,7 @@ extern const ::google::protobuf::internal::ClassDataFull StateVector_class_data_
 // -------------------------------------------------------------------
 
 class Propagation final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:api.v3.Propagation) */ {
+/* @@protoc_insertion_point(class_definition:orbit.Propagation) */ {
  public:
   inline Propagation() : Propagation(nullptr) {}
   ~Propagation() PROTOBUF_FINAL;
@@ -1682,7 +1679,7 @@ class Propagation final : public ::google::protobuf::Message
  private:
   template <typename T>
   friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
-  static ::absl::string_view FullMessageName() { return "api.v3.Propagation"; }
+  static ::absl::string_view FullMessageName() { return "orbit.Propagation"; }
 
  protected:
   explicit Propagation(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
@@ -1726,47 +1723,47 @@ class Propagation final : public ::google::protobuf::Message
   ::google::protobuf::Timestamp* PROTOBUF_NONNULL _internal_mutable_epoch();
 
   public:
-  // .api.v3.StateVector state = 2;
+  // .orbit.StateVector state = 2;
   bool has_state() const;
   void clear_state() ;
-  const ::api::v3::StateVector& state() const;
-  [[nodiscard]] ::api::v3::StateVector* PROTOBUF_NULLABLE release_state();
-  ::api::v3::StateVector* PROTOBUF_NONNULL mutable_state();
-  void set_allocated_state(::api::v3::StateVector* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_state(::api::v3::StateVector* PROTOBUF_NULLABLE value);
-  ::api::v3::StateVector* PROTOBUF_NULLABLE unsafe_arena_release_state();
+  const ::orbit::StateVector& state() const;
+  [[nodiscard]] ::orbit::StateVector* PROTOBUF_NULLABLE release_state();
+  ::orbit::StateVector* PROTOBUF_NONNULL mutable_state();
+  void set_allocated_state(::orbit::StateVector* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_state(::orbit::StateVector* PROTOBUF_NULLABLE value);
+  ::orbit::StateVector* PROTOBUF_NULLABLE unsafe_arena_release_state();
 
   private:
-  const ::api::v3::StateVector& _internal_state() const;
-  ::api::v3::StateVector* PROTOBUF_NONNULL _internal_mutable_state();
+  const ::orbit::StateVector& _internal_state() const;
+  ::orbit::StateVector* PROTOBUF_NONNULL _internal_mutable_state();
 
   public:
-  // .api.v3.GeodeticPosition geodetic = 3;
+  // .orbit.GeodeticPosition geodetic = 3;
   bool has_geodetic() const;
   void clear_geodetic() ;
-  const ::api::v3::GeodeticPosition& geodetic() const;
-  [[nodiscard]] ::api::v3::GeodeticPosition* PROTOBUF_NULLABLE release_geodetic();
-  ::api::v3::GeodeticPosition* PROTOBUF_NONNULL mutable_geodetic();
-  void set_allocated_geodetic(::api::v3::GeodeticPosition* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_geodetic(::api::v3::GeodeticPosition* PROTOBUF_NULLABLE value);
-  ::api::v3::GeodeticPosition* PROTOBUF_NULLABLE unsafe_arena_release_geodetic();
+  const ::orbit::GeodeticPosition& geodetic() const;
+  [[nodiscard]] ::orbit::GeodeticPosition* PROTOBUF_NULLABLE release_geodetic();
+  ::orbit::GeodeticPosition* PROTOBUF_NONNULL mutable_geodetic();
+  void set_allocated_geodetic(::orbit::GeodeticPosition* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_geodetic(::orbit::GeodeticPosition* PROTOBUF_NULLABLE value);
+  ::orbit::GeodeticPosition* PROTOBUF_NULLABLE unsafe_arena_release_geodetic();
 
   private:
-  const ::api::v3::GeodeticPosition& _internal_geodetic() const;
-  ::api::v3::GeodeticPosition* PROTOBUF_NONNULL _internal_mutable_geodetic();
+  const ::orbit::GeodeticPosition& _internal_geodetic() const;
+  ::orbit::GeodeticPosition* PROTOBUF_NONNULL _internal_mutable_geodetic();
 
   public:
-  // .api.v3.PropagatorType propagator = 4;
+  // .orbit.PropagatorType propagator = 4;
   void clear_propagator() ;
-  ::api::v3::PropagatorType propagator() const;
-  void set_propagator(::api::v3::PropagatorType value);
+  ::orbit::PropagatorType propagator() const;
+  void set_propagator(::orbit::PropagatorType value);
 
   private:
-  ::api::v3::PropagatorType _internal_propagator() const;
-  void _internal_set_propagator(::api::v3::PropagatorType value);
+  ::orbit::PropagatorType _internal_propagator() const;
+  void _internal_set_propagator(::orbit::PropagatorType value);
 
   public:
-  // @@protoc_insertion_point(class_scope:api.v3.Propagation)
+  // @@protoc_insertion_point(class_scope:orbit.Propagation)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
@@ -1793,8 +1790,8 @@ class Propagation final : public ::google::protobuf::Message
     ::google::protobuf::internal::HasBits<1> _has_bits_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     ::google::protobuf::Timestamp* PROTOBUF_NULLABLE epoch_;
-    ::api::v3::StateVector* PROTOBUF_NULLABLE state_;
-    ::api::v3::GeodeticPosition* PROTOBUF_NULLABLE geodetic_;
+    ::orbit::StateVector* PROTOBUF_NULLABLE state_;
+    ::orbit::GeodeticPosition* PROTOBUF_NULLABLE geodetic_;
     int propagator_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -1806,7 +1803,7 @@ extern const ::google::protobuf::internal::ClassDataFull Propagation_class_data_
 // -------------------------------------------------------------------
 
 class GetPropagationResponse final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:api.v3.GetPropagationResponse) */ {
+/* @@protoc_insertion_point(class_definition:orbit.GetPropagationResponse) */ {
  public:
   inline GetPropagationResponse() : GetPropagationResponse(nullptr) {}
   ~GetPropagationResponse() PROTOBUF_FINAL;
@@ -1924,7 +1921,7 @@ class GetPropagationResponse final : public ::google::protobuf::Message
  private:
   template <typename T>
   friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
-  static ::absl::string_view FullMessageName() { return "api.v3.GetPropagationResponse"; }
+  static ::absl::string_view FullMessageName() { return "orbit.GetPropagationResponse"; }
 
  protected:
   explicit GetPropagationResponse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
@@ -1954,36 +1951,36 @@ class GetPropagationResponse final : public ::google::protobuf::Message
     kAtTleEpochFieldNumber = 3,
     kAtNowUtcFieldNumber = 4,
   };
-  // repeated .api.v3.Propagation propagations = 5;
+  // repeated .orbit.Propagation propagations = 5;
   int propagations_size() const;
   private:
   int _internal_propagations_size() const;
 
   public:
   void clear_propagations() ;
-  ::api::v3::Propagation* PROTOBUF_NONNULL mutable_propagations(int index);
-  ::google::protobuf::RepeatedPtrField<::api::v3::Propagation>* PROTOBUF_NONNULL mutable_propagations();
+  ::orbit::Propagation* PROTOBUF_NONNULL mutable_propagations(int index);
+  ::google::protobuf::RepeatedPtrField<::orbit::Propagation>* PROTOBUF_NONNULL mutable_propagations();
 
   private:
-  const ::google::protobuf::RepeatedPtrField<::api::v3::Propagation>& _internal_propagations() const;
-  ::google::protobuf::RepeatedPtrField<::api::v3::Propagation>* PROTOBUF_NONNULL _internal_mutable_propagations();
+  const ::google::protobuf::RepeatedPtrField<::orbit::Propagation>& _internal_propagations() const;
+  ::google::protobuf::RepeatedPtrField<::orbit::Propagation>* PROTOBUF_NONNULL _internal_mutable_propagations();
   public:
-  const ::api::v3::Propagation& propagations(int index) const;
-  ::api::v3::Propagation* PROTOBUF_NONNULL add_propagations();
-  const ::google::protobuf::RepeatedPtrField<::api::v3::Propagation>& propagations() const;
-  // .api.v3.Tle tle = 1;
+  const ::orbit::Propagation& propagations(int index) const;
+  ::orbit::Propagation* PROTOBUF_NONNULL add_propagations();
+  const ::google::protobuf::RepeatedPtrField<::orbit::Propagation>& propagations() const;
+  // .orbit.Tle tle = 1;
   bool has_tle() const;
   void clear_tle() ;
-  const ::api::v3::Tle& tle() const;
-  [[nodiscard]] ::api::v3::Tle* PROTOBUF_NULLABLE release_tle();
-  ::api::v3::Tle* PROTOBUF_NONNULL mutable_tle();
-  void set_allocated_tle(::api::v3::Tle* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_tle(::api::v3::Tle* PROTOBUF_NULLABLE value);
-  ::api::v3::Tle* PROTOBUF_NULLABLE unsafe_arena_release_tle();
+  const ::orbit::Tle& tle() const;
+  [[nodiscard]] ::orbit::Tle* PROTOBUF_NULLABLE release_tle();
+  ::orbit::Tle* PROTOBUF_NONNULL mutable_tle();
+  void set_allocated_tle(::orbit::Tle* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_tle(::orbit::Tle* PROTOBUF_NULLABLE value);
+  ::orbit::Tle* PROTOBUF_NULLABLE unsafe_arena_release_tle();
 
   private:
-  const ::api::v3::Tle& _internal_tle() const;
-  ::api::v3::Tle* PROTOBUF_NONNULL _internal_mutable_tle();
+  const ::orbit::Tle& _internal_tle() const;
+  ::orbit::Tle* PROTOBUF_NONNULL _internal_mutable_tle();
 
   public:
   // .google.protobuf.Duration tle_age = 2;
@@ -2001,37 +1998,37 @@ class GetPropagationResponse final : public ::google::protobuf::Message
   ::google::protobuf::Duration* PROTOBUF_NONNULL _internal_mutable_tle_age();
 
   public:
-  // .api.v3.Propagation at_tle_epoch = 3;
+  // .orbit.Propagation at_tle_epoch = 3;
   bool has_at_tle_epoch() const;
   void clear_at_tle_epoch() ;
-  const ::api::v3::Propagation& at_tle_epoch() const;
-  [[nodiscard]] ::api::v3::Propagation* PROTOBUF_NULLABLE release_at_tle_epoch();
-  ::api::v3::Propagation* PROTOBUF_NONNULL mutable_at_tle_epoch();
-  void set_allocated_at_tle_epoch(::api::v3::Propagation* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_at_tle_epoch(::api::v3::Propagation* PROTOBUF_NULLABLE value);
-  ::api::v3::Propagation* PROTOBUF_NULLABLE unsafe_arena_release_at_tle_epoch();
+  const ::orbit::Propagation& at_tle_epoch() const;
+  [[nodiscard]] ::orbit::Propagation* PROTOBUF_NULLABLE release_at_tle_epoch();
+  ::orbit::Propagation* PROTOBUF_NONNULL mutable_at_tle_epoch();
+  void set_allocated_at_tle_epoch(::orbit::Propagation* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_at_tle_epoch(::orbit::Propagation* PROTOBUF_NULLABLE value);
+  ::orbit::Propagation* PROTOBUF_NULLABLE unsafe_arena_release_at_tle_epoch();
 
   private:
-  const ::api::v3::Propagation& _internal_at_tle_epoch() const;
-  ::api::v3::Propagation* PROTOBUF_NONNULL _internal_mutable_at_tle_epoch();
+  const ::orbit::Propagation& _internal_at_tle_epoch() const;
+  ::orbit::Propagation* PROTOBUF_NONNULL _internal_mutable_at_tle_epoch();
 
   public:
-  // .api.v3.Propagation at_now_utc = 4;
+  // .orbit.Propagation at_now_utc = 4;
   bool has_at_now_utc() const;
   void clear_at_now_utc() ;
-  const ::api::v3::Propagation& at_now_utc() const;
-  [[nodiscard]] ::api::v3::Propagation* PROTOBUF_NULLABLE release_at_now_utc();
-  ::api::v3::Propagation* PROTOBUF_NONNULL mutable_at_now_utc();
-  void set_allocated_at_now_utc(::api::v3::Propagation* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_at_now_utc(::api::v3::Propagation* PROTOBUF_NULLABLE value);
-  ::api::v3::Propagation* PROTOBUF_NULLABLE unsafe_arena_release_at_now_utc();
+  const ::orbit::Propagation& at_now_utc() const;
+  [[nodiscard]] ::orbit::Propagation* PROTOBUF_NULLABLE release_at_now_utc();
+  ::orbit::Propagation* PROTOBUF_NONNULL mutable_at_now_utc();
+  void set_allocated_at_now_utc(::orbit::Propagation* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_at_now_utc(::orbit::Propagation* PROTOBUF_NULLABLE value);
+  ::orbit::Propagation* PROTOBUF_NULLABLE unsafe_arena_release_at_now_utc();
 
   private:
-  const ::api::v3::Propagation& _internal_at_now_utc() const;
-  ::api::v3::Propagation* PROTOBUF_NONNULL _internal_mutable_at_now_utc();
+  const ::orbit::Propagation& _internal_at_now_utc() const;
+  ::orbit::Propagation* PROTOBUF_NONNULL _internal_mutable_at_now_utc();
 
   public:
-  // @@protoc_insertion_point(class_scope:api.v3.GetPropagationResponse)
+  // @@protoc_insertion_point(class_scope:orbit.GetPropagationResponse)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
@@ -2057,11 +2054,11 @@ class GetPropagationResponse final : public ::google::protobuf::Message
         const GetPropagationResponse& from_msg);
     ::google::protobuf::internal::HasBits<1> _has_bits_;
     ::google::protobuf::internal::CachedSize _cached_size_;
-    ::google::protobuf::RepeatedPtrField< ::api::v3::Propagation > propagations_;
-    ::api::v3::Tle* PROTOBUF_NULLABLE tle_;
+    ::google::protobuf::RepeatedPtrField< ::orbit::Propagation > propagations_;
+    ::orbit::Tle* PROTOBUF_NULLABLE tle_;
     ::google::protobuf::Duration* PROTOBUF_NULLABLE tle_age_;
-    ::api::v3::Propagation* PROTOBUF_NULLABLE at_tle_epoch_;
-    ::api::v3::Propagation* PROTOBUF_NULLABLE at_now_utc_;
+    ::orbit::Propagation* PROTOBUF_NULLABLE at_tle_epoch_;
+    ::orbit::Propagation* PROTOBUF_NULLABLE at_now_utc_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -2094,7 +2091,7 @@ inline void Tle::clear_line1() {
 }
 inline const ::std::string& Tle::line1() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:api.v3.Tle.line1)
+  // @@protoc_insertion_point(field_get:orbit.Tle.line1)
   return _internal_line1();
 }
 template <typename Arg_, typename... Args_>
@@ -2102,12 +2099,12 @@ PROTOBUF_ALWAYS_INLINE void Tle::set_line1(Arg_&& arg, Args_... args) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.line1_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:api.v3.Tle.line1)
+  // @@protoc_insertion_point(field_set:orbit.Tle.line1)
 }
 inline ::std::string* PROTOBUF_NONNULL Tle::mutable_line1()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   ::std::string* _s = _internal_mutable_line1();
-  // @@protoc_insertion_point(field_mutable:api.v3.Tle.line1)
+  // @@protoc_insertion_point(field_mutable:orbit.Tle.line1)
   return _s;
 }
 inline const ::std::string& Tle::_internal_line1() const {
@@ -2126,7 +2123,7 @@ inline ::std::string* PROTOBUF_NONNULL Tle::_internal_mutable_line1() {
 }
 inline ::std::string* PROTOBUF_NULLABLE Tle::release_line1() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:api.v3.Tle.line1)
+  // @@protoc_insertion_point(field_release:orbit.Tle.line1)
   if ((_impl_._has_bits_[0] & 0x00000001u) == 0) {
     return nullptr;
   }
@@ -2148,7 +2145,7 @@ inline void Tle::set_allocated_line1(::std::string* PROTOBUF_NULLABLE value) {
   if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.line1_.IsDefault()) {
     _impl_.line1_.Set("", GetArena());
   }
-  // @@protoc_insertion_point(field_set_allocated:api.v3.Tle.line1)
+  // @@protoc_insertion_point(field_set_allocated:orbit.Tle.line1)
 }
 
 // string line2 = 2;
@@ -2159,7 +2156,7 @@ inline void Tle::clear_line2() {
 }
 inline const ::std::string& Tle::line2() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:api.v3.Tle.line2)
+  // @@protoc_insertion_point(field_get:orbit.Tle.line2)
   return _internal_line2();
 }
 template <typename Arg_, typename... Args_>
@@ -2167,12 +2164,12 @@ PROTOBUF_ALWAYS_INLINE void Tle::set_line2(Arg_&& arg, Args_... args) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.line2_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:api.v3.Tle.line2)
+  // @@protoc_insertion_point(field_set:orbit.Tle.line2)
 }
 inline ::std::string* PROTOBUF_NONNULL Tle::mutable_line2()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   ::std::string* _s = _internal_mutable_line2();
-  // @@protoc_insertion_point(field_mutable:api.v3.Tle.line2)
+  // @@protoc_insertion_point(field_mutable:orbit.Tle.line2)
   return _s;
 }
 inline const ::std::string& Tle::_internal_line2() const {
@@ -2191,7 +2188,7 @@ inline ::std::string* PROTOBUF_NONNULL Tle::_internal_mutable_line2() {
 }
 inline ::std::string* PROTOBUF_NULLABLE Tle::release_line2() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:api.v3.Tle.line2)
+  // @@protoc_insertion_point(field_release:orbit.Tle.line2)
   if ((_impl_._has_bits_[0] & 0x00000002u) == 0) {
     return nullptr;
   }
@@ -2213,7 +2210,7 @@ inline void Tle::set_allocated_line2(::std::string* PROTOBUF_NULLABLE value) {
   if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.line2_.IsDefault()) {
     _impl_.line2_.Set("", GetArena());
   }
-  // @@protoc_insertion_point(field_set_allocated:api.v3.Tle.line2)
+  // @@protoc_insertion_point(field_set_allocated:orbit.Tle.line2)
 }
 
 // string satellite_name = 3;
@@ -2224,7 +2221,7 @@ inline void Tle::clear_satellite_name() {
 }
 inline const ::std::string& Tle::satellite_name() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:api.v3.Tle.satellite_name)
+  // @@protoc_insertion_point(field_get:orbit.Tle.satellite_name)
   return _internal_satellite_name();
 }
 template <typename Arg_, typename... Args_>
@@ -2232,12 +2229,12 @@ PROTOBUF_ALWAYS_INLINE void Tle::set_satellite_name(Arg_&& arg, Args_... args) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.satellite_name_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:api.v3.Tle.satellite_name)
+  // @@protoc_insertion_point(field_set:orbit.Tle.satellite_name)
 }
 inline ::std::string* PROTOBUF_NONNULL Tle::mutable_satellite_name()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   ::std::string* _s = _internal_mutable_satellite_name();
-  // @@protoc_insertion_point(field_mutable:api.v3.Tle.satellite_name)
+  // @@protoc_insertion_point(field_mutable:orbit.Tle.satellite_name)
   return _s;
 }
 inline const ::std::string& Tle::_internal_satellite_name() const {
@@ -2256,7 +2253,7 @@ inline ::std::string* PROTOBUF_NONNULL Tle::_internal_mutable_satellite_name() {
 }
 inline ::std::string* PROTOBUF_NULLABLE Tle::release_satellite_name() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:api.v3.Tle.satellite_name)
+  // @@protoc_insertion_point(field_release:orbit.Tle.satellite_name)
   if ((_impl_._has_bits_[0] & 0x00000004u) == 0) {
     return nullptr;
   }
@@ -2278,7 +2275,7 @@ inline void Tle::set_allocated_satellite_name(::std::string* PROTOBUF_NULLABLE v
   if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.satellite_name_.IsDefault()) {
     _impl_.satellite_name_.Set("", GetArena());
   }
-  // @@protoc_insertion_point(field_set_allocated:api.v3.Tle.satellite_name)
+  // @@protoc_insertion_point(field_set_allocated:orbit.Tle.satellite_name)
 }
 
 // uint32 satellite_number = 4;
@@ -2288,13 +2285,13 @@ inline void Tle::clear_satellite_number() {
   _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline ::uint32_t Tle::satellite_number() const {
-  // @@protoc_insertion_point(field_get:api.v3.Tle.satellite_number)
+  // @@protoc_insertion_point(field_get:orbit.Tle.satellite_number)
   return _internal_satellite_number();
 }
 inline void Tle::set_satellite_number(::uint32_t value) {
   _internal_set_satellite_number(value);
   _impl_._has_bits_[0] |= 0x00000020u;
-  // @@protoc_insertion_point(field_set:api.v3.Tle.satellite_number)
+  // @@protoc_insertion_point(field_set:orbit.Tle.satellite_number)
 }
 inline ::uint32_t Tle::_internal_satellite_number() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
@@ -2317,7 +2314,7 @@ inline const ::google::protobuf::Timestamp& Tle::_internal_epoch() const {
   return p != nullptr ? *p : reinterpret_cast<const ::google::protobuf::Timestamp&>(::google::protobuf::_Timestamp_default_instance_);
 }
 inline const ::google::protobuf::Timestamp& Tle::epoch() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:api.v3.Tle.epoch)
+  // @@protoc_insertion_point(field_get:orbit.Tle.epoch)
   return _internal_epoch();
 }
 inline void Tle::unsafe_arena_set_allocated_epoch(
@@ -2332,7 +2329,7 @@ inline void Tle::unsafe_arena_set_allocated_epoch(
   } else {
     _impl_._has_bits_[0] &= ~0x00000008u;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:api.v3.Tle.epoch)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:orbit.Tle.epoch)
 }
 inline ::google::protobuf::Timestamp* PROTOBUF_NULLABLE Tle::release_epoch() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
@@ -2355,7 +2352,7 @@ inline ::google::protobuf::Timestamp* PROTOBUF_NULLABLE Tle::release_epoch() {
 }
 inline ::google::protobuf::Timestamp* PROTOBUF_NULLABLE Tle::unsafe_arena_release_epoch() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:api.v3.Tle.epoch)
+  // @@protoc_insertion_point(field_release:orbit.Tle.epoch)
 
   _impl_._has_bits_[0] &= ~0x00000008u;
   ::google::protobuf::Timestamp* temp = _impl_.epoch_;
@@ -2374,7 +2371,7 @@ inline ::google::protobuf::Timestamp* PROTOBUF_NONNULL Tle::mutable_epoch()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   _impl_._has_bits_[0] |= 0x00000008u;
   ::google::protobuf::Timestamp* _msg = _internal_mutable_epoch();
-  // @@protoc_insertion_point(field_mutable:api.v3.Tle.epoch)
+  // @@protoc_insertion_point(field_mutable:orbit.Tle.epoch)
   return _msg;
 }
 inline void Tle::set_allocated_epoch(::google::protobuf::Timestamp* PROTOBUF_NULLABLE value) {
@@ -2395,10 +2392,10 @@ inline void Tle::set_allocated_epoch(::google::protobuf::Timestamp* PROTOBUF_NUL
   }
 
   _impl_.epoch_ = reinterpret_cast<::google::protobuf::Timestamp*>(value);
-  // @@protoc_insertion_point(field_set_allocated:api.v3.Tle.epoch)
+  // @@protoc_insertion_point(field_set_allocated:orbit.Tle.epoch)
 }
 
-// .api.v3.OrbitElements orbit_elements = 6;
+// .orbit.OrbitElements orbit_elements = 6;
 inline bool Tle::has_orbit_elements() const {
   bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.orbit_elements_ != nullptr);
@@ -2409,34 +2406,34 @@ inline void Tle::clear_orbit_elements() {
   if (_impl_.orbit_elements_ != nullptr) _impl_.orbit_elements_->Clear();
   _impl_._has_bits_[0] &= ~0x00000010u;
 }
-inline const ::api::v3::OrbitElements& Tle::_internal_orbit_elements() const {
+inline const ::orbit::OrbitElements& Tle::_internal_orbit_elements() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::api::v3::OrbitElements* p = _impl_.orbit_elements_;
-  return p != nullptr ? *p : reinterpret_cast<const ::api::v3::OrbitElements&>(::api::v3::_OrbitElements_default_instance_);
+  const ::orbit::OrbitElements* p = _impl_.orbit_elements_;
+  return p != nullptr ? *p : reinterpret_cast<const ::orbit::OrbitElements&>(::orbit::_OrbitElements_default_instance_);
 }
-inline const ::api::v3::OrbitElements& Tle::orbit_elements() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:api.v3.Tle.orbit_elements)
+inline const ::orbit::OrbitElements& Tle::orbit_elements() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:orbit.Tle.orbit_elements)
   return _internal_orbit_elements();
 }
 inline void Tle::unsafe_arena_set_allocated_orbit_elements(
-    ::api::v3::OrbitElements* PROTOBUF_NULLABLE value) {
+    ::orbit::OrbitElements* PROTOBUF_NULLABLE value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.orbit_elements_);
   }
-  _impl_.orbit_elements_ = reinterpret_cast<::api::v3::OrbitElements*>(value);
+  _impl_.orbit_elements_ = reinterpret_cast<::orbit::OrbitElements*>(value);
   if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000010u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000010u;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:api.v3.Tle.orbit_elements)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:orbit.Tle.orbit_elements)
 }
-inline ::api::v3::OrbitElements* PROTOBUF_NULLABLE Tle::release_orbit_elements() {
+inline ::orbit::OrbitElements* PROTOBUF_NULLABLE Tle::release_orbit_elements() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
   _impl_._has_bits_[0] &= ~0x00000010u;
-  ::api::v3::OrbitElements* released = _impl_.orbit_elements_;
+  ::orbit::OrbitElements* released = _impl_.orbit_elements_;
   _impl_.orbit_elements_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
     auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
@@ -2451,31 +2448,31 @@ inline ::api::v3::OrbitElements* PROTOBUF_NULLABLE Tle::release_orbit_elements()
   }
   return released;
 }
-inline ::api::v3::OrbitElements* PROTOBUF_NULLABLE Tle::unsafe_arena_release_orbit_elements() {
+inline ::orbit::OrbitElements* PROTOBUF_NULLABLE Tle::unsafe_arena_release_orbit_elements() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:api.v3.Tle.orbit_elements)
+  // @@protoc_insertion_point(field_release:orbit.Tle.orbit_elements)
 
   _impl_._has_bits_[0] &= ~0x00000010u;
-  ::api::v3::OrbitElements* temp = _impl_.orbit_elements_;
+  ::orbit::OrbitElements* temp = _impl_.orbit_elements_;
   _impl_.orbit_elements_ = nullptr;
   return temp;
 }
-inline ::api::v3::OrbitElements* PROTOBUF_NONNULL Tle::_internal_mutable_orbit_elements() {
+inline ::orbit::OrbitElements* PROTOBUF_NONNULL Tle::_internal_mutable_orbit_elements() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.orbit_elements_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::api::v3::OrbitElements>(GetArena());
-    _impl_.orbit_elements_ = reinterpret_cast<::api::v3::OrbitElements*>(p);
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::orbit::OrbitElements>(GetArena());
+    _impl_.orbit_elements_ = reinterpret_cast<::orbit::OrbitElements*>(p);
   }
   return _impl_.orbit_elements_;
 }
-inline ::api::v3::OrbitElements* PROTOBUF_NONNULL Tle::mutable_orbit_elements()
+inline ::orbit::OrbitElements* PROTOBUF_NONNULL Tle::mutable_orbit_elements()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   _impl_._has_bits_[0] |= 0x00000010u;
-  ::api::v3::OrbitElements* _msg = _internal_mutable_orbit_elements();
-  // @@protoc_insertion_point(field_mutable:api.v3.Tle.orbit_elements)
+  ::orbit::OrbitElements* _msg = _internal_mutable_orbit_elements();
+  // @@protoc_insertion_point(field_mutable:orbit.Tle.orbit_elements)
   return _msg;
 }
-inline void Tle::set_allocated_orbit_elements(::api::v3::OrbitElements* PROTOBUF_NULLABLE value) {
+inline void Tle::set_allocated_orbit_elements(::orbit::OrbitElements* PROTOBUF_NULLABLE value) {
   ::google::protobuf::Arena* message_arena = GetArena();
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (message_arena == nullptr) {
@@ -2492,8 +2489,8 @@ inline void Tle::set_allocated_orbit_elements(::api::v3::OrbitElements* PROTOBUF
     _impl_._has_bits_[0] &= ~0x00000010u;
   }
 
-  _impl_.orbit_elements_ = reinterpret_cast<::api::v3::OrbitElements*>(value);
-  // @@protoc_insertion_point(field_set_allocated:api.v3.Tle.orbit_elements)
+  _impl_.orbit_elements_ = reinterpret_cast<::orbit::OrbitElements*>(value);
+  // @@protoc_insertion_point(field_set_allocated:orbit.Tle.orbit_elements)
 }
 
 // -------------------------------------------------------------------
@@ -2507,13 +2504,13 @@ inline void Vector3::clear_x() {
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline double Vector3::x() const {
-  // @@protoc_insertion_point(field_get:api.v3.Vector3.x)
+  // @@protoc_insertion_point(field_get:orbit.Vector3.x)
   return _internal_x();
 }
 inline void Vector3::set_x(double value) {
   _internal_set_x(value);
   _impl_._has_bits_[0] |= 0x00000001u;
-  // @@protoc_insertion_point(field_set:api.v3.Vector3.x)
+  // @@protoc_insertion_point(field_set:orbit.Vector3.x)
 }
 inline double Vector3::_internal_x() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
@@ -2531,13 +2528,13 @@ inline void Vector3::clear_y() {
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline double Vector3::y() const {
-  // @@protoc_insertion_point(field_get:api.v3.Vector3.y)
+  // @@protoc_insertion_point(field_get:orbit.Vector3.y)
   return _internal_y();
 }
 inline void Vector3::set_y(double value) {
   _internal_set_y(value);
   _impl_._has_bits_[0] |= 0x00000002u;
-  // @@protoc_insertion_point(field_set:api.v3.Vector3.y)
+  // @@protoc_insertion_point(field_set:orbit.Vector3.y)
 }
 inline double Vector3::_internal_y() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
@@ -2555,13 +2552,13 @@ inline void Vector3::clear_z() {
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline double Vector3::z() const {
-  // @@protoc_insertion_point(field_get:api.v3.Vector3.z)
+  // @@protoc_insertion_point(field_get:orbit.Vector3.z)
   return _internal_z();
 }
 inline void Vector3::set_z(double value) {
   _internal_set_z(value);
   _impl_._has_bits_[0] |= 0x00000004u;
-  // @@protoc_insertion_point(field_set:api.v3.Vector3.z)
+  // @@protoc_insertion_point(field_set:orbit.Vector3.z)
 }
 inline double Vector3::_internal_z() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
@@ -2576,7 +2573,7 @@ inline void Vector3::_internal_set_z(double value) {
 
 // StateVector
 
-// .api.v3.Vector3 position = 1;
+// .orbit.Vector3 position = 1;
 inline bool StateVector::has_position() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.position_ != nullptr);
@@ -2587,34 +2584,34 @@ inline void StateVector::clear_position() {
   if (_impl_.position_ != nullptr) _impl_.position_->Clear();
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline const ::api::v3::Vector3& StateVector::_internal_position() const {
+inline const ::orbit::Vector3& StateVector::_internal_position() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::api::v3::Vector3* p = _impl_.position_;
-  return p != nullptr ? *p : reinterpret_cast<const ::api::v3::Vector3&>(::api::v3::_Vector3_default_instance_);
+  const ::orbit::Vector3* p = _impl_.position_;
+  return p != nullptr ? *p : reinterpret_cast<const ::orbit::Vector3&>(::orbit::_Vector3_default_instance_);
 }
-inline const ::api::v3::Vector3& StateVector::position() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:api.v3.StateVector.position)
+inline const ::orbit::Vector3& StateVector::position() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:orbit.StateVector.position)
   return _internal_position();
 }
 inline void StateVector::unsafe_arena_set_allocated_position(
-    ::api::v3::Vector3* PROTOBUF_NULLABLE value) {
+    ::orbit::Vector3* PROTOBUF_NULLABLE value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.position_);
   }
-  _impl_.position_ = reinterpret_cast<::api::v3::Vector3*>(value);
+  _impl_.position_ = reinterpret_cast<::orbit::Vector3*>(value);
   if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:api.v3.StateVector.position)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:orbit.StateVector.position)
 }
-inline ::api::v3::Vector3* PROTOBUF_NULLABLE StateVector::release_position() {
+inline ::orbit::Vector3* PROTOBUF_NULLABLE StateVector::release_position() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
   _impl_._has_bits_[0] &= ~0x00000001u;
-  ::api::v3::Vector3* released = _impl_.position_;
+  ::orbit::Vector3* released = _impl_.position_;
   _impl_.position_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
     auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
@@ -2629,31 +2626,31 @@ inline ::api::v3::Vector3* PROTOBUF_NULLABLE StateVector::release_position() {
   }
   return released;
 }
-inline ::api::v3::Vector3* PROTOBUF_NULLABLE StateVector::unsafe_arena_release_position() {
+inline ::orbit::Vector3* PROTOBUF_NULLABLE StateVector::unsafe_arena_release_position() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:api.v3.StateVector.position)
+  // @@protoc_insertion_point(field_release:orbit.StateVector.position)
 
   _impl_._has_bits_[0] &= ~0x00000001u;
-  ::api::v3::Vector3* temp = _impl_.position_;
+  ::orbit::Vector3* temp = _impl_.position_;
   _impl_.position_ = nullptr;
   return temp;
 }
-inline ::api::v3::Vector3* PROTOBUF_NONNULL StateVector::_internal_mutable_position() {
+inline ::orbit::Vector3* PROTOBUF_NONNULL StateVector::_internal_mutable_position() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.position_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::api::v3::Vector3>(GetArena());
-    _impl_.position_ = reinterpret_cast<::api::v3::Vector3*>(p);
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::orbit::Vector3>(GetArena());
+    _impl_.position_ = reinterpret_cast<::orbit::Vector3*>(p);
   }
   return _impl_.position_;
 }
-inline ::api::v3::Vector3* PROTOBUF_NONNULL StateVector::mutable_position()
+inline ::orbit::Vector3* PROTOBUF_NONNULL StateVector::mutable_position()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   _impl_._has_bits_[0] |= 0x00000001u;
-  ::api::v3::Vector3* _msg = _internal_mutable_position();
-  // @@protoc_insertion_point(field_mutable:api.v3.StateVector.position)
+  ::orbit::Vector3* _msg = _internal_mutable_position();
+  // @@protoc_insertion_point(field_mutable:orbit.StateVector.position)
   return _msg;
 }
-inline void StateVector::set_allocated_position(::api::v3::Vector3* PROTOBUF_NULLABLE value) {
+inline void StateVector::set_allocated_position(::orbit::Vector3* PROTOBUF_NULLABLE value) {
   ::google::protobuf::Arena* message_arena = GetArena();
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (message_arena == nullptr) {
@@ -2670,11 +2667,11 @@ inline void StateVector::set_allocated_position(::api::v3::Vector3* PROTOBUF_NUL
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
 
-  _impl_.position_ = reinterpret_cast<::api::v3::Vector3*>(value);
-  // @@protoc_insertion_point(field_set_allocated:api.v3.StateVector.position)
+  _impl_.position_ = reinterpret_cast<::orbit::Vector3*>(value);
+  // @@protoc_insertion_point(field_set_allocated:orbit.StateVector.position)
 }
 
-// .api.v3.Vector3 velocity = 2;
+// .orbit.Vector3 velocity = 2;
 inline bool StateVector::has_velocity() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.velocity_ != nullptr);
@@ -2685,34 +2682,34 @@ inline void StateVector::clear_velocity() {
   if (_impl_.velocity_ != nullptr) _impl_.velocity_->Clear();
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline const ::api::v3::Vector3& StateVector::_internal_velocity() const {
+inline const ::orbit::Vector3& StateVector::_internal_velocity() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::api::v3::Vector3* p = _impl_.velocity_;
-  return p != nullptr ? *p : reinterpret_cast<const ::api::v3::Vector3&>(::api::v3::_Vector3_default_instance_);
+  const ::orbit::Vector3* p = _impl_.velocity_;
+  return p != nullptr ? *p : reinterpret_cast<const ::orbit::Vector3&>(::orbit::_Vector3_default_instance_);
 }
-inline const ::api::v3::Vector3& StateVector::velocity() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:api.v3.StateVector.velocity)
+inline const ::orbit::Vector3& StateVector::velocity() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:orbit.StateVector.velocity)
   return _internal_velocity();
 }
 inline void StateVector::unsafe_arena_set_allocated_velocity(
-    ::api::v3::Vector3* PROTOBUF_NULLABLE value) {
+    ::orbit::Vector3* PROTOBUF_NULLABLE value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.velocity_);
   }
-  _impl_.velocity_ = reinterpret_cast<::api::v3::Vector3*>(value);
+  _impl_.velocity_ = reinterpret_cast<::orbit::Vector3*>(value);
   if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000002u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000002u;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:api.v3.StateVector.velocity)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:orbit.StateVector.velocity)
 }
-inline ::api::v3::Vector3* PROTOBUF_NULLABLE StateVector::release_velocity() {
+inline ::orbit::Vector3* PROTOBUF_NULLABLE StateVector::release_velocity() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
   _impl_._has_bits_[0] &= ~0x00000002u;
-  ::api::v3::Vector3* released = _impl_.velocity_;
+  ::orbit::Vector3* released = _impl_.velocity_;
   _impl_.velocity_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
     auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
@@ -2727,31 +2724,31 @@ inline ::api::v3::Vector3* PROTOBUF_NULLABLE StateVector::release_velocity() {
   }
   return released;
 }
-inline ::api::v3::Vector3* PROTOBUF_NULLABLE StateVector::unsafe_arena_release_velocity() {
+inline ::orbit::Vector3* PROTOBUF_NULLABLE StateVector::unsafe_arena_release_velocity() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:api.v3.StateVector.velocity)
+  // @@protoc_insertion_point(field_release:orbit.StateVector.velocity)
 
   _impl_._has_bits_[0] &= ~0x00000002u;
-  ::api::v3::Vector3* temp = _impl_.velocity_;
+  ::orbit::Vector3* temp = _impl_.velocity_;
   _impl_.velocity_ = nullptr;
   return temp;
 }
-inline ::api::v3::Vector3* PROTOBUF_NONNULL StateVector::_internal_mutable_velocity() {
+inline ::orbit::Vector3* PROTOBUF_NONNULL StateVector::_internal_mutable_velocity() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.velocity_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::api::v3::Vector3>(GetArena());
-    _impl_.velocity_ = reinterpret_cast<::api::v3::Vector3*>(p);
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::orbit::Vector3>(GetArena());
+    _impl_.velocity_ = reinterpret_cast<::orbit::Vector3*>(p);
   }
   return _impl_.velocity_;
 }
-inline ::api::v3::Vector3* PROTOBUF_NONNULL StateVector::mutable_velocity()
+inline ::orbit::Vector3* PROTOBUF_NONNULL StateVector::mutable_velocity()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   _impl_._has_bits_[0] |= 0x00000002u;
-  ::api::v3::Vector3* _msg = _internal_mutable_velocity();
-  // @@protoc_insertion_point(field_mutable:api.v3.StateVector.velocity)
+  ::orbit::Vector3* _msg = _internal_mutable_velocity();
+  // @@protoc_insertion_point(field_mutable:orbit.StateVector.velocity)
   return _msg;
 }
-inline void StateVector::set_allocated_velocity(::api::v3::Vector3* PROTOBUF_NULLABLE value) {
+inline void StateVector::set_allocated_velocity(::orbit::Vector3* PROTOBUF_NULLABLE value) {
   ::google::protobuf::Arena* message_arena = GetArena();
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (message_arena == nullptr) {
@@ -2768,30 +2765,30 @@ inline void StateVector::set_allocated_velocity(::api::v3::Vector3* PROTOBUF_NUL
     _impl_._has_bits_[0] &= ~0x00000002u;
   }
 
-  _impl_.velocity_ = reinterpret_cast<::api::v3::Vector3*>(value);
-  // @@protoc_insertion_point(field_set_allocated:api.v3.StateVector.velocity)
+  _impl_.velocity_ = reinterpret_cast<::orbit::Vector3*>(value);
+  // @@protoc_insertion_point(field_set_allocated:orbit.StateVector.velocity)
 }
 
-// .api.v3.ReferenceFrame frame = 3;
+// .orbit.ReferenceFrame frame = 3;
 inline void StateVector::clear_frame() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.frame_ = 0;
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline ::api::v3::ReferenceFrame StateVector::frame() const {
-  // @@protoc_insertion_point(field_get:api.v3.StateVector.frame)
+inline ::orbit::ReferenceFrame StateVector::frame() const {
+  // @@protoc_insertion_point(field_get:orbit.StateVector.frame)
   return _internal_frame();
 }
-inline void StateVector::set_frame(::api::v3::ReferenceFrame value) {
+inline void StateVector::set_frame(::orbit::ReferenceFrame value) {
   _internal_set_frame(value);
   _impl_._has_bits_[0] |= 0x00000004u;
-  // @@protoc_insertion_point(field_set:api.v3.StateVector.frame)
+  // @@protoc_insertion_point(field_set:orbit.StateVector.frame)
 }
-inline ::api::v3::ReferenceFrame StateVector::_internal_frame() const {
+inline ::orbit::ReferenceFrame StateVector::_internal_frame() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
-  return static_cast<::api::v3::ReferenceFrame>(_impl_.frame_);
+  return static_cast<::orbit::ReferenceFrame>(_impl_.frame_);
 }
-inline void StateVector::_internal_set_frame(::api::v3::ReferenceFrame value) {
+inline void StateVector::_internal_set_frame(::orbit::ReferenceFrame value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.frame_ = value;
 }
@@ -2807,13 +2804,13 @@ inline void GeodeticPosition::clear_latitude_deg() {
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline double GeodeticPosition::latitude_deg() const {
-  // @@protoc_insertion_point(field_get:api.v3.GeodeticPosition.latitude_deg)
+  // @@protoc_insertion_point(field_get:orbit.GeodeticPosition.latitude_deg)
   return _internal_latitude_deg();
 }
 inline void GeodeticPosition::set_latitude_deg(double value) {
   _internal_set_latitude_deg(value);
   _impl_._has_bits_[0] |= 0x00000001u;
-  // @@protoc_insertion_point(field_set:api.v3.GeodeticPosition.latitude_deg)
+  // @@protoc_insertion_point(field_set:orbit.GeodeticPosition.latitude_deg)
 }
 inline double GeodeticPosition::_internal_latitude_deg() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
@@ -2831,13 +2828,13 @@ inline void GeodeticPosition::clear_longitude_deg() {
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline double GeodeticPosition::longitude_deg() const {
-  // @@protoc_insertion_point(field_get:api.v3.GeodeticPosition.longitude_deg)
+  // @@protoc_insertion_point(field_get:orbit.GeodeticPosition.longitude_deg)
   return _internal_longitude_deg();
 }
 inline void GeodeticPosition::set_longitude_deg(double value) {
   _internal_set_longitude_deg(value);
   _impl_._has_bits_[0] |= 0x00000002u;
-  // @@protoc_insertion_point(field_set:api.v3.GeodeticPosition.longitude_deg)
+  // @@protoc_insertion_point(field_set:orbit.GeodeticPosition.longitude_deg)
 }
 inline double GeodeticPosition::_internal_longitude_deg() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
@@ -2855,13 +2852,13 @@ inline void GeodeticPosition::clear_altitude_km() {
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline double GeodeticPosition::altitude_km() const {
-  // @@protoc_insertion_point(field_get:api.v3.GeodeticPosition.altitude_km)
+  // @@protoc_insertion_point(field_get:orbit.GeodeticPosition.altitude_km)
   return _internal_altitude_km();
 }
 inline void GeodeticPosition::set_altitude_km(double value) {
   _internal_set_altitude_km(value);
   _impl_._has_bits_[0] |= 0x00000004u;
-  // @@protoc_insertion_point(field_set:api.v3.GeodeticPosition.altitude_km)
+  // @@protoc_insertion_point(field_set:orbit.GeodeticPosition.altitude_km)
 }
 inline double GeodeticPosition::_internal_altitude_km() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
@@ -2883,13 +2880,13 @@ inline void OrbitElements::clear_semi_major_axis_km() {
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline double OrbitElements::semi_major_axis_km() const {
-  // @@protoc_insertion_point(field_get:api.v3.OrbitElements.semi_major_axis_km)
+  // @@protoc_insertion_point(field_get:orbit.OrbitElements.semi_major_axis_km)
   return _internal_semi_major_axis_km();
 }
 inline void OrbitElements::set_semi_major_axis_km(double value) {
   _internal_set_semi_major_axis_km(value);
   _impl_._has_bits_[0] |= 0x00000001u;
-  // @@protoc_insertion_point(field_set:api.v3.OrbitElements.semi_major_axis_km)
+  // @@protoc_insertion_point(field_set:orbit.OrbitElements.semi_major_axis_km)
 }
 inline double OrbitElements::_internal_semi_major_axis_km() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
@@ -2907,13 +2904,13 @@ inline void OrbitElements::clear_eccentricity() {
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline double OrbitElements::eccentricity() const {
-  // @@protoc_insertion_point(field_get:api.v3.OrbitElements.eccentricity)
+  // @@protoc_insertion_point(field_get:orbit.OrbitElements.eccentricity)
   return _internal_eccentricity();
 }
 inline void OrbitElements::set_eccentricity(double value) {
   _internal_set_eccentricity(value);
   _impl_._has_bits_[0] |= 0x00000002u;
-  // @@protoc_insertion_point(field_set:api.v3.OrbitElements.eccentricity)
+  // @@protoc_insertion_point(field_set:orbit.OrbitElements.eccentricity)
 }
 inline double OrbitElements::_internal_eccentricity() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
@@ -2931,13 +2928,13 @@ inline void OrbitElements::clear_inclination_deg() {
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline double OrbitElements::inclination_deg() const {
-  // @@protoc_insertion_point(field_get:api.v3.OrbitElements.inclination_deg)
+  // @@protoc_insertion_point(field_get:orbit.OrbitElements.inclination_deg)
   return _internal_inclination_deg();
 }
 inline void OrbitElements::set_inclination_deg(double value) {
   _internal_set_inclination_deg(value);
   _impl_._has_bits_[0] |= 0x00000004u;
-  // @@protoc_insertion_point(field_set:api.v3.OrbitElements.inclination_deg)
+  // @@protoc_insertion_point(field_set:orbit.OrbitElements.inclination_deg)
 }
 inline double OrbitElements::_internal_inclination_deg() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
@@ -2955,13 +2952,13 @@ inline void OrbitElements::clear_raan_deg() {
   _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline double OrbitElements::raan_deg() const {
-  // @@protoc_insertion_point(field_get:api.v3.OrbitElements.raan_deg)
+  // @@protoc_insertion_point(field_get:orbit.OrbitElements.raan_deg)
   return _internal_raan_deg();
 }
 inline void OrbitElements::set_raan_deg(double value) {
   _internal_set_raan_deg(value);
   _impl_._has_bits_[0] |= 0x00000008u;
-  // @@protoc_insertion_point(field_set:api.v3.OrbitElements.raan_deg)
+  // @@protoc_insertion_point(field_set:orbit.OrbitElements.raan_deg)
 }
 inline double OrbitElements::_internal_raan_deg() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
@@ -2979,13 +2976,13 @@ inline void OrbitElements::clear_argument_of_perigee_deg() {
   _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline double OrbitElements::argument_of_perigee_deg() const {
-  // @@protoc_insertion_point(field_get:api.v3.OrbitElements.argument_of_perigee_deg)
+  // @@protoc_insertion_point(field_get:orbit.OrbitElements.argument_of_perigee_deg)
   return _internal_argument_of_perigee_deg();
 }
 inline void OrbitElements::set_argument_of_perigee_deg(double value) {
   _internal_set_argument_of_perigee_deg(value);
   _impl_._has_bits_[0] |= 0x00000010u;
-  // @@protoc_insertion_point(field_set:api.v3.OrbitElements.argument_of_perigee_deg)
+  // @@protoc_insertion_point(field_set:orbit.OrbitElements.argument_of_perigee_deg)
 }
 inline double OrbitElements::_internal_argument_of_perigee_deg() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
@@ -3003,13 +3000,13 @@ inline void OrbitElements::clear_true_anomaly_deg() {
   _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline double OrbitElements::true_anomaly_deg() const {
-  // @@protoc_insertion_point(field_get:api.v3.OrbitElements.true_anomaly_deg)
+  // @@protoc_insertion_point(field_get:orbit.OrbitElements.true_anomaly_deg)
   return _internal_true_anomaly_deg();
 }
 inline void OrbitElements::set_true_anomaly_deg(double value) {
   _internal_set_true_anomaly_deg(value);
   _impl_._has_bits_[0] |= 0x00000020u;
-  // @@protoc_insertion_point(field_set:api.v3.OrbitElements.true_anomaly_deg)
+  // @@protoc_insertion_point(field_set:orbit.OrbitElements.true_anomaly_deg)
 }
 inline double OrbitElements::_internal_true_anomaly_deg() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
@@ -3036,7 +3033,7 @@ inline const ::google::protobuf::Timestamp& Propagation::_internal_epoch() const
   return p != nullptr ? *p : reinterpret_cast<const ::google::protobuf::Timestamp&>(::google::protobuf::_Timestamp_default_instance_);
 }
 inline const ::google::protobuf::Timestamp& Propagation::epoch() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:api.v3.Propagation.epoch)
+  // @@protoc_insertion_point(field_get:orbit.Propagation.epoch)
   return _internal_epoch();
 }
 inline void Propagation::unsafe_arena_set_allocated_epoch(
@@ -3051,7 +3048,7 @@ inline void Propagation::unsafe_arena_set_allocated_epoch(
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:api.v3.Propagation.epoch)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:orbit.Propagation.epoch)
 }
 inline ::google::protobuf::Timestamp* PROTOBUF_NULLABLE Propagation::release_epoch() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
@@ -3074,7 +3071,7 @@ inline ::google::protobuf::Timestamp* PROTOBUF_NULLABLE Propagation::release_epo
 }
 inline ::google::protobuf::Timestamp* PROTOBUF_NULLABLE Propagation::unsafe_arena_release_epoch() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:api.v3.Propagation.epoch)
+  // @@protoc_insertion_point(field_release:orbit.Propagation.epoch)
 
   _impl_._has_bits_[0] &= ~0x00000001u;
   ::google::protobuf::Timestamp* temp = _impl_.epoch_;
@@ -3093,7 +3090,7 @@ inline ::google::protobuf::Timestamp* PROTOBUF_NONNULL Propagation::mutable_epoc
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   _impl_._has_bits_[0] |= 0x00000001u;
   ::google::protobuf::Timestamp* _msg = _internal_mutable_epoch();
-  // @@protoc_insertion_point(field_mutable:api.v3.Propagation.epoch)
+  // @@protoc_insertion_point(field_mutable:orbit.Propagation.epoch)
   return _msg;
 }
 inline void Propagation::set_allocated_epoch(::google::protobuf::Timestamp* PROTOBUF_NULLABLE value) {
@@ -3114,10 +3111,10 @@ inline void Propagation::set_allocated_epoch(::google::protobuf::Timestamp* PROT
   }
 
   _impl_.epoch_ = reinterpret_cast<::google::protobuf::Timestamp*>(value);
-  // @@protoc_insertion_point(field_set_allocated:api.v3.Propagation.epoch)
+  // @@protoc_insertion_point(field_set_allocated:orbit.Propagation.epoch)
 }
 
-// .api.v3.StateVector state = 2;
+// .orbit.StateVector state = 2;
 inline bool Propagation::has_state() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.state_ != nullptr);
@@ -3128,34 +3125,34 @@ inline void Propagation::clear_state() {
   if (_impl_.state_ != nullptr) _impl_.state_->Clear();
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline const ::api::v3::StateVector& Propagation::_internal_state() const {
+inline const ::orbit::StateVector& Propagation::_internal_state() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::api::v3::StateVector* p = _impl_.state_;
-  return p != nullptr ? *p : reinterpret_cast<const ::api::v3::StateVector&>(::api::v3::_StateVector_default_instance_);
+  const ::orbit::StateVector* p = _impl_.state_;
+  return p != nullptr ? *p : reinterpret_cast<const ::orbit::StateVector&>(::orbit::_StateVector_default_instance_);
 }
-inline const ::api::v3::StateVector& Propagation::state() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:api.v3.Propagation.state)
+inline const ::orbit::StateVector& Propagation::state() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:orbit.Propagation.state)
   return _internal_state();
 }
 inline void Propagation::unsafe_arena_set_allocated_state(
-    ::api::v3::StateVector* PROTOBUF_NULLABLE value) {
+    ::orbit::StateVector* PROTOBUF_NULLABLE value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.state_);
   }
-  _impl_.state_ = reinterpret_cast<::api::v3::StateVector*>(value);
+  _impl_.state_ = reinterpret_cast<::orbit::StateVector*>(value);
   if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000002u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000002u;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:api.v3.Propagation.state)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:orbit.Propagation.state)
 }
-inline ::api::v3::StateVector* PROTOBUF_NULLABLE Propagation::release_state() {
+inline ::orbit::StateVector* PROTOBUF_NULLABLE Propagation::release_state() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
   _impl_._has_bits_[0] &= ~0x00000002u;
-  ::api::v3::StateVector* released = _impl_.state_;
+  ::orbit::StateVector* released = _impl_.state_;
   _impl_.state_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
     auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
@@ -3170,31 +3167,31 @@ inline ::api::v3::StateVector* PROTOBUF_NULLABLE Propagation::release_state() {
   }
   return released;
 }
-inline ::api::v3::StateVector* PROTOBUF_NULLABLE Propagation::unsafe_arena_release_state() {
+inline ::orbit::StateVector* PROTOBUF_NULLABLE Propagation::unsafe_arena_release_state() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:api.v3.Propagation.state)
+  // @@protoc_insertion_point(field_release:orbit.Propagation.state)
 
   _impl_._has_bits_[0] &= ~0x00000002u;
-  ::api::v3::StateVector* temp = _impl_.state_;
+  ::orbit::StateVector* temp = _impl_.state_;
   _impl_.state_ = nullptr;
   return temp;
 }
-inline ::api::v3::StateVector* PROTOBUF_NONNULL Propagation::_internal_mutable_state() {
+inline ::orbit::StateVector* PROTOBUF_NONNULL Propagation::_internal_mutable_state() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.state_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::api::v3::StateVector>(GetArena());
-    _impl_.state_ = reinterpret_cast<::api::v3::StateVector*>(p);
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::orbit::StateVector>(GetArena());
+    _impl_.state_ = reinterpret_cast<::orbit::StateVector*>(p);
   }
   return _impl_.state_;
 }
-inline ::api::v3::StateVector* PROTOBUF_NONNULL Propagation::mutable_state()
+inline ::orbit::StateVector* PROTOBUF_NONNULL Propagation::mutable_state()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   _impl_._has_bits_[0] |= 0x00000002u;
-  ::api::v3::StateVector* _msg = _internal_mutable_state();
-  // @@protoc_insertion_point(field_mutable:api.v3.Propagation.state)
+  ::orbit::StateVector* _msg = _internal_mutable_state();
+  // @@protoc_insertion_point(field_mutable:orbit.Propagation.state)
   return _msg;
 }
-inline void Propagation::set_allocated_state(::api::v3::StateVector* PROTOBUF_NULLABLE value) {
+inline void Propagation::set_allocated_state(::orbit::StateVector* PROTOBUF_NULLABLE value) {
   ::google::protobuf::Arena* message_arena = GetArena();
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (message_arena == nullptr) {
@@ -3211,11 +3208,11 @@ inline void Propagation::set_allocated_state(::api::v3::StateVector* PROTOBUF_NU
     _impl_._has_bits_[0] &= ~0x00000002u;
   }
 
-  _impl_.state_ = reinterpret_cast<::api::v3::StateVector*>(value);
-  // @@protoc_insertion_point(field_set_allocated:api.v3.Propagation.state)
+  _impl_.state_ = reinterpret_cast<::orbit::StateVector*>(value);
+  // @@protoc_insertion_point(field_set_allocated:orbit.Propagation.state)
 }
 
-// .api.v3.GeodeticPosition geodetic = 3;
+// .orbit.GeodeticPosition geodetic = 3;
 inline bool Propagation::has_geodetic() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.geodetic_ != nullptr);
@@ -3226,34 +3223,34 @@ inline void Propagation::clear_geodetic() {
   if (_impl_.geodetic_ != nullptr) _impl_.geodetic_->Clear();
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline const ::api::v3::GeodeticPosition& Propagation::_internal_geodetic() const {
+inline const ::orbit::GeodeticPosition& Propagation::_internal_geodetic() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::api::v3::GeodeticPosition* p = _impl_.geodetic_;
-  return p != nullptr ? *p : reinterpret_cast<const ::api::v3::GeodeticPosition&>(::api::v3::_GeodeticPosition_default_instance_);
+  const ::orbit::GeodeticPosition* p = _impl_.geodetic_;
+  return p != nullptr ? *p : reinterpret_cast<const ::orbit::GeodeticPosition&>(::orbit::_GeodeticPosition_default_instance_);
 }
-inline const ::api::v3::GeodeticPosition& Propagation::geodetic() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:api.v3.Propagation.geodetic)
+inline const ::orbit::GeodeticPosition& Propagation::geodetic() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:orbit.Propagation.geodetic)
   return _internal_geodetic();
 }
 inline void Propagation::unsafe_arena_set_allocated_geodetic(
-    ::api::v3::GeodeticPosition* PROTOBUF_NULLABLE value) {
+    ::orbit::GeodeticPosition* PROTOBUF_NULLABLE value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.geodetic_);
   }
-  _impl_.geodetic_ = reinterpret_cast<::api::v3::GeodeticPosition*>(value);
+  _impl_.geodetic_ = reinterpret_cast<::orbit::GeodeticPosition*>(value);
   if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000004u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000004u;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:api.v3.Propagation.geodetic)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:orbit.Propagation.geodetic)
 }
-inline ::api::v3::GeodeticPosition* PROTOBUF_NULLABLE Propagation::release_geodetic() {
+inline ::orbit::GeodeticPosition* PROTOBUF_NULLABLE Propagation::release_geodetic() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
   _impl_._has_bits_[0] &= ~0x00000004u;
-  ::api::v3::GeodeticPosition* released = _impl_.geodetic_;
+  ::orbit::GeodeticPosition* released = _impl_.geodetic_;
   _impl_.geodetic_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
     auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
@@ -3268,31 +3265,31 @@ inline ::api::v3::GeodeticPosition* PROTOBUF_NULLABLE Propagation::release_geode
   }
   return released;
 }
-inline ::api::v3::GeodeticPosition* PROTOBUF_NULLABLE Propagation::unsafe_arena_release_geodetic() {
+inline ::orbit::GeodeticPosition* PROTOBUF_NULLABLE Propagation::unsafe_arena_release_geodetic() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:api.v3.Propagation.geodetic)
+  // @@protoc_insertion_point(field_release:orbit.Propagation.geodetic)
 
   _impl_._has_bits_[0] &= ~0x00000004u;
-  ::api::v3::GeodeticPosition* temp = _impl_.geodetic_;
+  ::orbit::GeodeticPosition* temp = _impl_.geodetic_;
   _impl_.geodetic_ = nullptr;
   return temp;
 }
-inline ::api::v3::GeodeticPosition* PROTOBUF_NONNULL Propagation::_internal_mutable_geodetic() {
+inline ::orbit::GeodeticPosition* PROTOBUF_NONNULL Propagation::_internal_mutable_geodetic() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.geodetic_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::api::v3::GeodeticPosition>(GetArena());
-    _impl_.geodetic_ = reinterpret_cast<::api::v3::GeodeticPosition*>(p);
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::orbit::GeodeticPosition>(GetArena());
+    _impl_.geodetic_ = reinterpret_cast<::orbit::GeodeticPosition*>(p);
   }
   return _impl_.geodetic_;
 }
-inline ::api::v3::GeodeticPosition* PROTOBUF_NONNULL Propagation::mutable_geodetic()
+inline ::orbit::GeodeticPosition* PROTOBUF_NONNULL Propagation::mutable_geodetic()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   _impl_._has_bits_[0] |= 0x00000004u;
-  ::api::v3::GeodeticPosition* _msg = _internal_mutable_geodetic();
-  // @@protoc_insertion_point(field_mutable:api.v3.Propagation.geodetic)
+  ::orbit::GeodeticPosition* _msg = _internal_mutable_geodetic();
+  // @@protoc_insertion_point(field_mutable:orbit.Propagation.geodetic)
   return _msg;
 }
-inline void Propagation::set_allocated_geodetic(::api::v3::GeodeticPosition* PROTOBUF_NULLABLE value) {
+inline void Propagation::set_allocated_geodetic(::orbit::GeodeticPosition* PROTOBUF_NULLABLE value) {
   ::google::protobuf::Arena* message_arena = GetArena();
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (message_arena == nullptr) {
@@ -3309,30 +3306,30 @@ inline void Propagation::set_allocated_geodetic(::api::v3::GeodeticPosition* PRO
     _impl_._has_bits_[0] &= ~0x00000004u;
   }
 
-  _impl_.geodetic_ = reinterpret_cast<::api::v3::GeodeticPosition*>(value);
-  // @@protoc_insertion_point(field_set_allocated:api.v3.Propagation.geodetic)
+  _impl_.geodetic_ = reinterpret_cast<::orbit::GeodeticPosition*>(value);
+  // @@protoc_insertion_point(field_set_allocated:orbit.Propagation.geodetic)
 }
 
-// .api.v3.PropagatorType propagator = 4;
+// .orbit.PropagatorType propagator = 4;
 inline void Propagation::clear_propagator() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.propagator_ = 0;
   _impl_._has_bits_[0] &= ~0x00000008u;
 }
-inline ::api::v3::PropagatorType Propagation::propagator() const {
-  // @@protoc_insertion_point(field_get:api.v3.Propagation.propagator)
+inline ::orbit::PropagatorType Propagation::propagator() const {
+  // @@protoc_insertion_point(field_get:orbit.Propagation.propagator)
   return _internal_propagator();
 }
-inline void Propagation::set_propagator(::api::v3::PropagatorType value) {
+inline void Propagation::set_propagator(::orbit::PropagatorType value) {
   _internal_set_propagator(value);
   _impl_._has_bits_[0] |= 0x00000008u;
-  // @@protoc_insertion_point(field_set:api.v3.Propagation.propagator)
+  // @@protoc_insertion_point(field_set:orbit.Propagation.propagator)
 }
-inline ::api::v3::PropagatorType Propagation::_internal_propagator() const {
+inline ::orbit::PropagatorType Propagation::_internal_propagator() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
-  return static_cast<::api::v3::PropagatorType>(_impl_.propagator_);
+  return static_cast<::orbit::PropagatorType>(_impl_.propagator_);
 }
-inline void Propagation::_internal_set_propagator(::api::v3::PropagatorType value) {
+inline void Propagation::_internal_set_propagator(::orbit::PropagatorType value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.propagator_ = value;
 }
@@ -3348,13 +3345,13 @@ inline void GetPropagationRequest::clear_satellite_number() {
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline ::uint32_t GetPropagationRequest::satellite_number() const {
-  // @@protoc_insertion_point(field_get:api.v3.GetPropagationRequest.satellite_number)
+  // @@protoc_insertion_point(field_get:orbit.GetPropagationRequest.satellite_number)
   return _internal_satellite_number();
 }
 inline void GetPropagationRequest::set_satellite_number(::uint32_t value) {
   _internal_set_satellite_number(value);
   _impl_._has_bits_[0] |= 0x00000001u;
-  // @@protoc_insertion_point(field_set:api.v3.GetPropagationRequest.satellite_number)
+  // @@protoc_insertion_point(field_set:orbit.GetPropagationRequest.satellite_number)
 }
 inline ::uint32_t GetPropagationRequest::_internal_satellite_number() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
@@ -3369,7 +3366,7 @@ inline void GetPropagationRequest::_internal_set_satellite_number(::uint32_t val
 
 // GetPropagationResponse
 
-// .api.v3.Tle tle = 1;
+// .orbit.Tle tle = 1;
 inline bool GetPropagationResponse::has_tle() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.tle_ != nullptr);
@@ -3380,34 +3377,34 @@ inline void GetPropagationResponse::clear_tle() {
   if (_impl_.tle_ != nullptr) _impl_.tle_->Clear();
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline const ::api::v3::Tle& GetPropagationResponse::_internal_tle() const {
+inline const ::orbit::Tle& GetPropagationResponse::_internal_tle() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::api::v3::Tle* p = _impl_.tle_;
-  return p != nullptr ? *p : reinterpret_cast<const ::api::v3::Tle&>(::api::v3::_Tle_default_instance_);
+  const ::orbit::Tle* p = _impl_.tle_;
+  return p != nullptr ? *p : reinterpret_cast<const ::orbit::Tle&>(::orbit::_Tle_default_instance_);
 }
-inline const ::api::v3::Tle& GetPropagationResponse::tle() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:api.v3.GetPropagationResponse.tle)
+inline const ::orbit::Tle& GetPropagationResponse::tle() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:orbit.GetPropagationResponse.tle)
   return _internal_tle();
 }
 inline void GetPropagationResponse::unsafe_arena_set_allocated_tle(
-    ::api::v3::Tle* PROTOBUF_NULLABLE value) {
+    ::orbit::Tle* PROTOBUF_NULLABLE value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.tle_);
   }
-  _impl_.tle_ = reinterpret_cast<::api::v3::Tle*>(value);
+  _impl_.tle_ = reinterpret_cast<::orbit::Tle*>(value);
   if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:api.v3.GetPropagationResponse.tle)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:orbit.GetPropagationResponse.tle)
 }
-inline ::api::v3::Tle* PROTOBUF_NULLABLE GetPropagationResponse::release_tle() {
+inline ::orbit::Tle* PROTOBUF_NULLABLE GetPropagationResponse::release_tle() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
   _impl_._has_bits_[0] &= ~0x00000001u;
-  ::api::v3::Tle* released = _impl_.tle_;
+  ::orbit::Tle* released = _impl_.tle_;
   _impl_.tle_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
     auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
@@ -3422,31 +3419,31 @@ inline ::api::v3::Tle* PROTOBUF_NULLABLE GetPropagationResponse::release_tle() {
   }
   return released;
 }
-inline ::api::v3::Tle* PROTOBUF_NULLABLE GetPropagationResponse::unsafe_arena_release_tle() {
+inline ::orbit::Tle* PROTOBUF_NULLABLE GetPropagationResponse::unsafe_arena_release_tle() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:api.v3.GetPropagationResponse.tle)
+  // @@protoc_insertion_point(field_release:orbit.GetPropagationResponse.tle)
 
   _impl_._has_bits_[0] &= ~0x00000001u;
-  ::api::v3::Tle* temp = _impl_.tle_;
+  ::orbit::Tle* temp = _impl_.tle_;
   _impl_.tle_ = nullptr;
   return temp;
 }
-inline ::api::v3::Tle* PROTOBUF_NONNULL GetPropagationResponse::_internal_mutable_tle() {
+inline ::orbit::Tle* PROTOBUF_NONNULL GetPropagationResponse::_internal_mutable_tle() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.tle_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::api::v3::Tle>(GetArena());
-    _impl_.tle_ = reinterpret_cast<::api::v3::Tle*>(p);
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::orbit::Tle>(GetArena());
+    _impl_.tle_ = reinterpret_cast<::orbit::Tle*>(p);
   }
   return _impl_.tle_;
 }
-inline ::api::v3::Tle* PROTOBUF_NONNULL GetPropagationResponse::mutable_tle()
+inline ::orbit::Tle* PROTOBUF_NONNULL GetPropagationResponse::mutable_tle()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   _impl_._has_bits_[0] |= 0x00000001u;
-  ::api::v3::Tle* _msg = _internal_mutable_tle();
-  // @@protoc_insertion_point(field_mutable:api.v3.GetPropagationResponse.tle)
+  ::orbit::Tle* _msg = _internal_mutable_tle();
+  // @@protoc_insertion_point(field_mutable:orbit.GetPropagationResponse.tle)
   return _msg;
 }
-inline void GetPropagationResponse::set_allocated_tle(::api::v3::Tle* PROTOBUF_NULLABLE value) {
+inline void GetPropagationResponse::set_allocated_tle(::orbit::Tle* PROTOBUF_NULLABLE value) {
   ::google::protobuf::Arena* message_arena = GetArena();
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (message_arena == nullptr) {
@@ -3463,8 +3460,8 @@ inline void GetPropagationResponse::set_allocated_tle(::api::v3::Tle* PROTOBUF_N
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
 
-  _impl_.tle_ = reinterpret_cast<::api::v3::Tle*>(value);
-  // @@protoc_insertion_point(field_set_allocated:api.v3.GetPropagationResponse.tle)
+  _impl_.tle_ = reinterpret_cast<::orbit::Tle*>(value);
+  // @@protoc_insertion_point(field_set_allocated:orbit.GetPropagationResponse.tle)
 }
 
 // .google.protobuf.Duration tle_age = 2;
@@ -3479,7 +3476,7 @@ inline const ::google::protobuf::Duration& GetPropagationResponse::_internal_tle
   return p != nullptr ? *p : reinterpret_cast<const ::google::protobuf::Duration&>(::google::protobuf::_Duration_default_instance_);
 }
 inline const ::google::protobuf::Duration& GetPropagationResponse::tle_age() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:api.v3.GetPropagationResponse.tle_age)
+  // @@protoc_insertion_point(field_get:orbit.GetPropagationResponse.tle_age)
   return _internal_tle_age();
 }
 inline void GetPropagationResponse::unsafe_arena_set_allocated_tle_age(
@@ -3494,7 +3491,7 @@ inline void GetPropagationResponse::unsafe_arena_set_allocated_tle_age(
   } else {
     _impl_._has_bits_[0] &= ~0x00000002u;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:api.v3.GetPropagationResponse.tle_age)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:orbit.GetPropagationResponse.tle_age)
 }
 inline ::google::protobuf::Duration* PROTOBUF_NULLABLE GetPropagationResponse::release_tle_age() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
@@ -3517,7 +3514,7 @@ inline ::google::protobuf::Duration* PROTOBUF_NULLABLE GetPropagationResponse::r
 }
 inline ::google::protobuf::Duration* PROTOBUF_NULLABLE GetPropagationResponse::unsafe_arena_release_tle_age() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:api.v3.GetPropagationResponse.tle_age)
+  // @@protoc_insertion_point(field_release:orbit.GetPropagationResponse.tle_age)
 
   _impl_._has_bits_[0] &= ~0x00000002u;
   ::google::protobuf::Duration* temp = _impl_.tle_age_;
@@ -3536,7 +3533,7 @@ inline ::google::protobuf::Duration* PROTOBUF_NONNULL GetPropagationResponse::mu
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   _impl_._has_bits_[0] |= 0x00000002u;
   ::google::protobuf::Duration* _msg = _internal_mutable_tle_age();
-  // @@protoc_insertion_point(field_mutable:api.v3.GetPropagationResponse.tle_age)
+  // @@protoc_insertion_point(field_mutable:orbit.GetPropagationResponse.tle_age)
   return _msg;
 }
 inline void GetPropagationResponse::set_allocated_tle_age(::google::protobuf::Duration* PROTOBUF_NULLABLE value) {
@@ -3557,10 +3554,10 @@ inline void GetPropagationResponse::set_allocated_tle_age(::google::protobuf::Du
   }
 
   _impl_.tle_age_ = reinterpret_cast<::google::protobuf::Duration*>(value);
-  // @@protoc_insertion_point(field_set_allocated:api.v3.GetPropagationResponse.tle_age)
+  // @@protoc_insertion_point(field_set_allocated:orbit.GetPropagationResponse.tle_age)
 }
 
-// .api.v3.Propagation at_tle_epoch = 3;
+// .orbit.Propagation at_tle_epoch = 3;
 inline bool GetPropagationResponse::has_at_tle_epoch() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.at_tle_epoch_ != nullptr);
@@ -3571,34 +3568,34 @@ inline void GetPropagationResponse::clear_at_tle_epoch() {
   if (_impl_.at_tle_epoch_ != nullptr) _impl_.at_tle_epoch_->Clear();
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline const ::api::v3::Propagation& GetPropagationResponse::_internal_at_tle_epoch() const {
+inline const ::orbit::Propagation& GetPropagationResponse::_internal_at_tle_epoch() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::api::v3::Propagation* p = _impl_.at_tle_epoch_;
-  return p != nullptr ? *p : reinterpret_cast<const ::api::v3::Propagation&>(::api::v3::_Propagation_default_instance_);
+  const ::orbit::Propagation* p = _impl_.at_tle_epoch_;
+  return p != nullptr ? *p : reinterpret_cast<const ::orbit::Propagation&>(::orbit::_Propagation_default_instance_);
 }
-inline const ::api::v3::Propagation& GetPropagationResponse::at_tle_epoch() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:api.v3.GetPropagationResponse.at_tle_epoch)
+inline const ::orbit::Propagation& GetPropagationResponse::at_tle_epoch() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:orbit.GetPropagationResponse.at_tle_epoch)
   return _internal_at_tle_epoch();
 }
 inline void GetPropagationResponse::unsafe_arena_set_allocated_at_tle_epoch(
-    ::api::v3::Propagation* PROTOBUF_NULLABLE value) {
+    ::orbit::Propagation* PROTOBUF_NULLABLE value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.at_tle_epoch_);
   }
-  _impl_.at_tle_epoch_ = reinterpret_cast<::api::v3::Propagation*>(value);
+  _impl_.at_tle_epoch_ = reinterpret_cast<::orbit::Propagation*>(value);
   if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000004u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000004u;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:api.v3.GetPropagationResponse.at_tle_epoch)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:orbit.GetPropagationResponse.at_tle_epoch)
 }
-inline ::api::v3::Propagation* PROTOBUF_NULLABLE GetPropagationResponse::release_at_tle_epoch() {
+inline ::orbit::Propagation* PROTOBUF_NULLABLE GetPropagationResponse::release_at_tle_epoch() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
   _impl_._has_bits_[0] &= ~0x00000004u;
-  ::api::v3::Propagation* released = _impl_.at_tle_epoch_;
+  ::orbit::Propagation* released = _impl_.at_tle_epoch_;
   _impl_.at_tle_epoch_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
     auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
@@ -3613,31 +3610,31 @@ inline ::api::v3::Propagation* PROTOBUF_NULLABLE GetPropagationResponse::release
   }
   return released;
 }
-inline ::api::v3::Propagation* PROTOBUF_NULLABLE GetPropagationResponse::unsafe_arena_release_at_tle_epoch() {
+inline ::orbit::Propagation* PROTOBUF_NULLABLE GetPropagationResponse::unsafe_arena_release_at_tle_epoch() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:api.v3.GetPropagationResponse.at_tle_epoch)
+  // @@protoc_insertion_point(field_release:orbit.GetPropagationResponse.at_tle_epoch)
 
   _impl_._has_bits_[0] &= ~0x00000004u;
-  ::api::v3::Propagation* temp = _impl_.at_tle_epoch_;
+  ::orbit::Propagation* temp = _impl_.at_tle_epoch_;
   _impl_.at_tle_epoch_ = nullptr;
   return temp;
 }
-inline ::api::v3::Propagation* PROTOBUF_NONNULL GetPropagationResponse::_internal_mutable_at_tle_epoch() {
+inline ::orbit::Propagation* PROTOBUF_NONNULL GetPropagationResponse::_internal_mutable_at_tle_epoch() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.at_tle_epoch_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::api::v3::Propagation>(GetArena());
-    _impl_.at_tle_epoch_ = reinterpret_cast<::api::v3::Propagation*>(p);
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::orbit::Propagation>(GetArena());
+    _impl_.at_tle_epoch_ = reinterpret_cast<::orbit::Propagation*>(p);
   }
   return _impl_.at_tle_epoch_;
 }
-inline ::api::v3::Propagation* PROTOBUF_NONNULL GetPropagationResponse::mutable_at_tle_epoch()
+inline ::orbit::Propagation* PROTOBUF_NONNULL GetPropagationResponse::mutable_at_tle_epoch()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   _impl_._has_bits_[0] |= 0x00000004u;
-  ::api::v3::Propagation* _msg = _internal_mutable_at_tle_epoch();
-  // @@protoc_insertion_point(field_mutable:api.v3.GetPropagationResponse.at_tle_epoch)
+  ::orbit::Propagation* _msg = _internal_mutable_at_tle_epoch();
+  // @@protoc_insertion_point(field_mutable:orbit.GetPropagationResponse.at_tle_epoch)
   return _msg;
 }
-inline void GetPropagationResponse::set_allocated_at_tle_epoch(::api::v3::Propagation* PROTOBUF_NULLABLE value) {
+inline void GetPropagationResponse::set_allocated_at_tle_epoch(::orbit::Propagation* PROTOBUF_NULLABLE value) {
   ::google::protobuf::Arena* message_arena = GetArena();
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (message_arena == nullptr) {
@@ -3654,11 +3651,11 @@ inline void GetPropagationResponse::set_allocated_at_tle_epoch(::api::v3::Propag
     _impl_._has_bits_[0] &= ~0x00000004u;
   }
 
-  _impl_.at_tle_epoch_ = reinterpret_cast<::api::v3::Propagation*>(value);
-  // @@protoc_insertion_point(field_set_allocated:api.v3.GetPropagationResponse.at_tle_epoch)
+  _impl_.at_tle_epoch_ = reinterpret_cast<::orbit::Propagation*>(value);
+  // @@protoc_insertion_point(field_set_allocated:orbit.GetPropagationResponse.at_tle_epoch)
 }
 
-// .api.v3.Propagation at_now_utc = 4;
+// .orbit.Propagation at_now_utc = 4;
 inline bool GetPropagationResponse::has_at_now_utc() const {
   bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.at_now_utc_ != nullptr);
@@ -3669,34 +3666,34 @@ inline void GetPropagationResponse::clear_at_now_utc() {
   if (_impl_.at_now_utc_ != nullptr) _impl_.at_now_utc_->Clear();
   _impl_._has_bits_[0] &= ~0x00000008u;
 }
-inline const ::api::v3::Propagation& GetPropagationResponse::_internal_at_now_utc() const {
+inline const ::orbit::Propagation& GetPropagationResponse::_internal_at_now_utc() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::api::v3::Propagation* p = _impl_.at_now_utc_;
-  return p != nullptr ? *p : reinterpret_cast<const ::api::v3::Propagation&>(::api::v3::_Propagation_default_instance_);
+  const ::orbit::Propagation* p = _impl_.at_now_utc_;
+  return p != nullptr ? *p : reinterpret_cast<const ::orbit::Propagation&>(::orbit::_Propagation_default_instance_);
 }
-inline const ::api::v3::Propagation& GetPropagationResponse::at_now_utc() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:api.v3.GetPropagationResponse.at_now_utc)
+inline const ::orbit::Propagation& GetPropagationResponse::at_now_utc() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:orbit.GetPropagationResponse.at_now_utc)
   return _internal_at_now_utc();
 }
 inline void GetPropagationResponse::unsafe_arena_set_allocated_at_now_utc(
-    ::api::v3::Propagation* PROTOBUF_NULLABLE value) {
+    ::orbit::Propagation* PROTOBUF_NULLABLE value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.at_now_utc_);
   }
-  _impl_.at_now_utc_ = reinterpret_cast<::api::v3::Propagation*>(value);
+  _impl_.at_now_utc_ = reinterpret_cast<::orbit::Propagation*>(value);
   if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000008u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000008u;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:api.v3.GetPropagationResponse.at_now_utc)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:orbit.GetPropagationResponse.at_now_utc)
 }
-inline ::api::v3::Propagation* PROTOBUF_NULLABLE GetPropagationResponse::release_at_now_utc() {
+inline ::orbit::Propagation* PROTOBUF_NULLABLE GetPropagationResponse::release_at_now_utc() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
   _impl_._has_bits_[0] &= ~0x00000008u;
-  ::api::v3::Propagation* released = _impl_.at_now_utc_;
+  ::orbit::Propagation* released = _impl_.at_now_utc_;
   _impl_.at_now_utc_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
     auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
@@ -3711,31 +3708,31 @@ inline ::api::v3::Propagation* PROTOBUF_NULLABLE GetPropagationResponse::release
   }
   return released;
 }
-inline ::api::v3::Propagation* PROTOBUF_NULLABLE GetPropagationResponse::unsafe_arena_release_at_now_utc() {
+inline ::orbit::Propagation* PROTOBUF_NULLABLE GetPropagationResponse::unsafe_arena_release_at_now_utc() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:api.v3.GetPropagationResponse.at_now_utc)
+  // @@protoc_insertion_point(field_release:orbit.GetPropagationResponse.at_now_utc)
 
   _impl_._has_bits_[0] &= ~0x00000008u;
-  ::api::v3::Propagation* temp = _impl_.at_now_utc_;
+  ::orbit::Propagation* temp = _impl_.at_now_utc_;
   _impl_.at_now_utc_ = nullptr;
   return temp;
 }
-inline ::api::v3::Propagation* PROTOBUF_NONNULL GetPropagationResponse::_internal_mutable_at_now_utc() {
+inline ::orbit::Propagation* PROTOBUF_NONNULL GetPropagationResponse::_internal_mutable_at_now_utc() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.at_now_utc_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::api::v3::Propagation>(GetArena());
-    _impl_.at_now_utc_ = reinterpret_cast<::api::v3::Propagation*>(p);
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::orbit::Propagation>(GetArena());
+    _impl_.at_now_utc_ = reinterpret_cast<::orbit::Propagation*>(p);
   }
   return _impl_.at_now_utc_;
 }
-inline ::api::v3::Propagation* PROTOBUF_NONNULL GetPropagationResponse::mutable_at_now_utc()
+inline ::orbit::Propagation* PROTOBUF_NONNULL GetPropagationResponse::mutable_at_now_utc()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   _impl_._has_bits_[0] |= 0x00000008u;
-  ::api::v3::Propagation* _msg = _internal_mutable_at_now_utc();
-  // @@protoc_insertion_point(field_mutable:api.v3.GetPropagationResponse.at_now_utc)
+  ::orbit::Propagation* _msg = _internal_mutable_at_now_utc();
+  // @@protoc_insertion_point(field_mutable:orbit.GetPropagationResponse.at_now_utc)
   return _msg;
 }
-inline void GetPropagationResponse::set_allocated_at_now_utc(::api::v3::Propagation* PROTOBUF_NULLABLE value) {
+inline void GetPropagationResponse::set_allocated_at_now_utc(::orbit::Propagation* PROTOBUF_NULLABLE value) {
   ::google::protobuf::Arena* message_arena = GetArena();
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (message_arena == nullptr) {
@@ -3752,11 +3749,11 @@ inline void GetPropagationResponse::set_allocated_at_now_utc(::api::v3::Propagat
     _impl_._has_bits_[0] &= ~0x00000008u;
   }
 
-  _impl_.at_now_utc_ = reinterpret_cast<::api::v3::Propagation*>(value);
-  // @@protoc_insertion_point(field_set_allocated:api.v3.GetPropagationResponse.at_now_utc)
+  _impl_.at_now_utc_ = reinterpret_cast<::orbit::Propagation*>(value);
+  // @@protoc_insertion_point(field_set_allocated:orbit.GetPropagationResponse.at_now_utc)
 }
 
-// repeated .api.v3.Propagation propagations = 5;
+// repeated .orbit.Propagation propagations = 5;
 inline int GetPropagationResponse::_internal_propagations_size() const {
   return _internal_propagations().size();
 }
@@ -3767,40 +3764,40 @@ inline void GetPropagationResponse::clear_propagations() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.propagations_.Clear();
 }
-inline ::api::v3::Propagation* PROTOBUF_NONNULL GetPropagationResponse::mutable_propagations(int index)
+inline ::orbit::Propagation* PROTOBUF_NONNULL GetPropagationResponse::mutable_propagations(int index)
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable:api.v3.GetPropagationResponse.propagations)
+  // @@protoc_insertion_point(field_mutable:orbit.GetPropagationResponse.propagations)
   return _internal_mutable_propagations()->Mutable(index);
 }
-inline ::google::protobuf::RepeatedPtrField<::api::v3::Propagation>* PROTOBUF_NONNULL GetPropagationResponse::mutable_propagations()
+inline ::google::protobuf::RepeatedPtrField<::orbit::Propagation>* PROTOBUF_NONNULL GetPropagationResponse::mutable_propagations()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable_list:api.v3.GetPropagationResponse.propagations)
+  // @@protoc_insertion_point(field_mutable_list:orbit.GetPropagationResponse.propagations)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   return _internal_mutable_propagations();
 }
-inline const ::api::v3::Propagation& GetPropagationResponse::propagations(int index) const
+inline const ::orbit::Propagation& GetPropagationResponse::propagations(int index) const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:api.v3.GetPropagationResponse.propagations)
+  // @@protoc_insertion_point(field_get:orbit.GetPropagationResponse.propagations)
   return _internal_propagations().Get(index);
 }
-inline ::api::v3::Propagation* PROTOBUF_NONNULL GetPropagationResponse::add_propagations()
+inline ::orbit::Propagation* PROTOBUF_NONNULL GetPropagationResponse::add_propagations()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::api::v3::Propagation* _add = _internal_mutable_propagations()->Add();
-  // @@protoc_insertion_point(field_add:api.v3.GetPropagationResponse.propagations)
+  ::orbit::Propagation* _add = _internal_mutable_propagations()->Add();
+  // @@protoc_insertion_point(field_add:orbit.GetPropagationResponse.propagations)
   return _add;
 }
-inline const ::google::protobuf::RepeatedPtrField<::api::v3::Propagation>& GetPropagationResponse::propagations() const
+inline const ::google::protobuf::RepeatedPtrField<::orbit::Propagation>& GetPropagationResponse::propagations() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_list:api.v3.GetPropagationResponse.propagations)
+  // @@protoc_insertion_point(field_list:orbit.GetPropagationResponse.propagations)
   return _internal_propagations();
 }
-inline const ::google::protobuf::RepeatedPtrField<::api::v3::Propagation>&
+inline const ::google::protobuf::RepeatedPtrField<::orbit::Propagation>&
 GetPropagationResponse::_internal_propagations() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
   return _impl_.propagations_;
 }
-inline ::google::protobuf::RepeatedPtrField<::api::v3::Propagation>* PROTOBUF_NONNULL
+inline ::google::protobuf::RepeatedPtrField<::orbit::Propagation>* PROTOBUF_NONNULL
 GetPropagationResponse::_internal_mutable_propagations() {
   ::google::protobuf::internal::TSanRead(&_impl_);
   return &_impl_.propagations_;
@@ -3811,24 +3808,23 @@ GetPropagationResponse::_internal_mutable_propagations() {
 #endif  // __GNUC__
 
 // @@protoc_insertion_point(namespace_scope)
-}  // namespace v3
-}  // namespace api
+}  // namespace orbit
 
 
 namespace google {
 namespace protobuf {
 
 template <>
-struct is_proto_enum<::api::v3::ReferenceFrame> : std::true_type {};
+struct is_proto_enum<::orbit::ReferenceFrame> : std::true_type {};
 template <>
-inline const EnumDescriptor* PROTOBUF_NONNULL GetEnumDescriptor<::api::v3::ReferenceFrame>() {
-  return ::api::v3::ReferenceFrame_descriptor();
+inline const EnumDescriptor* PROTOBUF_NONNULL GetEnumDescriptor<::orbit::ReferenceFrame>() {
+  return ::orbit::ReferenceFrame_descriptor();
 }
 template <>
-struct is_proto_enum<::api::v3::PropagatorType> : std::true_type {};
+struct is_proto_enum<::orbit::PropagatorType> : std::true_type {};
 template <>
-inline const EnumDescriptor* PROTOBUF_NONNULL GetEnumDescriptor<::api::v3::PropagatorType>() {
-  return ::api::v3::PropagatorType_descriptor();
+inline const EnumDescriptor* PROTOBUF_NONNULL GetEnumDescriptor<::orbit::PropagatorType>() {
+  return ::orbit::PropagatorType_descriptor();
 }
 
 }  // namespace protobuf

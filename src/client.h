@@ -4,5 +4,5 @@
 #include <string>
 
 std::string get_tle(int catnr);
-void parse_tle(const std::string &body, api::v3::GetPropagationResponse *reply);
+void parse_tle(const std::string &body, orbit::GetPropagationResponse *reply);
 #endif

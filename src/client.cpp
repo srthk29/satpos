@@ -62,27 +62,26 @@ std::string get_tle(int catnr) {
     }
 }
 
-inline void fill_StateVector(const libsgp4::Eci &eci,
-                             api::v3::StateVector *out) {
+inline void fill_StateVector(const libsgp4::Eci &eci, orbit::StateVector *out) {
     const libsgp4::Vector pos = eci.Position();
 
-    api::v3::Vector3 *position = out->mutable_position();
+    orbit::Vector3 *position = out->mutable_position();
     position->set_x(pos.x);
     position->set_y(pos.y);
     position->set_z(pos.z);
 
     const libsgp4::Vector vel = eci.Velocity();
 
-    api::v3::Vector3 *velocity = out->mutable_velocity();
+    orbit::Vector3 *velocity = out->mutable_velocity();
     velocity->set_x(vel.x);
     velocity->set_y(vel.y);
     velocity->set_z(vel.z);
 
-    out->set_frame(api::v3::REFERENCE_FRAME_ECI);
+    out->set_frame(orbit::REFERENCE_FRAME_ECI);
 }
 
 inline void fill_GeodeticPosition(const libsgp4::Eci &eci,
-                                  api::v3::GeodeticPosition *out) {
+                                  orbit::GeodeticPosition *out) {
     const libsgp4::CoordGeodetic geo = eci.ToGeodetic();
 
     out->set_latitude_deg(libsgp4::Util::RadiansToDegrees(geo.latitude));
@@ -90,21 +89,20 @@ inline void fill_GeodeticPosition(const libsgp4::Eci &eci,
     out->set_altitude_km(geo.altitude);
 }
 
-void parse_tle(const std::string &body,
-               api::v3::GetPropagationResponse *reply) {
+void parse_tle(const std::string &body, orbit::GetPropagationResponse *reply) {
     // libsgp4::DateTime utc(2026, 1, 2, 0, 0, 0.0);
     for (const auto &tlestruct : parser::parse_3le_direct(body)) {
         libsgp4::Tle tle(std::string{tlestruct.name},
                          std::string{tlestruct.line1},
                          std::string{tlestruct.line2});
 
-        api::v3::Tle *ps_tle = reply->mutable_tle();
+        orbit::Tle *ps_tle = reply->mutable_tle();
         ps_tle->set_satellite_name(tle.Name());
         ps_tle->set_satellite_number(tle.NoradNumber());
         ps_tle->set_line1(tle.Line1());
         ps_tle->set_line2(tle.Line2());
 
-        api::v3::OrbitElements *oe = ps_tle->mutable_orbit_elements();
+        orbit::OrbitElements *oe = ps_tle->mutable_orbit_elements();
         oe->set_semi_major_axis_km(0.0);
         oe->set_eccentricity(tle.Eccentricity());
         oe->set_inclination_deg(tle.Inclination(true));
@@ -131,7 +129,7 @@ void parse_tle(const std::string &body,
             // At TLE Epoch
             const libsgp4::Eci eci_epoch = sat.FindPosition(epoch);
 
-            api::v3::Propagation *at_tle_epoch_prop =
+            orbit::Propagation *at_tle_epoch_prop =
                 reply->mutable_at_tle_epoch();
 
             // --- ECI state vector ---
@@ -144,7 +142,7 @@ void parse_tle(const std::string &body,
             // --- Metadata ---
             at_tle_epoch_prop->mutable_epoch()->set_seconds(
                 utils::to_unix_timestamp(epoch));
-            at_tle_epoch_prop->set_propagator(api::v3::PROPAGATOR_TYPE_SGP4);
+            at_tle_epoch_prop->set_propagator(orbit::PROPAGATOR_TYPE_SGP4);
         }
 
         libsgp4::DateTime now = libsgp4::DateTime::Now(true);
@@ -152,7 +150,7 @@ void parse_tle(const std::string &body,
             // At Now
             const libsgp4::Eci now_epoch = sat.FindPosition(now);
 
-            api::v3::Propagation *at_now_utc_prop = reply->mutable_at_now_utc();
+            orbit::Propagation *at_now_utc_prop = reply->mutable_at_now_utc();
 
             // --- ECI state vector ---
             fill_StateVector(now_epoch, at_now_utc_prop->mutable_state());
@@ -164,7 +162,7 @@ void parse_tle(const std::string &body,
             // --- Metadata ---
             at_now_utc_prop->mutable_epoch()->set_seconds(
                 utils::to_unix_timestamp(epoch));
-            at_now_utc_prop->set_propagator(api::v3::PROPAGATOR_TYPE_SGP4);
+            at_now_utc_prop->set_propagator(orbit::PROPAGATOR_TYPE_SGP4);
         }
         // std::cout << "Now = " << now.ToString() << '\n';
         // std::cout << "Now Ticks = " << now.Ticks() << '\n';
@@ -177,14 +175,14 @@ void parse_tle(const std::string &body,
              tick <= std::ceil(0.8 * orbital_period); ++tick) {
 
             libsgp4::DateTime nowtick = now.AddMinutes(tick);
-            std::cout << nowtick.ToString() << '\n';
+            // std::cout << nowtick.ToString() << '\n';
             // std::cout << "Now + 10mins = " << now.ToString() << '\n';
             // std::cout << "Now Ticks + 10mins = " << now.Ticks() << '\n';
             {
                 // At Now
                 const libsgp4::Eci nowtick_epoch = sat.FindPosition(nowtick);
 
-                api::v3::Propagation *at_nowtick_utc_prop =
+                orbit::Propagation *at_nowtick_utc_prop =
                     reply->add_propagations();
 
                 // --- ECI state vector ---
@@ -200,7 +198,7 @@ void parse_tle(const std::string &body,
                 at_nowtick_utc_prop->mutable_epoch()->set_seconds(
                     utils::to_unix_timestamp(nowtick));
                 at_nowtick_utc_prop->set_propagator(
-                    api::v3::PROPAGATOR_TYPE_SGP4);
+                    orbit::PROPAGATOR_TYPE_SGP4);
             }
         }
     }

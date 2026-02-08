@@ -16,13 +16,11 @@
 #include "server.h"
 
 // Each RPC becomes a virtual method you override
-class PropogationServiceImpl final
-    : public api::v3::PropagationService::Service {
+class PropogationServiceImpl final : public orbit::PropagationService::Service {
   public:
-    grpc::Status
-    GetPropagation(grpc::ServerContext *context,
-                   const api::v3::GetPropagationRequest *request,
-                   api::v3::GetPropagationResponse *reply) override {
+    grpc::Status GetPropagation(grpc::ServerContext *context,
+                                const orbit::GetPropagationRequest *request,
+                                orbit::GetPropagationResponse *reply) override {
 
         try {
             std::string tles = get_tle(request->satellite_number());

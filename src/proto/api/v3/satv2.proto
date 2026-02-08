@@ -1,0 +1,121 @@
+syntax = "proto3";
+
+package orbit.v1;
+
+option go_package = "github.com/yourorg/orbit/gen/orbitpb;orbitpb";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+
+enum ReferenceFrame {
+    REFERENCE_FRAME_UNSPECIFIED = 0;
+    REFERENCE_FRAME_TEME = 1; // Native SGP4
+    REFERENCE_FRAME_ECI = 2;  // J2000
+    REFERENCE_FRAME_ECEF = 3; // Earth-fixed
+}
+
+enum PropagatorType {
+    PROPAGATOR_TYPE_UNSPECIFIED = 0;
+    PROPAGATOR_TYPE_SGP4 = 1;
+    PROPAGATOR_TYPE_SDP4 = 2;
+    PROPAGATOR_TYPE_NUMERICAL = 3;
+}
+
+enum PropagationStatus {
+    PROPAGATION_STATUS_UNSPECIFIED = 0;
+    PROPAGATION_STATUS_OK = 1;
+    PROPAGATION_STATUS_DECAYED = 2;
+    PROPAGATION_STATUS_ERROR = 3;
+}
+
+message Tle {
+    string line1 = 1;
+    string line2 = 2;
+
+    uint32 satellite_number = 3;
+
+    google.protobuf.Timestamp epoch = 4;
+}
+
+message Vector3 {
+    double x = 1; // km
+    double y = 2; // km
+    double z = 3; // km
+}
+
+message StateVector {
+    Vector3 position = 1; // km
+    Vector3 velocity = 2; // km/s
+
+    ReferenceFrame frame = 3;
+}
+
+message CovarianceMatrix {
+    // Row-major 6x6 matrix (36 values)
+    repeated double values = 1;
+}
+
+message GeodeticPosition {
+    double latitude_deg = 1;
+    double longitude_deg = 2;
+    double altitude_km = 3;
+}
+
+message OrbitElements {
+    double semi_major_axis_km = 1;
+    double eccentricity = 2;
+    double inclination_deg = 3;
+    double raan_deg = 4;
+    double argument_of_perigee_deg = 5;
+    double true_anomaly_deg = 6;
+}
+
+message GroundTrackPoint {
+    google.protobuf.Timestamp epoch = 1;
+    GeodeticPosition position = 2;
+}
+
+message Propagation {
+    google.protobuf.Timestamp epoch = 1;
+
+    StateVector state = 2;
+
+    // Optional extras
+    GeodeticPosition geodetic = 3;
+    OrbitElements orbit_elements = 4;
+    CovarianceMatrix covariance = 5;
+
+    PropagatorType propagator = 6;
+    PropagationStatus status = 7;
+
+    string error_message = 8;
+}
+
+message SatellitePropagation {
+    // Source TLE
+    Tle tle = 1;
+
+    // TLE age relative to "now"
+    google.protobuf.Duration tle_age = 2;
+
+    // Key propagations
+    Propagation at_tle_epoch = 3;
+    Propagation at_now_utc = 4;
+
+    // Arbitrary N propagations
+    repeated Propagation propagations = 5;
+
+    // Optional ground track
+    repeated GroundTrackPoint ground_track = 6;
+}
+
+message PropagationRequest {
+    Tle tle = 1;
+
+    repeated google.protobuf.Timestamp epochs = 2;
+
+    ReferenceFrame output_frame = 3;
+    PropagatorType propagator = 4;
+}
+
+message PropagationResponse { SatellitePropagation result = 1; }

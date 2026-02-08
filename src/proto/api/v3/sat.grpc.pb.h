@@ -26,52 +26,51 @@
 #include <grpcpp/support/sync_stream.h>
 #include <grpcpp/ports_def.inc>
 
-namespace api {
-namespace v3 {
+namespace orbit {
 
 class PropagationService final {
  public:
   static constexpr char const* service_full_name() {
-    return "api.v3.PropagationService";
+    return "orbit.PropagationService";
   }
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    virtual ::grpc::Status GetPropagation(::grpc::ClientContext* context, const ::api::v3::GetPropagationRequest& request, ::api::v3::GetPropagationResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::api::v3::GetPropagationResponse>> AsyncGetPropagation(::grpc::ClientContext* context, const ::api::v3::GetPropagationRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::api::v3::GetPropagationResponse>>(AsyncGetPropagationRaw(context, request, cq));
+    virtual ::grpc::Status GetPropagation(::grpc::ClientContext* context, const ::orbit::GetPropagationRequest& request, ::orbit::GetPropagationResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::orbit::GetPropagationResponse>> AsyncGetPropagation(::grpc::ClientContext* context, const ::orbit::GetPropagationRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::orbit::GetPropagationResponse>>(AsyncGetPropagationRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::api::v3::GetPropagationResponse>> PrepareAsyncGetPropagation(::grpc::ClientContext* context, const ::api::v3::GetPropagationRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::api::v3::GetPropagationResponse>>(PrepareAsyncGetPropagationRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::orbit::GetPropagationResponse>> PrepareAsyncGetPropagation(::grpc::ClientContext* context, const ::orbit::GetPropagationRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::orbit::GetPropagationResponse>>(PrepareAsyncGetPropagationRaw(context, request, cq));
     }
     class async_interface {
      public:
       virtual ~async_interface() {}
-      virtual void GetPropagation(::grpc::ClientContext* context, const ::api::v3::GetPropagationRequest* request, ::api::v3::GetPropagationResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void GetPropagation(::grpc::ClientContext* context, const ::api::v3::GetPropagationRequest* request, ::api::v3::GetPropagationResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void GetPropagation(::grpc::ClientContext* context, const ::orbit::GetPropagationRequest* request, ::orbit::GetPropagationResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetPropagation(::grpc::ClientContext* context, const ::orbit::GetPropagationRequest* request, ::orbit::GetPropagationResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
     class async_interface* experimental_async() { return async(); }
    private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::api::v3::GetPropagationResponse>* AsyncGetPropagationRaw(::grpc::ClientContext* context, const ::api::v3::GetPropagationRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::api::v3::GetPropagationResponse>* PrepareAsyncGetPropagationRaw(::grpc::ClientContext* context, const ::api::v3::GetPropagationRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::orbit::GetPropagationResponse>* AsyncGetPropagationRaw(::grpc::ClientContext* context, const ::orbit::GetPropagationRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::orbit::GetPropagationResponse>* PrepareAsyncGetPropagationRaw(::grpc::ClientContext* context, const ::orbit::GetPropagationRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
-    ::grpc::Status GetPropagation(::grpc::ClientContext* context, const ::api::v3::GetPropagationRequest& request, ::api::v3::GetPropagationResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::api::v3::GetPropagationResponse>> AsyncGetPropagation(::grpc::ClientContext* context, const ::api::v3::GetPropagationRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::api::v3::GetPropagationResponse>>(AsyncGetPropagationRaw(context, request, cq));
+    ::grpc::Status GetPropagation(::grpc::ClientContext* context, const ::orbit::GetPropagationRequest& request, ::orbit::GetPropagationResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::orbit::GetPropagationResponse>> AsyncGetPropagation(::grpc::ClientContext* context, const ::orbit::GetPropagationRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::orbit::GetPropagationResponse>>(AsyncGetPropagationRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::api::v3::GetPropagationResponse>> PrepareAsyncGetPropagation(::grpc::ClientContext* context, const ::api::v3::GetPropagationRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::api::v3::GetPropagationResponse>>(PrepareAsyncGetPropagationRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::orbit::GetPropagationResponse>> PrepareAsyncGetPropagation(::grpc::ClientContext* context, const ::orbit::GetPropagationRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::orbit::GetPropagationResponse>>(PrepareAsyncGetPropagationRaw(context, request, cq));
     }
     class async final :
       public StubInterface::async_interface {
      public:
-      void GetPropagation(::grpc::ClientContext* context, const ::api::v3::GetPropagationRequest* request, ::api::v3::GetPropagationResponse* response, std::function<void(::grpc::Status)>) override;
-      void GetPropagation(::grpc::ClientContext* context, const ::api::v3::GetPropagationRequest* request, ::api::v3::GetPropagationResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void GetPropagation(::grpc::ClientContext* context, const ::orbit::GetPropagationRequest* request, ::orbit::GetPropagationResponse* response, std::function<void(::grpc::Status)>) override;
+      void GetPropagation(::grpc::ClientContext* context, const ::orbit::GetPropagationRequest* request, ::orbit::GetPropagationResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -83,8 +82,8 @@ class PropagationService final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::api::v3::GetPropagationResponse>* AsyncGetPropagationRaw(::grpc::ClientContext* context, const ::api::v3::GetPropagationRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::api::v3::GetPropagationResponse>* PrepareAsyncGetPropagationRaw(::grpc::ClientContext* context, const ::api::v3::GetPropagationRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::orbit::GetPropagationResponse>* AsyncGetPropagationRaw(::grpc::ClientContext* context, const ::orbit::GetPropagationRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::orbit::GetPropagationResponse>* PrepareAsyncGetPropagationRaw(::grpc::ClientContext* context, const ::orbit::GetPropagationRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_GetPropagation_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
@@ -93,7 +92,7 @@ class PropagationService final {
    public:
     Service();
     virtual ~Service();
-    virtual ::grpc::Status GetPropagation(::grpc::ServerContext* context, const ::api::v3::GetPropagationRequest* request, ::api::v3::GetPropagationResponse* response);
+    virtual ::grpc::Status GetPropagation(::grpc::ServerContext* context, const ::orbit::GetPropagationRequest* request, ::orbit::GetPropagationResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_GetPropagation : public BaseClass {
@@ -107,11 +106,11 @@ class PropagationService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetPropagation(::grpc::ServerContext* /*context*/, const ::api::v3::GetPropagationRequest* /*request*/, ::api::v3::GetPropagationResponse* /*response*/) override {
+    ::grpc::Status GetPropagation(::grpc::ServerContext* /*context*/, const ::orbit::GetPropagationRequest* /*request*/, ::orbit::GetPropagationResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetPropagation(::grpc::ServerContext* context, ::api::v3::GetPropagationRequest* request, ::grpc::ServerAsyncResponseWriter< ::api::v3::GetPropagationResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetPropagation(::grpc::ServerContext* context, ::orbit::GetPropagationRequest* request, ::grpc::ServerAsyncResponseWriter< ::orbit::GetPropagationResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -123,25 +122,25 @@ class PropagationService final {
    public:
     WithCallbackMethod_GetPropagation() {
       ::grpc::Service::MarkMethodCallback(0,
-          new ::grpc::internal::CallbackUnaryHandler< ::api::v3::GetPropagationRequest, ::api::v3::GetPropagationResponse>(
+          new ::grpc::internal::CallbackUnaryHandler< ::orbit::GetPropagationRequest, ::orbit::GetPropagationResponse>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::api::v3::GetPropagationRequest* request, ::api::v3::GetPropagationResponse* response) { return this->GetPropagation(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::orbit::GetPropagationRequest* request, ::orbit::GetPropagationResponse* response) { return this->GetPropagation(context, request, response); }));}
     void SetMessageAllocatorFor_GetPropagation(
-        ::grpc::MessageAllocator< ::api::v3::GetPropagationRequest, ::api::v3::GetPropagationResponse>* allocator) {
+        ::grpc::MessageAllocator< ::orbit::GetPropagationRequest, ::orbit::GetPropagationResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::api::v3::GetPropagationRequest, ::api::v3::GetPropagationResponse>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::orbit::GetPropagationRequest, ::orbit::GetPropagationResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_GetPropagation() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetPropagation(::grpc::ServerContext* /*context*/, const ::api::v3::GetPropagationRequest* /*request*/, ::api::v3::GetPropagationResponse* /*response*/) override {
+    ::grpc::Status GetPropagation(::grpc::ServerContext* /*context*/, const ::orbit::GetPropagationRequest* /*request*/, ::orbit::GetPropagationResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* GetPropagation(
-      ::grpc::CallbackServerContext* /*context*/, const ::api::v3::GetPropagationRequest* /*request*/, ::api::v3::GetPropagationResponse* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::orbit::GetPropagationRequest* /*request*/, ::orbit::GetPropagationResponse* /*response*/)  { return nullptr; }
   };
   typedef WithCallbackMethod_GetPropagation<Service > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
@@ -157,7 +156,7 @@ class PropagationService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetPropagation(::grpc::ServerContext* /*context*/, const ::api::v3::GetPropagationRequest* /*request*/, ::api::v3::GetPropagationResponse* /*response*/) override {
+    ::grpc::Status GetPropagation(::grpc::ServerContext* /*context*/, const ::orbit::GetPropagationRequest* /*request*/, ::orbit::GetPropagationResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -174,7 +173,7 @@ class PropagationService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetPropagation(::grpc::ServerContext* /*context*/, const ::api::v3::GetPropagationRequest* /*request*/, ::api::v3::GetPropagationResponse* /*response*/) override {
+    ::grpc::Status GetPropagation(::grpc::ServerContext* /*context*/, const ::orbit::GetPropagationRequest* /*request*/, ::orbit::GetPropagationResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -197,7 +196,7 @@ class PropagationService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetPropagation(::grpc::ServerContext* /*context*/, const ::api::v3::GetPropagationRequest* /*request*/, ::api::v3::GetPropagationResponse* /*response*/) override {
+    ::grpc::Status GetPropagation(::grpc::ServerContext* /*context*/, const ::orbit::GetPropagationRequest* /*request*/, ::orbit::GetPropagationResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -212,10 +211,10 @@ class PropagationService final {
     WithStreamedUnaryMethod_GetPropagation() {
       ::grpc::Service::MarkMethodStreamed(0,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::api::v3::GetPropagationRequest, ::api::v3::GetPropagationResponse>(
+          ::orbit::GetPropagationRequest, ::orbit::GetPropagationResponse>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::api::v3::GetPropagationRequest, ::api::v3::GetPropagationResponse>* streamer) {
+                     ::orbit::GetPropagationRequest, ::orbit::GetPropagationResponse>* streamer) {
                        return this->StreamedGetPropagation(context,
                          streamer);
                   }));
@@ -224,20 +223,19 @@ class PropagationService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetPropagation(::grpc::ServerContext* /*context*/, const ::api::v3::GetPropagationRequest* /*request*/, ::api::v3::GetPropagationResponse* /*response*/) override {
+    ::grpc::Status GetPropagation(::grpc::ServerContext* /*context*/, const ::orbit::GetPropagationRequest* /*request*/, ::orbit::GetPropagationResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGetPropagation(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::api::v3::GetPropagationRequest,::api::v3::GetPropagationResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedGetPropagation(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::orbit::GetPropagationRequest,::orbit::GetPropagationResponse>* server_unary_streamer) = 0;
   };
   typedef WithStreamedUnaryMethod_GetPropagation<Service > StreamedUnaryService;
   typedef Service SplitStreamedService;
   typedef WithStreamedUnaryMethod_GetPropagation<Service > StreamedService;
 };
 
-}  // namespace v3
-}  // namespace api
+}  // namespace orbit
 
 
 #include <grpcpp/ports_undef.inc>

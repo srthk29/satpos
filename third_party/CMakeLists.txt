@@ -3,5 +3,4 @@
 add_subdirectory(cpp-httplib)
 add_subdirectory(simdjson)
 add_subdirectory(sgp4)
-# add_subdirectory(benchmark)
 add_subdirectory(curlpp)

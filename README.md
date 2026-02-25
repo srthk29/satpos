@@ -4,6 +4,11 @@
 
 ## SGP4
 
+_Add the following line in sgp4's root CMakeLists.txt_
+```cmake
+target_include_directories(sgp4 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/libsgp4)
+```
+
 _Build_
 ```bash
 cmake -S . -B build

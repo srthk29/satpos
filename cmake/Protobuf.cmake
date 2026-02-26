@@ -1,5 +1,5 @@
-include(FindProtobuf)
-# find_package(Protobuf CONFIG REQUIRED)
+# include(FindProtobuf)
+find_package(Protobuf REQUIRED)
 message(STATUS "Protobuf found: ${Protobuf_FOUND}")
 message(STATUS "Protobuf version: ${Protobuf_VERSION}")
 message(STATUS "Protobuf include dirs: ${Protobuf_INCLUDE_DIRS}")

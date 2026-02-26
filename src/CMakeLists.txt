@@ -7,8 +7,10 @@ add_executable(satpos
     main.cpp
     client.h
     client.cpp
+    parse.h
     parse.cpp
     orbital_elements.cpp
+    parse_tle.h
     parse_tle.cpp
     server.h
     server.cpp
